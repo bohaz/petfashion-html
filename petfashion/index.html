@@ -112,11 +112,8 @@
         <circle cx="12" cy="10" r="3"/>
       </symbol>
       <!-- Dog -->
-      <symbol id="ico-dog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2 .336-3.5 2-3.5 4l.5 1.5c-.667.333-1 1-1 2 0 .628.224 1.131.5 1.5H4l-1 3h2l1-1.5c.5.333 1.5.5 2.5.5h1c.667 0 1.25.333 1.5 1"/>
-        <path d="M14 7c0-1.5 1.5-2.5 3-2.5 1 0 2 .5 2.5 1.5.5 1 .5 2 0 3L18 10l.5 1c.5.667.5 1.5 0 2-.5.5-1.333.667-2 .5L16 14l-2 2"/>
-        <path d="M10 12c0 2 1.5 3.5 3.5 3.5s3.5-1.5 3.5-3.5"/>
-        <path d="M8 20l2-4 2 1 2-1 2 4"/>
+      <symbol id="ico-dog" viewBox="0 0 50 50">
+        <path d="M33.5 2C34 1 35 0.5 36 0.7C37 0.9 37.5 1.8 37.3 2.8L37.2 6C40 7 42 9 45 12C47 14 49 14.5 49.5 15.5C50 17 49.5 18.5 48 19.5C47 20.2 45.5 21 43 22C41 23 40.5 24 40.5 26C40.5 28.5 40 29.5 39 33C37.5 37 37 38.5 36.8 40C36.5 42.5 37 44 38 45C39 46 40 46.5 41.5 47C42 47.2 42 48.2 41.5 48.5C41 49 40 49 39 48.5C37 48 35.5 47 34.5 45.5C34 44.5 33.8 43.5 33.8 42C33.8 40 34.2 38 35.5 34C37 29 36.5 27.5 36.5 25.5C36.5 23 35.5 21 37 20C38 19 40 18.5 43 17C46 15.5 47.5 15.5 47 14.5C46.5 14 45 13 44 12C42 10.5 40 9 38 8.5C36.5 8 35 8 34.5 8.5C33.5 9.5 32.5 12 31 15C30 17.5 29.5 18.5 28.5 20C27.5 21.5 26 22 25 22.5C24 23 23 23 22.5 22.8C22 22.5 21.5 22.5 20 23C16 25 13 27 11 29.5C9 32 8 34.5 7.5 37.5C7.2 39 7.2 42 7.5 43.5C8 46 9 48 11 49C12.5 50 14 50 16 50C18 50 19 49.8 23 49C27 48.5 28 48.5 29.5 48.5C30 48.5 30.5 48 30.5 47.5C30.5 47 29.5 46.5 28 46.5C27 46.5 26 46.5 26 46.5C28 42 28.5 38 27 35C26 33 24 32 21 32C19 32 19 32 19 32.5C19 33 20 33.5 21.5 34C24.5 35 26 36 26 38C26 39 25.5 42 25 43.5C24.5 45 24 45.5 23.5 46L22 46C17 46.5 15.5 47 14 46.5C12.5 46 11.5 45 11 44C10.5 43 9.8 40 9.5 38C9.2 36 9.3 33 9.8 31C11 26 15 23 23 20C24 19.5 24.5 19 24.8 18.5C25 18 25.5 17.5 26.5 17C27.5 16.5 28 16 29 15C30.5 13.5 31 12.5 32.5 9.5C34 6.5 34.5 5.5 33.5 2Z" fill="currentColor"/>
       </symbol>
       <!-- People / users -->
       <symbol id="ico-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -315,6 +312,25 @@
     font-size: 22px; color: var(--c-white);
     display: flex; align-items: center; gap: 12px; z-index: 1001;
   }
+  .nav-brand-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--f-display);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  }
+
+  .nav-brand-pet {
+    color: var(--c-cream);
+  }
+
+  .nav-brand-fashion {
+    color: var(--c-gold-light);
+    font-style: italic;
+  }
   .nav-logo-em { font-style: italic; color: var(--c-gold-light); }
   .nav-links { display: flex; align-items: center; gap: 36px; }
   .nav-links a {
@@ -442,6 +458,13 @@
     width: 100%; aspect-ratio: 3/4;
     background: var(--c-charcoal); border-radius: var(--radius-lg); overflow: hidden; position: relative;
   }
+
+  .team-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .team-img-placeholder {
     width: 100%; height: 100%;
     background: linear-gradient(145deg, #1a1a1a 0%, #2a1f0e 60%, #1a1208 100%);
@@ -658,8 +681,12 @@
     <nav id="navbar" role="navigation" aria-label="Navegación principal">
 
       <!-- LOGO — reemplaza este bloque con tu <img> o SVG de logo -->
+       
       <a href="/" class="nav-logo" aria-label="Pet Fashion Dog Salon - Inicio">
-        <span class="logo-placeholder logo-placeholder--gold" aria-hidden="true">LOGO</span>
+          <span class="nav-brand-text">
+            <span class="nav-brand-pet">Pet</span>
+            <span class="nav-brand-fashion">Fashion</span>
+          </span>
       </a>
 
       <ul class="nav-links" role="list">
@@ -741,7 +768,7 @@
               </div>
 
               <div class="hero-actions">
-                <a href="https://wa.me/56900000000" class="btn btn-gold" rel="noopener" target="_blank" aria-label="Contactar por WhatsApp">
+                <a href="https://wa.me/56945570410" class="btn btn-gold" rel="noopener" target="_blank" aria-label="Contactar por WhatsApp">
                   <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
                   Agendar por WhatsApp
                 </a>
@@ -774,7 +801,7 @@
                   <svg class="icon"><use href="#ico-star"/></svg>
                 </div>
                 <div>
-                  <div class="hero-stat-num">5.0</div>
+                  <div class="hero-stat-num">4.9</div>
                   <div class="hero-stat-label">Valoración promedio</div>
                 </div>
               </div>
@@ -827,10 +854,9 @@
               <!-- Groomer 1 -->
               <div class="team-photo-wrap">
                 <div class="team-img-frame">
-                  <div class="team-img-placeholder">
-                    <svg class="icon" aria-hidden="true"><use href="#ico-user"/></svg>
-                    <p>Tu foto aquí</p>
-                  </div>
+                  <img src="images/groomer-1.png"
+                         alt="[Nombre], Groomer Profesional en Pet Fashion Isla Negra"
+                         width="300" height="300" loading="lazy">
                   <!--
                     Reemplaza el div anterior con tu foto:
                     <img src="/images/groomer-1.jpg"
@@ -839,7 +865,7 @@
                   -->
                 </div>
                 <div class="team-name-tag">
-                  <div class="team-name">Groomer 1</div>
+                  <div class="team-name">Elizabeth Figueroa</div>
                   <div class="team-role">Peluquera Canina</div>
                 </div>
               </div>
@@ -847,10 +873,9 @@
               <!-- Groomer 2 -->
               <div class="team-photo-wrap">
                 <div class="team-img-frame">
-                  <div class="team-img-placeholder">
-                    <svg class="icon" aria-hidden="true"><use href="#ico-user"/></svg>
-                    <p>Tu foto aquí</p>
-                  </div>
+                  <img src="images/groomer-2.png"
+                         alt="[Nombre], Groomer Profesional en Pet Fashion Isla Negra"
+                         width="300" height="300" loading="lazy">
                   <!--
                     Reemplaza el div anterior con tu foto:
                     <img src="/images/groomer-2.jpg"
@@ -859,18 +884,18 @@
                   -->
                 </div>
                 <div class="team-name-tag">
-                  <div class="team-name">Groomer 2</div>
-                  <div class="team-role">Peluquera Canina</div>
+                  <div class="team-name">Ricardo Martínez</div>
+                  <div class="team-role">Peluquero Canino</div>
                 </div>
               </div>
 
             </div>
 
             <!-- Stat card -->
-            <div class="about-accent-card" aria-hidden="true">
+            <!-- <div class="about-accent-card" aria-hidden="true">
               <div class="about-accent-num">500+</div>
               <div class="about-accent-text">Perritos atendidos</div>
-            </div>
+            </div> -->
           </div>
 
           <!-- Content -->
@@ -1090,8 +1115,12 @@
         <div class="gallery-grid" aria-label="Galería de antes y después">
           <figure class="gallery-item gallery-item--1 reveal">
             <div class="gallery-item-inner">
-              <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
-              <span class="gallery-placeholder-text">Antes · Después</span>
+               <img 
+                  src="images/galeria-1.png"
+                  alt="Antes y después de peluquería canina en Pet Fashion Isla Negra"
+                  width="800"
+                  height="500"
+                  loading="lazy">
             </div>
             <div class="gallery-overlay"><span class="gallery-overlay-text">Ver foto</span></div>
             <figcaption class="sr-only">Transformación de mascota en Pet Fashion</figcaption>
@@ -1214,7 +1243,7 @@
             </p>
           </div>
           <div class="cta-actions">
-            <a href="https://wa.me/56900000000" class="btn btn-gold" rel="noopener" target="_blank" aria-label="Agendar hora por WhatsApp">
+            <a href="https://wa.me/56945570410" class="btn btn-gold" rel="noopener" target="_blank" aria-label="Agendar hora por WhatsApp">
               <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
               WhatsApp
             </a>
@@ -1226,7 +1255,7 @@
         </div>
 
         <div class="contact-grid">
-          <a href="https://wa.me/56900000000" class="contact-card reveal" rel="noopener" target="_blank" aria-label="WhatsApp de Pet Fashion">
+          <a href="https://wa.me/56945570410" class="contact-card reveal" rel="noopener" target="_blank" aria-label="WhatsApp de Pet Fashion">
             <div class="contact-card-icon" aria-hidden="true"><svg class="icon"><use href="#ico-whatsapp"/></svg></div>
             <div>
               <div class="contact-card-label">WhatsApp</div>
@@ -1260,8 +1289,12 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <!-- LOGO — reemplaza con tu logo real -->
-          <span class="logo-placeholder logo-placeholder--gold" aria-label="Pet Fashion Dog Salon">LOGO</span>
+          <a href="/" class="nav-logo" aria-label="Pet Fashion Dog Salon - Inicio">
+            <img src="images/Isotipo2.png"
+                            alt="[Nombre], Groomer Profesional en Pet Fashion Isla Negra"
+                            width="70" height="" loading="lazy">
+          </a>
+          <!-- <span class="logo-placeholder logo-placeholder--gold" aria-label="Pet Fashion Dog Salon">LOGO</span> -->
           <p class="footer-brand-desc">
             Peluquería canina profesional en Isla Negra. Belleza y bienestar sin bozal ni sedación.
           </p>
@@ -1272,7 +1305,7 @@
             <a href="https://www.threads.net/@petfashiondogsalon" class="footer-social" rel="noopener" target="_blank" aria-label="Threads">
               <svg class="icon"><use href="#ico-threads"/></svg>
             </a>
-            <a href="https://wa.me/56900000000" class="footer-social" rel="noopener" target="_blank" aria-label="WhatsApp">
+            <a href="https://wa.me/56945570410" class="footer-social" rel="noopener" target="_blank" aria-label="WhatsApp">
               <svg class="icon"><use href="#ico-whatsapp"/></svg>
             </a>
           </div>
@@ -1301,7 +1334,7 @@
         <div>
           <p class="footer-col-title">Contacto</p>
           <ul class="footer-links" role="list">
-            <li><a href="https://wa.me/56900000000" rel="noopener" target="_blank">WhatsApp</a></li>
+            <li><a href="https://wa.me/56945570410" rel="noopener" target="_blank">WhatsApp</a></li>
             <li><a href="https://www.instagram.com/petfashiondogsalon" rel="noopener" target="_blank">Instagram</a></li>
             <li><a href="https://www.petfashiondogsalon.cl" rel="noopener">petfashiondogsalon.cl</a></li>
             <li><a href="#contacto">Isla Negra, Chile</a></li>
@@ -1322,7 +1355,7 @@
   </footer>
 
   <!-- WhatsApp FAB -->
-  <a href="https://wa.me/56900000000" class="whatsapp-fab" rel="noopener" target="_blank" aria-label="Contactar por WhatsApp" title="Hablar por WhatsApp">
+  <a href="https://wa.me/56945570410" class="whatsapp-fab" rel="noopener" target="_blank" aria-label="Contactar por WhatsApp" title="Hablar por WhatsApp">
     <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
   </a>
 
