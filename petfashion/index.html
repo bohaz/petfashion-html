@@ -309,29 +309,42 @@
   }
   .nav-logo {
     font-family: var(--f-display);
-    font-size: 22px; color: var(--c-white);
-    display: flex; align-items: center; gap: 12px; z-index: 1001;
+    font-size: 22px;
+    display: flex; align-items: center; gap: 0; z-index: 1001;
+    letter-spacing: 0.5px;
   }
-  .nav-brand-text {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 4px;
-  font-family: var(--f-display);
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  line-height: 1;
-  }
+  .nav-logo-pet { color: var(--c-cream); }
+  .nav-logo-fashion { font-style: italic; color: var(--c-gold-light); margin-left: 5px; }
 
-  .nav-brand-pet {
-    color: var(--c-cream);
+  /* Location bar below navbar */
+  #location-bar {
+    position: fixed; top: 72px; left: 0; right: 0; z-index: 999;
+    display: flex; align-items: center; justify-content: center;
+    padding: 5px var(--gutter);
+    transition: top var(--transition), opacity var(--transition);
+    pointer-events: none;
   }
+  #navbar.scrolled ~ #location-bar,
+  #location-bar.scrolled { top: 56px; }
+  .location-bar-inner {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--f-sans); font-size: 9px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .location-bar-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--c-gold); opacity: 0.6; }
 
-  .nav-brand-fashion {
-    color: var(--c-gold-light);
-    font-style: italic;
+  /* Location sub-bar under navbar */
+  .nav-location-bar {
+    position: fixed; top: 68px; left: 0; right: 0; z-index: 998;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-family: var(--f-sans); font-size: 9px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.28);
+    pointer-events: none;
+    transition: top var(--transition);
   }
-  .nav-logo-em { font-style: italic; color: var(--c-gold-light); }
+  #navbar.scrolled ~ .nav-location-bar { top: 52px; }
   .nav-links { display: flex; align-items: center; gap: 36px; }
   .nav-links a {
     font-family: var(--f-sans); font-size: 12px; font-weight: 500;
@@ -458,13 +471,6 @@
     width: 100%; aspect-ratio: 3/4;
     background: var(--c-charcoal); border-radius: var(--radius-lg); overflow: hidden; position: relative;
   }
-
-  .team-img-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
   .team-img-placeholder {
     width: 100%; height: 100%;
     background: linear-gradient(145deg, #1a1a1a 0%, #2a1f0e 60%, #1a1208 100%);
@@ -477,6 +483,12 @@
           alt="[Nombre], Groomer en Pet Fashion Isla Negra"
           width="400" height="533" loading="lazy"> */
 
+  .team-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .team-name-tag {
     background: var(--c-white); border-radius: 10px; padding: 14px 16px;
     border: 1px solid var(--c-border); box-shadow: var(--shadow-sm);
@@ -484,14 +496,16 @@
   .team-name { font-family: var(--f-display); font-size: 16px; color: var(--c-noir); }
   .team-role { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--c-gold); margin-top: 3px; }
 
-  /* Accent stat card */
+  /* Accent stat card — full-width bar below both photos */
   .about-accent-card {
-    position: absolute; bottom: -24px; right: -20px;
-    background: var(--c-gold); border-radius: var(--radius-md); padding: 20px 24px;
-    box-shadow: var(--shadow-lg); max-width: 180px; z-index: 2;
+    margin-top: 16px;
+    background: var(--c-gold); border-radius: var(--radius-md); padding: 20px 28px;
+    box-shadow: var(--shadow-lg);
+    display: flex; align-items: center; gap: 16px;
   }
-  .about-accent-num { font-family: var(--f-display); font-size: 36px; font-weight: 700; color: var(--c-white); line-height: 1; }
-  .about-accent-text { font-family: var(--f-sans); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.8); margin-top: 4px; }
+  .about-accent-num { font-family: var(--f-display); font-size: 36px; font-weight: 700; color: var(--c-white); line-height: 1; white-space: nowrap; }
+  .about-accent-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.3); flex-shrink: 0; }
+  .about-accent-text { font-family: var(--f-sans); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.85); line-height: 1.5; }
 
   .about-content { padding: 20px 0; }
   .about-quote { font-family: var(--f-serif); font-size: clamp(18px, 2.2vw, 24px); font-style: italic; line-height: 1.6; color: var(--c-noir); margin-bottom: var(--sp-md); padding-left: 20px; border-left: 2px solid var(--c-gold); }
@@ -650,6 +664,8 @@
   .footer-legal { display: flex; gap: 24px; }
   .footer-legal a { font-size: 12px; color: rgba(255,255,255,0.2); transition: color var(--transition); }
   .footer-legal a:hover { color: rgba(255,255,255,0.5); }
+  .footer-brand-logo { width: 80px; }
+
 
   /* ══════════════════════════════════════════
      BUTTONS
@@ -669,6 +685,335 @@
   .whatsapp-fab svg { width: 28px; height: 28px; }
   .whatsapp-fab:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,0.5); animation: none; }
   @keyframes fab-pulse { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); } 50% { box-shadow: 0 4px 30px rgba(37,211,102,0.65); } }
+
+  /* ══════════════════════════════════════════
+     CATÁLOGO DE PRECIOS
+  ══════════════════════════════════════════ */
+  .section--cream { background: var(--c-cream); }
+
+  .cat-header { margin-bottom: var(--sp-xl); }
+
+  /* Tabs nav */
+  .cat-tabs {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 48px;
+    background: var(--c-white);
+    border: 1px solid var(--c-border);
+    border-radius: 60px;
+    padding: 6px;
+    max-width: 680px;
+    margin-left: auto; margin-right: auto;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .cat-tab {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--f-sans); font-size: 12px; font-weight: 500;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 12px 24px; border-radius: 40px;
+    color: var(--c-muted); background: transparent;
+    transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+    cursor: pointer; white-space: nowrap; flex: 1; justify-content: center;
+    min-width: 0;
+  }
+
+  .cat-tab:hover { color: var(--c-noir); background: var(--c-gold-pale); }
+
+  .cat-tab--active {
+    background: var(--c-noir); color: var(--c-white);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+
+  .cat-tab--active:hover { background: var(--c-charcoal); color: var(--c-white); }
+
+  @media (max-width: 640px) {
+    .cat-tabs { border-radius: var(--radius-md); padding: 8px; gap: 6px; }
+    .cat-tab  { font-size: 11px; padding: 10px 14px; flex: 1 1 40%; }
+  }
+
+  /* Panel */
+  .cat-panel { display: none; }
+  .cat-panel--active { display: block; }
+  .cat-panel[hidden] { display: none; }
+
+  /* Layout: includes card + price grid */
+  .cat-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .cat-layout--single {
+    grid-template-columns: 300px 1fr;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 860px) {
+    .cat-layout, .cat-layout--single { grid-template-columns: 1fr; }
+  }
+
+  /* Includes card */
+  .cat-includes-card {
+    background: var(--c-noir);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cat-includes-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
+  }
+
+  .cat-includes-title {
+    font-family: var(--f-sans);
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--c-gold); margin-bottom: 20px;
+  }
+
+  .cat-includes-list {
+    display: flex; flex-direction: column; gap: 11px;
+  }
+
+  .cat-includes-list li {
+    font-size: 13.5px; color: rgba(255,255,255,0.7);
+    display: flex; align-items: flex-start; gap: 10px;
+    line-height: 1.4;
+  }
+
+  .cat-includes-list li::before {
+    content: '✦'; color: var(--c-gold); font-size: 9px; flex-shrink: 0; margin-top: 3px;
+  }
+
+  .cat-note {
+    margin-top: 24px; padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 12px; color: rgba(255,255,255,0.35);
+    line-height: 1.6; display: flex; gap: 8px; align-items: flex-start;
+  }
+
+  .cat-note svg { flex-shrink: 0; color: var(--c-gold); margin-top: 2px; }
+
+  /* Price grid */
+  .cat-prices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .cat-prices--3col { grid-template-columns: repeat(3, 1fr); }
+
+  @media (max-width: 640px) {
+    .cat-prices       { grid-template-columns: 1fr 1fr; }
+    .cat-prices--3col { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Price card */
+  .cat-price-card {
+    background: var(--c-white);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md);
+    padding: 28px 20px 24px;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; gap: 6px;
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    position: relative; overflow: hidden;
+  }
+
+  .cat-price-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--c-gold-pale);
+    transition: background var(--transition);
+  }
+
+  .cat-price-card:hover {
+    border-color: var(--c-gold);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(201,146,42,0.12);
+  }
+
+  .cat-price-card:hover::before { background: var(--c-gold); }
+
+  .cat-price-card--wide { grid-column: span 2; }
+
+  @media (max-width: 640px) { .cat-price-card--wide { grid-column: span 2; } }
+
+  .cat-size-icon {
+    width: 60px; margin-bottom: 4px;
+  }
+
+  .cat-size-icon svg { width: 100%; height: 100%; }
+
+  .cat-size-badge {
+    font-family: var(--f-display);
+    font-size: 28px; font-weight: 700; color: var(--c-gold);
+    line-height: 1;
+  }
+
+  .cat-size-range {
+    font-family: var(--f-sans); font-size: 11px;
+    color: var(--c-muted); letter-spacing: 0.5px;
+  }
+
+  .cat-price {
+    font-family: var(--f-display);
+    font-size: 26px; font-weight: 700; color: var(--c-noir);
+    margin-top: 6px; line-height: 1;
+  }
+
+  .cat-price-split { width: 100%; margin-top: 6px; }
+
+  .cat-price-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  .cat-price-row:last-child { border-bottom: none; }
+
+  .cat-price-label { font-size: 12px; color: var(--c-muted); }
+
+  .cat-price-row .cat-price { font-size: 20px; margin-top: 0; }
+
+  /* CTA button on card */
+  .cat-cta {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    margin-top: 12px;
+    font-family: var(--f-sans); font-size: 10px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    padding: 10px 20px; border-radius: 40px;
+    background: var(--c-gold); color: var(--c-white);
+    transition: background var(--transition), transform var(--transition);
+  }
+
+  .cat-cta:hover { background: var(--c-gold-light); transform: translateY(-1px); }
+
+  .cat-cta--lg {
+    font-size: 11px; padding: 14px 28px;
+    margin-top: 20px; width: 100%; justify-content: center;
+  }
+
+  /* Blade card */
+  .cat-blade-card {
+    background: var(--c-white); border: 1px solid var(--c-border);
+    border-radius: var(--radius-lg); padding: 48px 40px;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    position: relative; overflow: hidden;
+  }
+
+  .cat-blade-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--c-gold);
+  }
+
+  .cat-blade-icon {
+    width: 80px; height: 48px;
+    margin-bottom: 40px;
+  }
+
+  .cat-blade-icon svg { width: 100%; height: 100%; }
+
+  .cat-blade-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--c-muted); margin-bottom: 8px;
+  }
+
+  .cat-blade-price {
+    font-family: var(--f-display); font-size: 52px; font-weight: 700;
+    color: var(--c-noir); line-height: 1;
+  }
+
+  .cat-blade-sub {
+    font-size: 13px; color: var(--c-muted); margin-top: 4px;
+  }
+
+  /* Footer note */
+  .cat-footer-note {
+    text-align: center; margin-top: 40px;
+    font-size: 13px; color: var(--c-muted);
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+
+  .cat-footer-note svg { color: var(--c-gold); }
+
+  /* ══════════════════════════════════════════
+     FAQ
+  ══════════════════════════════════════════ */
+  #faq { background: var(--c-white); }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  @media (max-width: 768px) { .faq-grid { grid-template-columns: 1fr; } }
+
+  .faq-item {
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    background: var(--c-cream);
+  }
+  .faq-item:hover { border-color: var(--c-gold); box-shadow: 0 4px 20px rgba(201,146,42,0.08); }
+  .faq-item.open { border-color: var(--c-gold); background: var(--c-white); }
+
+  .faq-question {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 22px 24px;
+    font-family: var(--f-sans); font-size: 14px; font-weight: 500;
+    color: var(--c-noir); text-align: left; cursor: pointer;
+    background: none; border: none; transition: color var(--transition);
+  }
+  .faq-item.open .faq-question { color: var(--c-gold); }
+
+  .faq-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--c-gold-pale); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--c-gold); font-size: 16px; font-weight: 300;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .faq-item.open .faq-icon { background: var(--c-gold); color: white; transform: rotate(45deg); }
+
+  .faq-answer {
+    display: none; padding: 0 24px 22px;
+    font-family: var(--f-sans); font-size: 13.5px; font-weight: 300;
+    color: var(--c-muted); line-height: 1.8;
+    border-top: 1px solid var(--c-border);
+    padding-top: 16px;
+  }
+  .faq-item.open .faq-answer { display: block; }
+
+  .faq-category {
+    font-size: 10px; font-weight: 600; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--c-gold);
+    margin: 40px 0 16px; display: block;
+  }
+  .faq-category:first-child { margin-top: 0; }
+
+  .faq-cta-box {
+    background: var(--c-noir); border-radius: var(--radius-lg);
+    padding: 40px 48px; margin-top: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 32px; flex-wrap: wrap;
+    position: relative; overflow: hidden;
+  }
+  .faq-cta-box::before {
+    content: ''; position: absolute; top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(201,146,42,0.18) 0%, transparent 70%);
+  }
+  .faq-cta-title { font-family: var(--f-display); font-size: 22px; color: white; }
+  .faq-cta-title em { font-style: italic; color: var(--c-gold-light); }
+  .faq-cta-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
   </style>
 </head>
 
@@ -680,20 +1025,17 @@
   <header role="banner">
     <nav id="navbar" role="navigation" aria-label="Navegación principal">
 
-      <!-- LOGO — reemplaza este bloque con tu <img> o SVG de logo -->
-       
       <a href="/" class="nav-logo" aria-label="Pet Fashion Dog Salon - Inicio">
-          <span class="nav-brand-text">
-            <span class="nav-brand-pet">Pet</span>
-            <span class="nav-brand-fashion">Fashion</span>
-          </span>
+        <span class="nav-logo-pet">Pet</span><span class="nav-logo-fashion">Fashion</span>
       </a>
 
       <ul class="nav-links" role="list">
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#precios">Precios</a></li>
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#testimonios">Reseñas</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li>
           <a href="#contacto" class="nav-cta" aria-label="Agendar hora en Pet Fashion">
             Agendar hora
@@ -706,11 +1048,19 @@
       </button>
     </nav>
 
+    <!-- Location sub-bar -->
+    <!-- <div class="nav-location-bar" aria-hidden="true">
+      <svg class="icon" width="11" height="11" style="opacity:0.5"><use href="#ico-pin"/></svg>
+      <span>Isla Negra · Chile</span>
+    </div> -->
+
     <div id="nav-mobile" class="nav-mobile" role="dialog" aria-modal="true" aria-label="Menú de navegación">
       <a href="#nosotros">Nosotros</a>
       <a href="#servicios">Servicios</a>
+      <a href="#precios">Precios</a>
       <a href="#galeria">Galería</a>
       <a href="#testimonios">Reseñas</a>
+      <a href="#faq">FAQ</a>
       <a href="#contacto" class="nav-cta btn btn-gold">Agendar hora</a>
     </div>
   </header>
@@ -743,7 +1093,7 @@
               </div>
 
               <h1 id="hero-heading" class="hero-h1">
-                Belleza y<br>
+                Estética y<br>
                 <em>bienestar</em><br>
                 canino
               </h1>
@@ -848,15 +1198,17 @@
         <div class="about-grid">
 
           <!-- Two groomer photos -->
-          <div class="about-img-wrap reveal" style="position:relative;">
+          <div class="about-img-wrap reveal">
             <div class="team-photos">
 
               <!-- Groomer 1 -->
               <div class="team-photo-wrap">
                 <div class="team-img-frame">
-                  <img src="images/groomer-1.png"
-                         alt="[Nombre], Groomer Profesional en Pet Fashion Isla Negra"
+                  <div class="team-img-placeholder">
+                    <img src="images/groomer-1.png"
+                         alt="[Elizabeth], Groomer Profesional en Pet Fashion Isla Negra"
                          width="300" height="300" loading="lazy">
+                  </div>
                   <!--
                     Reemplaza el div anterior con tu foto:
                     <img src="/images/groomer-1.jpg"
@@ -865,17 +1217,19 @@
                   -->
                 </div>
                 <div class="team-name-tag">
-                  <div class="team-name">Elizabeth Figueroa</div>
-                  <div class="team-role">Peluquera Canina</div>
+                  <div class="team-name">Elizabeth</div>
+                  <div class="team-role">Pet Groomer</div>
                 </div>
               </div>
 
               <!-- Groomer 2 -->
               <div class="team-photo-wrap">
                 <div class="team-img-frame">
-                  <img src="images/groomer-2.png"
-                         alt="[Nombre], Groomer Profesional en Pet Fashion Isla Negra"
+                  <div class="team-img-placeholder">
+                    <img src="images/groomer-2.png"
+                         alt="[Ricardo], Groomer Profesional en Pet Fashion Isla Negra"
                          width="300" height="300" loading="lazy">
+                  </div>
                   <!--
                     Reemplaza el div anterior con tu foto:
                     <img src="/images/groomer-2.jpg"
@@ -884,19 +1238,20 @@
                   -->
                 </div>
                 <div class="team-name-tag">
-                  <div class="team-name">Ricardo Martínez</div>
-                  <div class="team-role">Peluquero Canino</div>
+                  <div class="team-name">Ricardo</div>
+                  <div class="team-role">Pet Groomer</div>
                 </div>
               </div>
 
-            </div>
+            </div><!-- /.team-photos -->
 
-            <!-- Stat card -->
-            <!-- <div class="about-accent-card" aria-hidden="true">
+            <!-- Stat bar — below both photos, full width -->
+            <div class="about-accent-card" aria-hidden="true">
               <div class="about-accent-num">500+</div>
-              <div class="about-accent-text">Perritos atendidos</div>
-            </div> -->
-          </div>
+              <div class="about-accent-divider"></div>
+              <div class="about-accent-text">Perritos<br>atendidos</div>
+            </div>
+          </div><!-- /.about-img-wrap -->
 
           <!-- Content -->
           <div class="about-content">
@@ -906,14 +1261,14 @@
             </h2>
 
             <blockquote class="about-quote reveal reveal-delay-2">
-              "Creemos que el cuidado estético debe ser una experiencia positiva, libre de estrés y llena de amor."
+              "Creemos que el cuidado estético debe ser una experiencia positiva, libre de estrés"
             </blockquote>
 
             <p class="about-body reveal reveal-delay-3">
               En Pet Fashion somos un equipo de dos groomers profesionales apasionadas por los animales. Trabajamos sin bozal ni sedación porque confiamos en que el trato humano y la paciencia son la mejor herramienta.
             </p>
             <p class="about-body reveal reveal-delay-3">
-              Con años de experiencia, ofrecemos un servicio completo de peluquería canina en Isla Negra, pensado para el bienestar de tu peludo y la tranquilidad de tu familia.
+              Con más de 5 años de experiencia, ofrecemos un servicio completo de peluquería canina en el litoral central de Chile, pensado para el bienestar de tu mascota y la tranquilidad de tu familia.
             </p>
 
             <div class="about-values reveal reveal-delay-4">
@@ -985,31 +1340,32 @@
             <svg class="service-card-watermark icon" aria-hidden="true"><use href="#ico-scissors"/></svg>
             <div class="service-feat-tag" aria-label="Servicio destacado">★ Más popular</div>
             <svg class="service-icon icon" aria-hidden="true"><use href="#ico-scissors"/></svg>
-            <h3 class="service-name">Corte y <em>baño</em><br>completo</h3>
-            <p class="service-desc">Nuestro servicio más completo. Ideal para un cuidado integral de tu mascota de principio a fin.</p>
+            <h3 class="service-name">Corte y <em>baño</em></h3>
+            <p class="service-desc">Nuestro servicio más completo. Ideal para un cuidado integral de tu mascota.</p>
             <ul class="service-includes" aria-label="Incluye">
-              <li>Baño y secado profesional</li>
+              <li>Baño de tres ciclos</li>
               <li>Corte de pelo según raza</li>
               <li>Vaciado de glándulas anales</li>
               <li>Limpieza de oídos</li>
               <li>Corte y lima de uñas</li>
             </ul>
-            <a href="#contacto" class="service-link" aria-label="Ver precios de corte y baño">Ver precios</a>
+            <a href="#precios" data-tab="corte-bano" class="service-link" aria-label="Ver precios de corte y baño">Ver precios</a>
           </article>
 
           <!-- Baño solo -->
           <article class="service-card reveal reveal-delay-1" aria-label="Servicio de baño y secado">
             <svg class="service-card-watermark icon" aria-hidden="true"><use href="#ico-bath"/></svg>
             <svg class="service-icon icon" aria-hidden="true"><use href="#ico-bath"/></svg>
-            <h3 class="service-name">Baño y <em>secado</em></h3>
+            <h3 class="service-name">Solo <em>baño</em></h3>
             <p class="service-desc">Baño completo con productos de calidad, secado y cepillado profesional para un resultado impecable.</p>
             <ul class="service-includes" aria-label="Incluye">
-              <li>Baño con shampoo profesional</li>
-              <li>Acondicionador y tratamiento</li>
-              <li>Secado y cepillado completo</li>
-              <li>Perfume canino final</li>
+              <li>Baño de tres ciclos</li>
+              <li>Cepillado o deslanado</li>
+              <li>Vaciado de glándulas anales</li>
+              <li>Limpieza de oídos</li>
+              <li>Corte y lima de uñas</li>
             </ul>
-            <a href="#contacto" class="service-link" aria-label="Ver precios de baño y secado">Ver precios</a>
+            <a href="#precios" data-tab="bano" class="service-link" aria-label="Ver precios de baño y secado">Ver precios</a>
           </article>
 
           <!-- Afilado de cuchillas -->
@@ -1017,16 +1373,311 @@
             <svg class="service-card-watermark icon" aria-hidden="true"><use href="#ico-tool"/></svg>
             <svg class="service-icon icon" aria-hidden="true"><use href="#ico-tool"/></svg>
             <h3 class="service-name">Afilado de <em>cuchillas</em></h3>
-            <p class="service-desc">Servicio profesional de afilado para tijeras y cuchillas de peluquería canina. Resultados precisos garantizados.</p>
+            <p class="service-desc">Servicio profesional de afilado para cuchillas de peluquería canina. Resultados precisos garantizados.</p>
             <ul class="service-includes" aria-label="Incluye">
-              <li>Tijeras de peluquería</li>
               <li>Cuchillas de máquinas</li>
               <li>Entrega el mismo día</li>
               <li>Garantía de corte</li>
             </ul>
-            <a href="#contacto" class="service-link" aria-label="Consultar por afilado de cuchillas">Consultar</a>
+            <a href="#precios" data-tab="afilado" class="service-link" aria-label="Ver precios de afilado">Ver precios</a>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         CATÁLOGO DE PRECIOS
+    ══════════════════════════════════════ -->
+    <section id="precios" class="section section--cream" aria-labelledby="precios-heading">
+      <div class="container">
+
+        <!-- Header -->
+        <div class="cat-header text-center reveal">
+          <p class="label">04 · Catálogo</p>
+          <h2 id="precios-heading" class="heading-lg mb-md">
+            Nuestros <em class="italic gold">precios</em>
+          </h2>
+          <p class="subheading" style="max-width:500px;margin:0 auto;">
+            Tarifas claras según el tamaño de tu mascota. Sin sorpresas.
+          </p>
+        </div>
+
+        <!-- Tab nav -->
+        <div class="cat-tabs reveal reveal-delay-1" role="tablist" aria-label="Servicios">
+          <button class="cat-tab cat-tab--active" role="tab" aria-selected="true"
+                  aria-controls="tab-corte-bano" id="btn-corte-bano" data-tab="corte-bano">
+            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-scissors"/></svg>
+            Corte y Baño
+          </button>
+          <button class="cat-tab" role="tab" aria-selected="false"
+                  aria-controls="tab-bano" id="btn-bano" data-tab="bano">
+            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-bath"/></svg>
+            Solo Baño
+          </button>
+          <button class="cat-tab" role="tab" aria-selected="false"
+                  aria-controls="tab-unas" id="btn-unas" data-tab="unas">
+            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-paw"/></svg>
+            Corte de Uñas
+          </button>
+          <button class="cat-tab" role="tab" aria-selected="false"
+                  aria-controls="tab-afilado" id="btn-afilado" data-tab="afilado">
+            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-tool"/></svg>
+            Afilado
+          </button>
+        </div>
+
+        <!-- ── TAB: Corte y Baño ── -->
+        <div id="tab-corte-bano" class="cat-panel cat-panel--active" role="tabpanel" aria-labelledby="btn-corte-bano">
+          <div class="cat-layout">
+            <!-- Includes list -->
+            <div class="cat-includes-card reveal">
+              <p class="cat-includes-title">¿Qué incluye?</p>
+              <ul class="cat-includes-list">
+                <li>1er Lavado: neutralizador de olor</li>
+                <li>2do Lavado: shampoo hidratante</li>
+                <li>3er Lavado: acondicionador</li>
+                <li>Vaciado de glándulas anales</li>
+                <li>Secado profesional</li>
+                <li>Corte de pelo</li>
+                <li>Despejes: sanitario y cojinetes</li>
+                <li>Limpieza de oídos</li>
+                <li>Corte y limado de uñas</li>
+                <li>Perfume de larga duración</li>
+              </ul>
+            </div>
+            <!-- Price grid -->
+            <div class="cat-prices">
+              <div class="cat-price-card reveal">
+                <div class="cat-size-icon">
+                  <img src="images/perroXs.webp"
+                         alt="[Xs], Perro talla xs"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">XS</div>
+                <div class="cat-size-range">0 kg – 5 kg</div>
+                <div class="cat-price">$22.000</div>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20XS" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+              <div class="cat-price-card reveal reveal-delay-1">
+                <div class="cat-size-icon">
+                  <img src="images/perroS.webp"
+                         alt="[S], Perro talla s"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">S</div>
+                <div class="cat-size-range">5,1 kg – 10 kg</div>
+                <div class="cat-price">$26.000</div>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20S" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+              <div class="cat-price-card reveal reveal-delay-2">
+                <div class="cat-size-icon">
+                  <img src="images/perroM.webp"
+                         alt="[M], Perro talla m"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">M</div>
+                <div class="cat-size-range">10,1 kg – 20 kg</div>
+                <div class="cat-price">$30.000</div>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20M" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+              <div class="cat-price-card reveal reveal-delay-3">
+                <div class="cat-size-icon">
+                  <img src="images/perroL.webp"
+                         alt="[L], Perro talla L"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">L</div>
+                <div class="cat-size-range">20,1 kg – 30 kg</div>
+                <div class="cat-price">$45.000</div>
+                <!-- <div class="cat-price-split">
+                  <div class="cat-price-row">
+                    <span class="cat-price-label">Manto corto</span>
+                    <span class="cat-price">$45.000</span>
+                  </div>
+                </div> -->
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20L" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── TAB: Solo Baño ── -->
+        <div id="tab-bano" class="cat-panel" role="tabpanel" aria-labelledby="btn-bano" hidden>
+          <div class="cat-layout">
+            <div class="cat-includes-card reveal">
+              <p class="cat-includes-title">¿Qué incluye?</p>
+              <ul class="cat-includes-list">
+                <li>Deslanado o cepillado</li>
+                <li>1er Lavado: neutralizador de olor</li>
+                <li>2do Lavado: shampoo hidratante</li>
+                <li>3er Lavado: acondicionador</li>
+                <li>Vaciado de glándulas anales</li>
+                <li>Despejes: sanitario y cojinetes</li>
+                <li>Secado profesional</li>
+                <li>Limpieza de oídos</li>
+                <li>Corte y limado de uñas</li>
+                <li>Perfume de larga duración</li>
+              </ul>
+            </div>
+            <div class="cat-prices">
+              <div class="cat-price-card reveal">
+                <div class="cat-size-icon">
+                  <img src="images/perroXs.webp"
+                         alt="[Xs], Perro talla xs"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">XS</div>
+                <div class="cat-size-range">0 kg – 5 kg</div>
+                <div class="cat-price">$18.000</div>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20baño%20para%20un%20perro%20XS" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+              <div class="cat-price-card reveal reveal-delay-1">
+                <div class="cat-size-icon">
+                  <img src="images/perroS.webp"
+                         alt="[S], Perro talla S"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">S</div>
+                <div class="cat-size-range">5,1 kg – 10 kg</div>
+                <div class="cat-price">$22.000</div>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20baño%20para%20un%20perro%20S" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+              <div class="cat-price-card reveal reveal-delay-2">
+                <div class="cat-size-icon">
+                  <img src="images/perroM.webp"
+                         alt="[M], Perro talla M"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">M</div>
+                <div class="cat-size-range">10,1 kg – 20 kg</div>
+                <div class="cat-price">$26.000</div>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20baño%20para%20un%20perro%20M" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+              <div class="cat-price-card reveal reveal-delay-3">
+                <div class="cat-size-icon">
+                  <img src="images/perroL.webp"
+                         alt="[L], Perro talla L"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">L</div>
+                <div class="cat-size-range">20,1 kg – 30 kg</div>
+                <div class="cat-price-split">
+                  <div class="cat-price-row">
+                    <span class="cat-price-label">Manto corto</span>
+                    <span class="cat-price">$35.000</span>
+                  </div>
+                  <div class="cat-price-row">
+                    <span class="cat-price-label">Doble capa</span>
+                    <span class="cat-price">$45.000</span>
+                  </div>
+                </div>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20baño%20para%20un%20perro%20L" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── TAB: Corte de Uñas ── -->
+        <div id="tab-unas" class="cat-panel" role="tabpanel" aria-labelledby="btn-unas" hidden>
+          <div class="cat-layout">
+            <div class="cat-includes-card reveal">
+              <p class="cat-includes-title">¿Qué incluye?</p>
+              <ul class="cat-includes-list">
+                <li>Corte de uñas</li>
+                <li>Limado de uñas</li>
+              </ul>
+              <div class="cat-note">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-sparkle"/></svg>
+                Servicio express disponible sin turno previo, sujeto a disponibilidad.
+              </div>
+            </div>
+            <div class="cat-prices cat-prices--3col">
+              <div class="cat-price-card reveal">
+                <div class="cat-size-icon">
+                  <img src="images/perroXs.webp"
+                         alt="[Xs], Perro talla Xs"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">XS</div>
+                <div class="cat-size-range">0 kg – 5 kg</div>
+                <div class="cat-price">$5.000</div>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20XS" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+              <div class="cat-price-card reveal reveal-delay-1">
+                <div class="cat-size-icon">
+                  <img src="images/perroS.webp"
+                         alt="[S], Perro talla S"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">S</div>
+                <div class="cat-size-range">5,1 kg – 10 kg</div>
+                <div class="cat-price">$7.000</div>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20S" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+              <div class="cat-price-card reveal reveal-delay-2">
+                <div class="cat-size-icon">
+                  <img src="images/perroM.webp"
+                         alt="[M], Perro talla M"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">M</div>
+                <div class="cat-size-range">10,1 kg – 20 kg</div>
+                <div class="cat-price">$10.000</div>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20M" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+              <div class="cat-price-card reveal reveal-delay-2">
+                <div class="cat-size-icon">
+                  <img src="images/perroL.webp"
+                         alt="[L], Perro talla L"
+                         width="" height="" loading="lazy">
+                </div>
+                <div class="cat-size-badge">L</div>
+                <div class="cat-size-range">20,1 kg – 30 kg</div>
+                <div class="cat-price">$12.000</div>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20M" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── TAB: Afilado de Cuchillas ── -->
+        <div id="tab-afilado" class="cat-panel" role="tabpanel" aria-labelledby="btn-afilado" hidden>
+          <div class="cat-layout cat-layout--single">
+            <div class="cat-includes-card reveal">
+              <p class="cat-includes-title">¿Qué incluye?</p>
+              <ul class="cat-includes-list">
+                <li>Afilado profesional</li>
+                <li>Limpieza y desinfección de cada cuchilla</li>
+                <li>Lubricación y ajuste para un funcionamiento óptimo</li>
+              </ul>
+              <div class="cat-note">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-tool"/></svg>
+                Cuchillas tipo A5 desmontables: Andis, Oster, Wahl, etc.
+              </div>
+            </div>
+            <div class="cat-blade-card reveal reveal-delay-1">
+              <div class="cat-blade-icon" aria-hidden="true">
+                <img src="images/Cuchilla.webp"
+                         alt="[L], Perro talla L"
+                         width="" height="" loading="lazy">
+              </div>
+              <div class="cat-blade-label">Precio por cuchilla</div>
+              <div class="cat-blade-price">$5.000</div>
+              <div class="cat-blade-sub">c/u · entrega el mismo día</div>
+              <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20consultar%20por%20el%20afilado%20de%20cuchillas" class="cat-cta cat-cta--lg" rel="noopener" target="_blank">
+                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
+                Consultar disponibilidad
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom note -->
+        <p class="cat-footer-note reveal">
+          <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg>
+          Los precios pueden variar según el estado del pelaje. Consulta sin compromiso.
+        </p>
+
       </div>
     </section>
 
@@ -1070,7 +1721,7 @@
                 <span class="why-feature-num">04</span>
                 <div>
                   <h3 class="why-feature-title">Más de 500 perritos felices</h3>
-                  <p class="why-feature-desc">La confianza de más de 100 familias de Isla Negra nos respalda. Cada mascota que pasa por nuestra peluquería sale radiante.</p>
+                  <p class="why-feature-desc">La confianza de más de 100 familias de Isla Negra y todo el litoral central nos respalda. Cada mascota que pasa por nuestra peluquería sale radiante.</p>
                 </div>
               </div>
             </div>
@@ -1115,12 +1766,8 @@
         <div class="gallery-grid" aria-label="Galería de antes y después">
           <figure class="gallery-item gallery-item--1 reveal">
             <div class="gallery-item-inner">
-               <img 
-                  src="images/galeria-1.png"
-                  alt="Antes y después de peluquería canina en Pet Fashion Isla Negra"
-                  width="800"
-                  height="500"
-                  loading="lazy">
+              <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
+              <span class="gallery-placeholder-text">Antes · Después</span>
             </div>
             <div class="gallery-overlay"><span class="gallery-overlay-text">Ver foto</span></div>
             <figcaption class="sr-only">Transformación de mascota en Pet Fashion</figcaption>
@@ -1226,6 +1873,155 @@
     </section>
 
     <!-- ══════════════════════════════════════
+         FAQ
+    ══════════════════════════════════════ -->
+    <section id="faq" class="section" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header text-center reveal" style="margin-bottom:56px;">
+          <p class="label">07 · FAQ</p>
+          <h2 id="faq-heading" class="heading-lg">
+            Preguntas <em class="italic gold">frecuentes</em>
+          </h2>
+          <p class="subheading" style="max-width:500px;margin:16px auto 0;">
+            Todo lo que necesitas saber antes de tu primera visita.
+          </p>
+          <div class="divider divider--center"></div>
+        </div>
+
+        <!-- CATEGORÍA: Nuestro servicio -->
+        <span class="faq-category reveal">Nuestro servicio</span>
+        <div class="faq-grid">
+
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">
+              ¿Es necesario sedar o usar bozal en la peluquería?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              No. En Pet Fashion trabajamos únicamente sin bozal y sin sedación. Creemos que la paciencia, el trato amable y las técnicas adecuadas son suficientes para lograr un servicio de calidad que no genere estrés en tu mascota. Es nuestro compromiso fundamental con el bienestar animal.
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" aria-expanded="false">
+              ¿Tienen experiencia con perros nerviosos o agresivos?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              Nos especializamos en manejo respetuoso y sin estrés, pero es importante que la mascota sea dócil y tolere el servicio. No trabajamos con perritos agresivos por seguridad de todos.
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuánto dura una sesión de baño o corte?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              Depende del tamaño y el estado del pelaje de tu mascota. En general, un baño completo toma entre 1 y 2 horas, y un corte con baño entre 2 y 3 horas. Los perros con pelaje muy largo, con nudos o de razas especiales pueden requerir más tiempo. Te informaremos el estimado al momento de agendar.
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-question" aria-expanded="false">
+              ¿Hacen baños químicos contra pulgas?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              No realizamos baños antipulgas con productos químicos fuertes. Si tu perro tiene presencia de pulgas, te recomendamos consultar primero con tu veterinario para el tratamiento adecuado. Idealmente debe venir con su tratamiento al día (comprimido o pipeta), ya que recibimos otros perritos en el mismo espacio y velamos por su bienestar.
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué productos utilizan durante el baño?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              Usamos cosmética profesional de alta gama de la marca Hydra, formulada especialmente para el cuidado de la piel y pelaje de tu mascota. Incluyendo neutralizador de olor, shampoo hidratante y acondicionador. Finalizamos con perfume canino de larga duración.
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cómo puedo agendar una cita?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              La forma más rápida es escribirnos por WhatsApp al +56 9 4557 0410. También puedes contactarnos por Instagram (@petfashiondogsalon) o a través del formulario de contacto en nuestro sitio web. Te responderemos a la brevedad para confirmar disponibilidad y coordinar tu visita.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CATEGORÍA: Nuestros servicios en detalle -->
+        <span class="faq-category reveal" style="margin-top:48px;">Servicios en detalle</span>
+        <div class="faq-grid">
+
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué incluye el servicio de Solo Baño?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              El servicio de Solo Baño incluye: deslanado o cepillado previo, despejes sanitario y de cojinetes, vaciado de glándulas anales, 3 lavados (neutralizador de olor, shampoo hidratante y acondicionador), secado profesional, limpieza de oídos, corte y limado de uñas, y perfume de larga duración. No incluye corte de pelo.
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué incluye el servicio de Corte y Baño?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              El Corte y Baño incluye todo lo del servicio de baño más el corte de pelo según la raza y preferencia del dueño. Es nuestro servicio más completo e ideal para un cuidado integral. También incluye despejes sanitario y de cojinetes, vaciado de glándulas anales, limpieza de oídos, corte y limado de uñas, y perfume final.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CATEGORÍA: Afilado de cuchillas -->
+        <span class="faq-category reveal" style="margin-top:48px;">Afilado de cuchillas</span>
+        <div class="faq-grid">
+
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué tipo de cuchillas pueden afilar?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              Afilamos cuchillas de peluquería canina tipo A5 desmontables, compatibles con marcas como Andis, Oster, Wahl y similares. Si tienes dudas sobre si tu cuchilla es compatible, escríbenos antes de traerla.
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuánto tarda el servicio de afilado y qué incluye?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              El afilado generalmente se realiza el mismo día. El servicio incluye afilado profesional, limpieza y desinfección de la cuchilla, y lubricación y ajuste para un funcionamiento óptimo. El precio es de $5.000 por cuchilla.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA box -->
+        <div class="faq-cta-box reveal">
+          <div>
+            <h3 class="faq-cta-title">¿Tienes otra <em>pregunta</em>?</h3>
+            <p class="faq-cta-sub">Escríbenos directamente — respondemos rápido y con mucho cariño.</p>
+          </div>
+          <a href="https://wa.me/56945570410?text=Hola!%20Tengo%20una%20consulta%20sobre%20sus%20servicios" class="btn btn-gold" rel="noopener" target="_blank">
+            <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
+            Preguntar por WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
          CTA + CONTACTO
     ══════════════════════════════════════ -->
     <section id="contacto" class="section" aria-labelledby="contacto-heading">
@@ -1289,14 +2085,14 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="/" class="nav-logo" aria-label="Pet Fashion Dog Salon - Inicio">
+          <div class="footer-brand-logo" aria-label="Pet Fashion Dog Salon">
             <img src="images/Isotipo2.png"
-                            alt="[Nombre], Groomer Profesional en Pet Fashion Isla Negra"
-                            width="70" height="" loading="lazy">
-          </a>
-          <!-- <span class="logo-placeholder logo-placeholder--gold" aria-label="Pet Fashion Dog Salon">LOGO</span> -->
+                         alt="[L], Perro talla L"
+                         width="" height="" loading="lazy">
+            <!-- <span style="font-family:var(--f-display);font-size:28px;color:var(--c-cream);">Pet</span><span style="font-family:var(--f-display);font-size:28px;font-style:italic;color:var(--c-gold-light);margin-left:5px;">Fashion</span> -->
+          </div>
           <p class="footer-brand-desc">
-            Peluquería canina profesional en Isla Negra. Belleza y bienestar sin bozal ni sedación.
+            Peluquería canina profesional en Isla Negra. Estética y bienestar sin bozal ni sedación.
           </p>
           <div class="footer-socials" aria-label="Redes sociales">
             <a href="https://www.instagram.com/petfashiondogsalon" class="footer-social" rel="noopener" target="_blank" aria-label="Instagram">
@@ -1326,7 +2122,8 @@
           <p class="footer-col-title">Servicios</p>
           <ul class="footer-links" role="list">
             <li><a href="#servicios">Corte y baño</a></li>
-            <li><a href="#servicios">Baño y secado</a></li>
+            <li><a href="#servicios">Solo baño</a></li>
+            <li><a href="#servicios">Corte y limado de uñas</a></li>
             <li><a href="#servicios">Afilado de cuchillas</a></li>
           </ul>
         </div>
@@ -1337,7 +2134,7 @@
             <li><a href="https://wa.me/56945570410" rel="noopener" target="_blank">WhatsApp</a></li>
             <li><a href="https://www.instagram.com/petfashiondogsalon" rel="noopener" target="_blank">Instagram</a></li>
             <li><a href="https://www.petfashiondogsalon.cl" rel="noopener">petfashiondogsalon.cl</a></li>
-            <li><a href="#contacto">Isla Negra, Chile</a></li>
+            <li><a href="#contacto">Calle Santa Luisa #51, Isla Negra, Chile</a></li>
           </ul>
         </div>
       </div>
@@ -1360,10 +2157,73 @@
   </a>
 
   <script>
+    // ─── FAQ accordion ───────────────────────────
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // ─── Catalog tab switching ───────────────────
+    const catTabs   = document.querySelectorAll('.cat-tab');
+    const catPanels = document.querySelectorAll('.cat-panel');
+
+    function activateTab(tabId) {
+      catTabs.forEach(t => {
+        const isActive = t.dataset.tab === tabId;
+        t.classList.toggle('cat-tab--active', isActive);
+        t.setAttribute('aria-selected', isActive);
+      });
+      catPanels.forEach(p => {
+        const isActive = p.id === `tab-${tabId}`;
+        p.classList.toggle('cat-panel--active', isActive);
+        if (isActive) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
+        // Re-trigger reveal animations in newly shown panel
+        if (isActive) {
+          p.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+            setTimeout(() => el.classList.add('visible'), 60);
+          });
+        }
+      });
+    }
+
+    catTabs.forEach(tab => {
+      tab.addEventListener('click', () => activateTab(tab.dataset.tab));
+    });
+
+    // "Ver precios" service links → open specific tab then scroll
+    document.querySelectorAll('.service-link[data-tab]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const tabId = link.dataset.tab;
+        activateTab(tabId);
+        const target = document.getElementById('precios');
+        if (target) {
+          setTimeout(() => {
+            window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+          }, 50);
+        }
+      });
+    });
+
     const navbar = document.getElementById('navbar');
-    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 40);
+    const locationBar = document.querySelector('.nav-location-bar');
+    const onScroll = () => {
+      const scrolled = window.scrollY > 40;
+      navbar.classList.toggle('scrolled', scrolled);
+      if (locationBar) locationBar.style.top = scrolled ? '52px' : '68px';
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
