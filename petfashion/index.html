@@ -580,15 +580,15 @@
   .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--sp-lg); flex-wrap: wrap; gap: 20px; }
   .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
   .gallery-item { border-radius: var(--radius-md); overflow: hidden; position: relative; background: #e8dfd4; cursor: pointer; }
-  .gallery-item--1 { grid-column: span 7; aspect-ratio: 16/10; }
-  .gallery-item--2 { grid-column: span 5; aspect-ratio: 4/5; }
+  .gallery-item--1 { grid-column: span 7; aspect-ratio: 1; }
+  .gallery-item--2 { grid-column: span 5; aspect-ratio: 1; }
   .gallery-item--3 { grid-column: span 4; aspect-ratio: 1; }
   .gallery-item--4 { grid-column: span 4; aspect-ratio: 1; }
   .gallery-item--5 { grid-column: span 4; aspect-ratio: 1; }
   @media (max-width: 768px) {
     .gallery-grid { grid-template-columns: 1fr 1fr; }
-    .gallery-item--1 { grid-column: span 2; aspect-ratio: 16/9; }
-    .gallery-item--2 { grid-column: span 2; aspect-ratio: 4/3; }
+    .gallery-item--1 { grid-column: span 2; aspect-ratio: 1; }
+    .gallery-item--2 { grid-column: span 2; aspect-ratio: 1; }
     .gallery-item--3, .gallery-item--4, .gallery-item--5 { grid-column: span 1; aspect-ratio: 1; }
   }
   .gallery-item-inner { width: 100%; height: 100%; background: linear-gradient(135deg, #e8dfd4 0%, #d4c8b8 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; position: relative; overflow: hidden; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
@@ -1015,6 +1015,7 @@
   .faq-cta-title em { font-style: italic; color: var(--c-gold-light); }
   .faq-cta-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
   </style>
+  
 </head>
 
 <body>
@@ -1356,7 +1357,7 @@
           <article class="service-card reveal reveal-delay-1" aria-label="Servicio de baño y secado">
             <svg class="service-card-watermark icon" aria-hidden="true"><use href="#ico-bath"/></svg>
             <svg class="service-icon icon" aria-hidden="true"><use href="#ico-bath"/></svg>
-            <h3 class="service-name">Solo <em>baño</em></h3>
+            <h3 class="service-name">Sólo <em>baño</em></h3>
             <p class="service-desc">Baño completo con productos de calidad, secado y cepillado profesional para un resultado impecable.</p>
             <ul class="service-includes" aria-label="Incluye">
               <li>Baño de tres pasos</li>
@@ -1375,7 +1376,7 @@
             <h3 class="service-name">Afilado de <em>cuchillas</em></h3>
             <p class="service-desc">Servicio profesional de afilado para cuchillas de peluquería canina. Resultados precisos garantizados.</p>
             <ul class="service-includes" aria-label="Incluye">
-              <li>Cuchillas de máquinas</li>
+              <li>Cuchillas de tipo A5 desmontables</li>
               <li>Entrega el mismo día</li>
               <li>Garantía de corte</li>
             </ul>
@@ -1412,7 +1413,7 @@
           <button class="cat-tab" role="tab" aria-selected="false"
                   aria-controls="tab-bano" id="btn-bano" data-tab="bano">
             <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-bath"/></svg>
-            Solo Baño
+            Sólo Baño
           </button>
           <button class="cat-tab" role="tab" aria-selected="false"
                   aria-controls="tab-unas" id="btn-unas" data-tab="unas">
@@ -1693,7 +1694,7 @@
               La diferencia<br><em class="italic gold">Pet Fashion</em>
             </h2>
             <p class="subheading mb-lg reveal reveal-delay-2">
-              No somos solo una peluquería. Somos un espacio donde tu mascota se siente segura y querida.
+              No somos sólo una peluquería. Somos un espacio donde tu mascota se siente segura y querida.
             </p>
             <div class="why-features">
               <div class="why-feature reveal">
@@ -1766,7 +1767,7 @@
         <div class="gallery-grid" aria-label="Galería de antes y después">
           <figure class="gallery-item gallery-item--1 reveal">
             <div class="gallery-item-inner">
-              <img src="images/Cuchilla.webp"
+              <img src="images/Gallery2.png"
                          alt="[L], Perro talla L"
                          width="" height="" loading="lazy">
             </div>
@@ -1775,32 +1776,44 @@
           </figure>
           <figure class="gallery-item gallery-item--2 reveal reveal-delay-1">
             <div class="gallery-item-inner">
-              <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
-              <span class="gallery-placeholder-text">Antes · Después</span>
+              <!-- <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
+              <span class="gallery-placeholder-text">Antes · Después</span> -->
+              <img src="images/Gallery3.png"
+                         alt="[L], Perro talla L"
+                         width="" height="" loading="lazy">
             </div>
             <div class="gallery-overlay"><span class="gallery-overlay-text">Ver foto</span></div>
             <figcaption class="sr-only">Transformación de mascota en Pet Fashion</figcaption>
           </figure>
           <figure class="gallery-item gallery-item--3 reveal">
             <div class="gallery-item-inner">
-              <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
-              <span class="gallery-placeholder-text">Antes</span>
+              <img src="images/Gallery4.png"
+                         alt="[L], Perro talla L"
+                         width="" height="" loading="lazy">
+              <!-- <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
+              <span class="gallery-placeholder-text">Antes</span> -->
             </div>
             <div class="gallery-overlay"><span class="gallery-overlay-text">Ver foto</span></div>
             <figcaption class="sr-only">Mascota antes del servicio</figcaption>
           </figure>
           <figure class="gallery-item gallery-item--4 reveal reveal-delay-1">
             <div class="gallery-item-inner">
-              <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
-              <span class="gallery-placeholder-text">Después</span>
+              <img src="images/Gallery1.png"
+                         alt="[L], Perro talla L"
+                         width="" height="" loading="lazy">
+              <!-- <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
+              <span class="gallery-placeholder-text">Después</span> -->
             </div>
             <div class="gallery-overlay"><span class="gallery-overlay-text">Ver foto</span></div>
             <figcaption class="sr-only">Mascota después del servicio</figcaption>
           </figure>
           <figure class="gallery-item gallery-item--5 reveal reveal-delay-2">
             <div class="gallery-item-inner">
-              <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
-              <span class="gallery-placeholder-text">Resultado</span>
+              <img src="images/Gallery3.png"
+                         alt="[L], Perro talla L"
+                         width="" height="" loading="lazy">
+              <!-- <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
+              <span class="gallery-placeholder-text">Resultado</span> -->
             </div>
             <div class="gallery-overlay"><span class="gallery-overlay-text">Ver foto</span></div>
             <figcaption class="sr-only">Resultado de peluquería canina</figcaption>
@@ -1824,7 +1837,7 @@
         <div class="testimonials-grid">
           <article class="testimonial-card reveal" aria-label="Reseña de cliente">
             <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-            <p class="testimonial-text">Mi Shih Tzu era imposible con otros peluqueros. Acá lo tratan con una paciencia increíble, sin bozal ni nada raro. Sale siempre hermoso y feliz.</p>
+            <p class="testimonial-text">Quede feliz con el trabajo !! Lo recomiendo, son muy amorosos y detallistas con su trabajo .</p>
             <div class="testimonial-stars" aria-label="5 de 5 estrellas">
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
@@ -1832,15 +1845,15 @@
             <div class="testimonial-author">
               <div class="testimonial-avatar" aria-hidden="true"><svg class="icon"><use href="#ico-user"/></svg></div>
               <div>
-                <div class="testimonial-name">María José R.</div>
-                <div class="testimonial-pet">Mamá de Mochi · Shih Tzu</div>
+                <div class="testimonial-name">Ambar Valenzuela leiva.</div>
+                <div class="testimonial-pet">Mamá de Gaspar, Copito, Jade y Jacinta.</div>
               </div>
             </div>
           </article>
 
           <article class="testimonial-card reveal reveal-delay-1" aria-label="Reseña de cliente">
             <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-            <p class="testimonial-text">El mejor lugar de Isla Negra para llevar a tu perro. Muy profesionales, atentos y se nota que aman a los animales. Nunca más voy a otro lado.</p>
+            <p class="testimonial-text">Me encanta esta pelu llevó a todos mis perritos allí, quedan preciosos, huelen exquisito, a parte los tratan con mucho amor, fiel clienta por siempre, no le pasó a mis perritos a nadie más, son secos en lo que hacen 🫶</p>
             <div class="testimonial-stars" aria-label="5 de 5 estrellas">
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
@@ -1848,15 +1861,17 @@
             <div class="testimonial-author">
               <div class="testimonial-avatar" aria-hidden="true"><svg class="icon"><use href="#ico-user"/></svg></div>
               <div>
-                <div class="testimonial-name">Carlos M.</div>
-                <div class="testimonial-pet">Papá de Rocky · Golden Retriever</div>
+                <div class="testimonial-name">Vanessa Muñoz Contreras.</div>
+                <div class="testimonial-pet">Mamá de Panda, Madonna, Bad y Lulú.</div>
               </div>
             </div>
           </article>
 
           <article class="testimonial-card reveal reveal-delay-2" aria-label="Reseña de cliente">
             <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-            <p class="testimonial-text">Llevé a mi schnauzer por primera vez y quedé impresionada con el resultado. Muy detallistas y el ambiente es super tranquilo para los perritos.</p>
+            <p class="testimonial-text">Excelente lugar para regalonear a nuestros perritos. La chica que atiende es un amor y tiene mucha llegada con los animalitos. Ellos pese a que les carga bañarse no se rehúsan a ir y salen felices y siempre huelen delicioso.
+Recomiendo demasiado este lugar.
+Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
             <div class="testimonial-stars" aria-label="5 de 5 estrellas">
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
@@ -1864,8 +1879,8 @@
             <div class="testimonial-author">
               <div class="testimonial-avatar" aria-hidden="true"><svg class="icon"><use href="#ico-user"/></svg></div>
               <div>
-                <div class="testimonial-name">Valentina P.</div>
-                <div class="testimonial-pet">Mamá de Thor · Schnauzer</div>
+                <div class="testimonial-name">Clau Giaconi.</div>
+                <div class="testimonial-pet">Mamá de Balto y Nala.</div>
               </div>
             </div>
           </article>
@@ -1961,11 +1976,11 @@
 
           <div class="faq-item reveal">
             <button class="faq-question" aria-expanded="false">
-              ¿Qué incluye el servicio de Solo Baño?
+              ¿Qué incluye el servicio de Sólo Baño?
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-answer">
-              El servicio de Solo Baño incluye: deslanado o cepillado previo, despejes sanitario y de cojinetes, vaciado de glándulas anales, 3 lavados (neutralizador de olor, shampoo hidratante y acondicionador), secado profesional, limpieza de oídos, corte y limado de uñas, y perfume de larga duración. No incluye corte de pelo.
+              El servicio de Sólo Baño incluye: deslanado o cepillado previo, despejes sanitario y de cojinetes, vaciado de glándulas anales, 3 lavados (neutralizador de olor, shampoo hidratante y acondicionador), secado profesional, limpieza de oídos, corte y limado de uñas, y perfume de larga duración. No incluye corte de pelo.
             </div>
           </div>
 
@@ -2001,7 +2016,7 @@
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-answer">
-              El afilado generalmente se realiza el mismo día. El servicio incluye afilado profesional, limpieza y desinfección de la cuchilla, y lubricación y ajuste para un funcionamiento óptimo. El precio es de $5.000 por cuchilla.
+              El afilado generalmente se realiza el mismo día. El servicio incluye afilado profesional, limpieza y desinfección de la cuchilla, lubricación y ajuste para un funcionamiento óptimo. El precio es de $5.000 por cuchilla.
             </div>
           </div>
 
@@ -2123,7 +2138,7 @@
           <p class="footer-col-title">Servicios</p>
           <ul class="footer-links" role="list">
             <li><a href="#servicios">Corte y baño</a></li>
-            <li><a href="#servicios">Solo baño</a></li>
+            <li><a href="#servicios">Sólo baño</a></li>
             <li><a href="#servicios">Corte y limado de uñas</a></li>
             <li><a href="#servicios">Afilado de cuchillas</a></li>
           </ul>
