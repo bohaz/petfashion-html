@@ -1015,6 +1015,225 @@
   .faq-cta-title em { font-style: italic; color: var(--c-gold-light); }
   .faq-cta-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
   </style>
+
+  <!-- Bot styles -->
+   <style id="pf-chat-styles">
+  :root {
+    --pf-noir:      #0E0E0E;
+    --pf-charcoal:  #1A1A1A;
+    --pf-card:      #161616;
+    --pf-gold:      #C9922A;
+    --pf-gold-l:    #E4B355;
+    --pf-gold-pale: #F5E6C8;
+    --pf-white:     #FFFFFF;
+    --pf-muted:     rgba(255,255,255,0.4);
+    --pf-border:    rgba(255,255,255,0.07);
+    --pf-radius:    20px;
+    --pf-ease:      0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+ 
+
+ 
+  /* ── Trigger ── */
+  #pf-trigger {
+    position:fixed; bottom:28px; left:28px; z-index:9000;
+    width:62px; height:62px; border-radius:50%;
+    background:var(--pf-noir); border:1.5px solid rgba(201,146,42,.4);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    box-shadow:0 4px 24px rgba(0,0,0,.5);
+    transition:transform var(--pf-ease), border-color var(--pf-ease), box-shadow var(--pf-ease);
+    animation:pfPulse 3s ease-in-out infinite;
+  }
+  #pf-trigger:hover { transform:scale(1.08); border-color:var(--pf-gold);
+                      box-shadow:0 8px 32px rgba(201,146,42,.25); animation:none; }
+  #pf-trigger svg { width:26px; height:26px; color:var(--pf-gold-l); transition:transform var(--pf-ease); }
+  #pf-trigger:hover svg { transform:scale(1.1); }
+  #pf-trigger.open .ico-paw  { display:none; }
+  #pf-trigger.open .ico-x    { display:block !important; }
+  @keyframes pfPulse {
+    0%,100% { box-shadow:0 4px 24px rgba(0,0,0,.5), 0 0 0 0 rgba(201,146,42,.25); }
+    50%      { box-shadow:0 4px 24px rgba(0,0,0,.5), 0 0 0 9px rgba(201,146,42,0); }
+  }
+ 
+  /* Notification dot */
+  #pf-dot {
+    position:absolute; top:-2px; right:-2px;
+    width:14px; height:14px; border-radius:50%;
+    background:var(--pf-gold); border:2px solid #0E0E0E;
+  }
+  #pf-dot.hidden { display:none; }
+ 
+  /* ── Chat window ── */
+  #pf-chat {
+    position:fixed; bottom:108px; left:28px; z-index:8999;
+    width:380px; max-height:580px;
+    background:var(--pf-charcoal);
+    border-radius:var(--pf-radius);
+    border:1px solid rgba(201,146,42,.18);
+    box-shadow:0 24px 64px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.04);
+    display:flex; flex-direction:column; overflow:hidden;
+    transform:translateY(14px) scale(.97); opacity:0; pointer-events:none;
+    transition:transform var(--pf-ease), opacity var(--pf-ease);
+  }
+  #pf-chat.open { transform:translateY(0) scale(1); opacity:1; pointer-events:all; }
+  #pf-chat::before { content:''; height:2px; flex-shrink:0;
+    background:linear-gradient(90deg, transparent, var(--pf-gold), transparent); }
+ 
+  @media(max-width:440px){
+    #pf-chat { width:calc(100vw - 24px); left:12px; bottom:96px; max-height:72vh; }
+    #pf-trigger { left:16px; bottom:16px; }
+  }
+ 
+  /* ── Header ── */
+  .pf-hdr {
+    padding:14px 18px; border-bottom:1px solid var(--pf-border);
+    display:flex; align-items:center; gap:12px; flex-shrink:0;
+  }
+  .pf-hdr-av {
+    width:40px; height:40px; border-radius:50%; flex-shrink:0;
+    background:linear-gradient(135deg,#1A1208,#2a1f0e);
+    border:1.5px solid rgba(201,146,42,.35);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--pf-gold);
+  }
+  .pf-hdr-av svg { width:19px; height:19px; }
+  .pf-hdr-name { font-family:'Playfair Display',serif; font-size:15px; color:#fff; line-height:1.1; }
+  .pf-hdr-name em { font-style:italic; color:var(--pf-gold-l); }
+  .pf-hdr-sub { font-size:11px; color:var(--pf-muted); margin-top:2px;
+                display:flex; align-items:center; gap:5px; }
+  .pf-dot-live { width:6px; height:6px; border-radius:50%; background:#27AE60;
+    animation:pfBlink 2s ease-in-out infinite; }
+  @keyframes pfBlink { 0%,100%{opacity:1} 50%{opacity:.35} }
+  .pf-hdr-x { margin-left:auto; background:none; border:none; cursor:pointer;
+    color:var(--pf-muted); padding:4px; border-radius:6px; line-height:0;
+    transition:color var(--pf-ease); }
+  .pf-hdr-x:hover { color:#fff; }
+  .pf-hdr-x svg { width:18px; height:18px; }
+ 
+  /* ── Messages ── */
+  .pf-msgs {
+    flex:1; overflow-y:auto; padding:14px;
+    display:flex; flex-direction:column; gap:10px; scroll-behavior:smooth;
+  }
+  .pf-msgs::-webkit-scrollbar { width:3px; }
+  .pf-msgs::-webkit-scrollbar-thumb { background:rgba(255,255,255,.08); border-radius:3px; }
+ 
+  .pf-msg { display:flex; gap:8px; align-items:flex-end; animation:pfIn .28s ease; }
+  @keyframes pfIn { from{opacity:0;transform:translateY(7px)} to{opacity:1;transform:translateY(0)} }
+  .pf-msg.bot { align-self:flex-start; max-width:90%; }
+  .pf-msg.usr { align-self:flex-end; flex-direction:row-reverse; max-width:80%; }
+ 
+  .pf-av {
+    width:28px; height:28px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--pf-gold);
+    background:rgba(201,146,42,.1); border:1px solid rgba(201,146,42,.22);
+  }
+  .pf-av svg { width:13px; height:13px; }
+ 
+  .pf-bbl {
+    padding:10px 14px; border-radius:15px;
+    font-family:'Jost',sans-serif; font-size:13.5px; line-height:1.62;
+  }
+  .bot .pf-bbl {
+    background:var(--pf-card); color:rgba(255,255,255,.85);
+    border:1px solid var(--pf-border); border-bottom-left-radius:3px;
+  }
+  .usr .pf-bbl { background:var(--pf-gold); color:#fff; border-bottom-right-radius:3px; }
+ 
+  /* Rich formatting inside bubbles */
+  .pf-bbl b   { color:var(--pf-gold-l); font-weight:600; }
+  .pf-bbl .pf-price {
+    display:inline-block; background:rgba(201,146,42,.13);
+    border:1px solid rgba(201,146,42,.28);
+    color:var(--pf-gold-l); font-weight:700;
+    padding:1px 7px; border-radius:5px; font-size:13px;
+  }
+  .pf-bbl ul  { margin:6px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:4px; }
+  .pf-bbl li  { display:flex; gap:7px; align-items:flex-start; }
+  .pf-bbl li::before { content:'✦'; color:var(--pf-gold); font-size:9px; flex-shrink:0; margin-top:4px; }
+ 
+  /* Service summary card */
+  .pf-card {
+    background:rgba(201,146,42,.07); border:1px solid rgba(201,146,42,.2);
+    border-radius:10px; padding:12px 14px; margin-top:8px;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .pf-card-title { font-size:11px; font-weight:600; letter-spacing:3px;
+    text-transform:uppercase; color:var(--pf-gold); }
+  .pf-card-price { font-family:'Playfair Display',serif; font-size:26px;
+    font-weight:700; color:#fff; line-height:1; }
+  .pf-card-sub { font-size:11px; color:var(--pf-muted); }
+  .pf-card-rows { display:flex; flex-direction:column; gap:4px; margin-top:4px; }
+  .pf-card-row { display:flex; justify-content:space-between; align-items:center;
+    font-size:12px; padding:4px 0; border-bottom:1px solid rgba(255,255,255,.05); }
+  .pf-card-row:last-child { border:none; }
+  .pf-card-row span:last-child { color:var(--pf-gold-l); font-weight:600; }
+ 
+  /* WhatsApp CTA inside bubble */
+  .pf-wa {
+    display:inline-flex; align-items:center; gap:7px;
+    background:#25D366; color:#fff;
+    font-family:'Jost',sans-serif; font-size:11px; font-weight:600;
+    letter-spacing:1.5px; text-transform:uppercase;
+    padding:9px 16px; border-radius:20px;
+    text-decoration:none; margin-top:10px;
+    transition:background .2s; cursor:pointer;
+  }
+  .pf-wa:hover { background:#1ebe5a; }
+  .pf-wa svg { width:14px; height:14px; }
+ 
+  /* Typing dots */
+  .pf-typing { display:flex; align-items:center; gap:5px; padding:12px 16px; }
+  .pf-typing s { width:6px; height:6px; border-radius:50%; background:var(--pf-muted);
+    display:block; animation:pfBounce 1.1s ease-in-out infinite; }
+  .pf-typing s:nth-child(2){ animation-delay:.13s; }
+  .pf-typing s:nth-child(3){ animation-delay:.26s; }
+  @keyframes pfBounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+ 
+  /* ── Quick chips ── */
+  #pf-chips {
+    padding:6px 14px 2px;
+    display:flex; flex-wrap:wrap; gap:6px;
+  }
+  .pf-chip {
+    font-family:'Jost',sans-serif; font-size:11px; font-weight:500;
+    padding:7px 12px; border-radius:20px;
+    border:1px solid rgba(201,146,42,.3);
+    background:rgba(201,146,42,.07); color:var(--pf-gold-l);
+    cursor:pointer; white-space:nowrap;
+    transition:background var(--pf-ease), border-color var(--pf-ease), transform var(--pf-ease);
+  }
+  .pf-chip:hover { background:rgba(201,146,42,.16); border-color:var(--pf-gold); transform:translateY(-1px); }
+ 
+  /* ── Input ── */
+  .pf-foot {
+    padding:10px 14px 14px; border-top:1px solid var(--pf-border);
+    display:flex; gap:8px; align-items:flex-end; flex-shrink:0;
+  }
+  #pf-inp {
+    flex:1; background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1); border-radius:12px;
+    padding:10px 13px; color:#fff;
+    font-family:'Jost',sans-serif; font-size:13px;
+    resize:none; outline:none; max-height:88px; min-height:40px;
+    overflow-y:auto; line-height:1.5;
+    transition:border-color var(--pf-ease);
+  }
+  #pf-inp::placeholder { color:rgba(255,255,255,.22); }
+  #pf-inp:focus { border-color:rgba(201,146,42,.4); }
+  #pf-btn {
+    width:40px; height:40px; border-radius:10px; flex-shrink:0;
+    background:var(--pf-gold); border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; transition:background var(--pf-ease), transform var(--pf-ease);
+  }
+  #pf-btn:hover  { background:var(--pf-gold-l); transform:scale(1.05); }
+  #pf-btn:disabled { background:rgba(255,255,255,.1); cursor:not-allowed; transform:none; }
+  #pf-btn svg { width:17px; height:17px; }
+  
+</style>
   
 </head>
 
@@ -2172,6 +2391,55 @@ Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
     <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
   </a>
 
+  <!-- SVG sprite -->
+  <svg style="display:none">
+    <symbol id="pf-ico-paw" viewBox="0 0 24 24" fill="currentColor">
+      <circle cx="4.5" cy="7" r="2"/><circle cx="9" cy="4" r="1.5"/>
+      <circle cx="15" cy="4" r="1.5"/><circle cx="19.5" cy="7" r="2"/>
+      <path d="M12 9c-2.8 0-6 2.2-6 5.5C6 18 8.5 20 12 20s6-2 6-5.5C18 11.2 14.8 9 12 9z"/>
+    </symbol>
+    <symbol id="pf-ico-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </symbol>
+    <symbol id="pf-ico-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+    </symbol>
+    <symbol id="pf-ico-wa" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </symbol>
+    <symbol id="pf-ico-usr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+    </symbol>
+  </svg>
+  
+  <!-- Trigger -->
+  <button id="pf-trigger" aria-label="Abrir asistente" aria-expanded="false">
+    <div id="pf-dot" class="hidden"></div>
+    <svg class="ico-paw" aria-hidden="true"><use href="#pf-ico-paw"/></svg>
+    <svg class="ico-x" style="display:none" aria-hidden="true"><use href="#pf-ico-x"/></svg>
+  </button>
+  
+  <!-- Window -->
+  <div id="pf-chat" role="dialog" aria-label="Asistente Pet Fashion" aria-hidden="true">
+    <div class="pf-hdr">
+      <div class="pf-hdr-av"><svg aria-hidden="true"><use href="#pf-ico-paw"/></svg></div>
+      <div>
+        <div class="pf-hdr-name">Pet <em>Fashion</em></div>
+        <div class="pf-hdr-sub"><span class="pf-dot-live"></span>Asistente virtual · siempre activo</div>
+      </div>
+      <button class="pf-hdr-x" aria-label="Cerrar">
+        <svg aria-hidden="true"><use href="#pf-ico-x"/></svg>
+      </button>
+    </div>
+    <div class="pf-msgs" id="pf-msgs" aria-live="polite"></div>
+    <div id="pf-chips"></div>
+    <div class="pf-foot">
+      <textarea id="pf-inp" rows="1" placeholder="Escríbeme tu pregunta..." maxlength="400"></textarea>
+      <button id="pf-btn" disabled><svg aria-hidden="true"><use href="#pf-ico-send"/></svg></button>
+    </div>
+  </div>
+
+
   <script>
     // ─── FAQ accordion ───────────────────────────
     document.querySelectorAll('.faq-question').forEach(btn => {
@@ -2283,6 +2551,591 @@ Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
       navLinks.forEach(l => { l.style.color = l.getAttribute('href') === `#${current}` ? 'rgba(228,179,85,1)' : ''; });
     }, { passive: true });
   </script>
+
+  <!-- Bot script -->
+   <script>
+(function(){
+'use strict';
+ 
+// ─────────────────────────────────────────────
+//  BASE DE CONOCIMIENTO COMPLETA — Pet Fashion
+// ─────────────────────────────────────────────
+const KB = {
+  precios: {
+    corte_bano: { XS:[0,5,22000], S:[5.1,10,26000], M:[10.1,20,30000], L:[20.1,30,45000] },
+    bano:       { XS:[0,5,18000], S:[5.1,10,22000], M:[10.1,20,26000],
+                  L_manto:[20.1,30,35000], L_doble:[20.1,30,45000] },
+    unas:       { XS:[0,5,5000],  S:[5.1,10,7000],  M:[10.1,20,10000], L:[20.1,30,12000] },
+    afilado:    { precio: 5000, descripcion: 'por cuchilla' }
+  },
+  incluye: {
+    corte_bano: ['1er lavado: neutralizador de olor','2do lavado: shampoo hidratante',
+                 '3er lavado: acondicionador','Corte de pelo según raza',
+                 'Despejes sanitario y cojinetes','Vaciado de glándulas anales',
+                 'Secado profesional','Limpieza de oídos',
+                 'Corte y limado de uñas','Perfume de larga duración'],
+    bano:       ['Deslanado o cepillado','1er lavado: neutralizador de olor',
+                 '2do lavado: shampoo hidratante','3er lavado: acondicionador',
+                 'Despejes sanitario y cojinetes','Vaciado de glándulas anales',
+                 'Secado profesional','Limpieza de oídos',
+                 'Corte y limado de uñas','Perfume de larga duración'],
+    unas:       ['Corte de uñas','Limado de uñas'],
+    afilado:    ['Afilado profesional','Limpieza y desinfección de la cuchilla',
+                 'Lubricación y ajuste para funcionamiento óptimo']
+  }
+};
+ 
+function fmt(n){ return '$' + n.toLocaleString('es-CL'); }
+ 
+// ─────────────────────────────────────────────
+//  ESTIMADOR DE PRECIO
+// ─────────────────────────────────────────────
+function estimarPrecio(servicio, pesoKg) {
+  const table = KB.precios[servicio];
+  if (!table) return null;
+  if (servicio === 'afilado') return { fijo: table.precio };
+ 
+  let talla, precio;
+  if (pesoKg <= 5)       { talla='XS'; precio=table.XS[2]; }
+  else if (pesoKg <= 10) { talla='S';  precio=table.S[2]; }
+  else if (pesoKg <= 20) { talla='M';  precio=table.M[2]; }
+  else if (pesoKg <= 30) {
+    talla='L';
+    if (servicio === 'bano') return { talla, precio_manto: table.L_manto[2], precio_doble: table.L_doble[2] };
+    precio = table.L[2];
+  } else return null;
+ 
+  return { talla, precio };
+}
+ 
+// ─────────────────────────────────────────────
+//  DETECCIÓN DE INTENCIÓN (NLU básico)
+// ─────────────────────────────────────────────
+const WA_URL = 'https://wa.me/56945570410';
+ 
+function detectIntent(txt) {
+  const t = txt.toLowerCase()
+    .replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u')
+    .replace(/[¿?¡!.,]/g,'');
+ 
+  // Detectar peso en kg
+  const pesoMatch = t.match(/(\d+[\.,]?\d*)\s*kg/) || t.match(/pesa?\s+(\d+[\.,]?\d*)/) || t.match(/(\d+[\.,]?\d*)\s*(kilo|kg)/);
+  const peso = pesoMatch ? parseFloat(pesoMatch[1].replace(',','.')) : null;
+ 
+  // Detectar servicio mencionado
+  const esCorteBano  = /corte\s*y?\s*ba[nñ]o|ba[nñ]o\s*y?\s*corte|completo/.test(t);
+  const esBano       = /solo?\s*ba[nñ]o|solo\s*ba[nñ]|ba[nñ]o\s*sin\s*corte/.test(t) || (/ba[nñ]o/.test(t) && !esCorteBano);
+  const esUnas       = /u[nñ]as?|nail/.test(t);
+  const esAfilado    = /afila(do|r)|cuchilla/.test(t);
+  const esPrecio     = /precio|costo|cuesta|cuanto|valor|tarifa|cobran/.test(t);
+  const esAgendar    = /agendar?|reservar?|hora|cita|turno|disponib/.test(t);
+  const esUbicacion  = /donde|ubicacion|direccion|santa luisa|isla negra|como llegar|mapa/.test(t);
+  const esHorario    = /horario|abierto|atienden|cuando|dias?|hora/.test(t);
+  const esBozal      = /bozal/.test(t);
+  const esSedacion   = /sedacion|sedar|sedante|dormido/.test(t);
+  const esPulgas     = /pulga|parasit|antipulg/.test(t);
+  const esProductos  = /producto|shampoo|champoo|marca|hydra|que usan/.test(t);
+  const esNervioso   = /nervioso|agresivo|asustado|miedoso|mala conducta/.test(t);
+  const esTiempo     = /cuanto\s*(tarda|tiempo|demora)/.test(t);
+  const esTalla      = /talla|tamano|grande|pequeno|mediano|chico/.test(t);
+  const esReseñas    = /reseña|opinion|instagram|google|valoracion/.test(t);
+  const esGracias    = /gracias|thank|genial|perfecto|excelente|ok|listo/.test(t);
+  const esHola       = /^(hola|hi|buenos|buenas|hey|saludos|buen dia|buen tarde|buen noche)/.test(t.trim());
+ 
+  return { peso, esCorteBano, esBano, esUnas, esAfilado, esPrecio,
+           esAgendar, esUbicacion, esHorario, esBozal, esSedacion,
+           esPulgas, esProductos, esNervioso, esTiempo, esTalla,
+           esReseñas, esGracias, esHola };
+}
+ 
+// ─────────────────────────────────────────────
+//  GENERADOR DE RESPUESTAS
+// ─────────────────────────────────────────────
+function getResponse(txt) {
+  const i = detectIntent(txt);
+ 
+  // ── Saludo ──
+  if (i.esHola && !i.esPrecio && !i.esCorteBano && !i.esBano && !i.esUnas) {
+    return {
+      text: `¡Hola! Bienvenido a <b>Pet Fashion Dog Salon</b> 🐾\n\nSoy tu asistente virtual. Puedo ayudarte a conocer nuestros servicios, <b>estimar el precio</b> según el tamaño de tu perrito y resolver tus dudas.\n\n¿En qué te puedo ayudar hoy?`,
+      chips: 'inicio'
+    };
+  }
+ 
+  // ── Gracias ──
+  if (i.esGracias) {
+    return {
+      text: `¡Con mucho gusto! 🐾 Si necesitas algo más o quieres agendar tu hora, estamos a un mensaje de distancia.\n\n`,
+      html: makeWa('Agendar por WhatsApp'),
+      chips: 'inicio'
+    };
+  }
+ 
+  // ── Precio estimado con peso ──
+  if (i.peso !== null) {
+    let servicio = 'corte_bano';
+    let nombreServ = 'Corte y Baño';
+    if (i.esUnas)                 { servicio='unas';    nombreServ='Corte de Uñas'; }
+    else if (i.esBano && !i.esCorteBano) { servicio='bano'; nombreServ='Solo Baño'; }
+ 
+    if (i.peso > 30) {
+      return {
+        text: `Para perros de más de 30 kg, el precio se consulta directamente ya que varía según la raza y estado del pelaje. ¡Escríbenos por WhatsApp y te cotizamos sin compromiso!`,
+        html: makeWa(`Cotizar para perro de ${i.peso} kg`),
+        chips: 'agendar'
+      };
+    }
+ 
+    const est = estimarPrecio(servicio, i.peso);
+    if (!est) return fallback();
+ 
+    let html = '';
+    if (est.precio_manto) {
+      html = `<div class="pf-card">
+        <div class="pf-card-title">${nombreServ} · Talla ${est.talla} · ${i.peso} kg</div>
+        <div class="pf-card-rows">
+          <div class="pf-card-row"><span>Manto corto</span><span>${fmt(est.precio_manto)}</span></div>
+          <div class="pf-card-row"><span>Doble capa</span><span>${fmt(est.precio_doble)}</span></div>
+        </div>
+        ${makeWa(`Agendar ${nombreServ} para perro de ${i.peso} kg`, true)}
+      </div>`;
+    } else {
+      html = `<div class="pf-card">
+        <div class="pf-card-title">${nombreServ} · Talla ${est.talla}</div>
+        <div class="pf-card-price">${fmt(est.precio)}</div>
+        <div class="pf-card-sub">${i.peso} kg · Isla Negra</div>
+        ${makeWa(`Agendar ${nombreServ} para perro de ${i.peso} kg`, true)}
+      </div>`;
+    }
+ 
+    return {
+      text: `¡Perfecto! Para un perrito de <b>${i.peso} kg</b> el precio estimado del servicio de <b>${nombreServ}</b> es:`,
+      html,
+      chips: 'post_precio'
+    };
+  }
+ 
+  // ── Precios generales ──
+  if (i.esPrecio && !i.peso) {
+    const tabla = i.esUnas ? KB.precios.unas
+                : i.esBano && !i.esCorteBano ? KB.precios.bano
+                : i.esCorteBano ? KB.precios.corte_bano
+                : null;
+    const nombre = i.esUnas ? 'Corte de Uñas'
+                 : i.esBano && !i.esCorteBano ? 'Solo Baño'
+                 : i.esCorteBano ? 'Corte y Baño'
+                 : null;
+ 
+    if (tabla && nombre) {
+      return preciosServicio(nombre, tabla);
+    }
+ 
+    // Todos los precios
+    const html = `<div class="pf-card">
+      <div class="pf-card-title">Corte y Baño</div>
+      <div class="pf-card-rows">
+        <div class="pf-card-row"><span>XS (0–5 kg)</span><span>${fmt(22000)}</span></div>
+        <div class="pf-card-row"><span>S (5–10 kg)</span><span>${fmt(26000)}</span></div>
+        <div class="pf-card-row"><span>M (10–20 kg)</span><span>${fmt(30000)}</span></div>
+        <div class="pf-card-row"><span>L (20–30 kg)</span><span>${fmt(45000)}</span></div>
+      </div>
+    </div>
+    <div class="pf-card" style="margin-top:8px">
+      <div class="pf-card-title">Solo Baño</div>
+      <div class="pf-card-rows">
+        <div class="pf-card-row"><span>XS (0–5 kg)</span><span>${fmt(18000)}</span></div>
+        <div class="pf-card-row"><span>S (5–10 kg)</span><span>${fmt(22000)}</span></div>
+        <div class="pf-card-row"><span>M (10–20 kg)</span><span>${fmt(26000)}</span></div>
+        <div class="pf-card-row"><span>L manto corto</span><span>${fmt(35000)}</span></div>
+        <div class="pf-card-row"><span>L doble capa</span><span>${fmt(45000)}</span></div>
+      </div>
+    </div>
+    <div class="pf-card" style="margin-top:8px">
+      <div class="pf-card-title">Corte de Uñas</div>
+      <div class="pf-card-rows">
+        <div class="pf-card-row"><span>XS</span><span>${fmt(5000)}</span></div>
+        <div class="pf-card-row"><span>S</span><span>${fmt(7000)}</span></div>
+        <div class="pf-card-row"><span>M</span><span>${fmt(10000)}</span></div>
+        <div class="pf-card-row"><span>L</span><span>${fmt(12000)}</span></div>
+      </div>
+    </div>`;
+ 
+    return {
+      text: 'Aquí están todos nuestros precios. Dime el peso de tu perrito y te doy el precio exacto 👇',
+      html,
+      chips: 'peso'
+    };
+  }
+ 
+  // ── Corte y baño ──
+  if (i.esCorteBano && !i.esPrecio && !i.peso) {
+    return {
+      text: `El <b>Corte y Baño</b> es nuestro servicio más completo 🐾\n\nIncluye:`,
+      html: makeList(KB.incluye.corte_bano) + makeWa('Agendar Corte y Baño'),
+      chips: 'precio_servicio',
+      servicioCtx: 'corte_bano'
+    };
+  }
+ 
+  // ── Solo baño ──
+  if (i.esBano && !i.esCorteBano && !i.esPrecio && !i.peso) {
+    return {
+      text: `El servicio de <b>Solo Baño</b> es ideal para mantención entre cortes 🛁\n\nIncluye:`,
+      html: makeList(KB.incluye.bano) + makeWa('Agendar Solo Baño'),
+      chips: 'precio_servicio',
+      servicioCtx: 'bano'
+    };
+  }
+ 
+  // ── Uñas ──
+  if (i.esUnas && !i.esPrecio && !i.peso) {
+    return {
+      text: `Sí, hacemos <b>Corte de Uñas</b> como servicio independiente 💅\n\nIncluye corte y limado profesional. También está disponible como servicio express sin turno previo (sujeto a disponibilidad).`,
+      html: preciosServicio('Corte de Uñas', KB.precios.unas).html + makeWa('Agendar Corte de Uñas'),
+      chips: 'agendar'
+    };
+  }
+ 
+  // ── Afilado ──
+  if (i.esAfilado) {
+    return {
+      text: `Ofrecemos <b>Afilado de Cuchillas</b> profesional 🔧\n\nCompatible con cuchillas tipo A5 desmontables: Andis, Oster, Wahl y similares.`,
+      html: `<div class="pf-card">
+        <div class="pf-card-title">Afilado de Cuchillas</div>
+        <div class="pf-card-price">${fmt(5000)}</div>
+        <div class="pf-card-sub">por cuchilla · entrega el mismo día</div>
+      </div>` +
+      `<br>Incluye:<br>` + makeList(KB.incluye.afilado) + makeWa('Consultar afilado de cuchillas'),
+      chips: 'agendar'
+    };
+  }
+ 
+  // ── Agendar ──
+  if (i.esAgendar) {
+    return {
+      text: `Para agendar tu hora, la forma más rápida es por <b>WhatsApp</b> 📱\n\nTambién puedes contactarnos por Instagram <b>@petfashiondogsalon</b>.`,
+      html: makeWa('Agendar mi hora ahora'),
+      chips: 'inicio'
+    };
+  }
+ 
+  // ── Ubicación ──
+  if (i.esUbicacion) {
+    return {
+      text: `Estamos en <b>Santa Luisa #51, Isla Negra, Chile</b> 📍\n\nCubrimos toda la zona del litoral central: Isla Negra, El Quisco y Algarrobo.`,
+      html: `<a class="pf-wa" href="https://maps.google.com/?q=Santa+Luisa+51+Isla+Negra+Chile" target="_blank" rel="noopener">
+              <svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ver en Google Maps
+            </a>`,
+      chips: 'inicio'
+    };
+  }
+ 
+  // ── Horario ──
+  if (i.esHorario) {
+    return {
+      text: `Nuestro horario de atención es:\n\n🗓️ <b>Lunes a Sábado</b>\n⏰ <b>10:00 a 18:00 hrs</b>\n\n¿Quieres agendar una hora?`,
+      html: makeWa('Agendar hora'),
+      chips: 'agendar'
+    };
+  }
+ 
+  // ── Sin bozal ──
+  if (i.esBozal) {
+    return {
+      text: `¡Exacto! En Pet Fashion trabajamos <b>siempre sin bozal</b> 🛡️\n\nEs uno de nuestros compromisos fundamentales. Creemos que la paciencia y el trato amable son suficientes para lograr un servicio de calidad sin generar estrés en tu mascota.`,
+      chips: 'inicio'
+    };
+  }
+ 
+  // ── Sin sedación ──
+  if (i.esSedacion) {
+    return {
+      text: `<b>No usamos sedación</b> en ninguno de nuestros servicios 💊\n\nNuestra filosofía es que con paciencia, técnica y trato respetuoso no es necesario. Cada sesión es una experiencia positiva que tu perro aprenderá a disfrutar con el tiempo.`,
+      chips: 'inicio'
+    };
+  }
+ 
+  // ── Pulgas ──
+  if (i.esPulgas) {
+    return {
+      text: `No realizamos baños antipulgas con productos químicos fuertes 🪲\n\nPara perros con presencia de pulgas, recomendamos primero consultar con tu veterinario. Idealmente tu mascota debe venir con el tratamiento al día (comprimido o pipeta), ya que recibimos varios perritos en el mismo espacio y velamos por el bienestar de todos.`,
+      chips: 'inicio'
+    };
+  }
+ 
+  // ── Productos ──
+  if (i.esProductos) {
+    return {
+      text: `Usamos <b>cosmética profesional Hydra</b> 🧴, una de las marcas líderes en grooming canino.\n\nLa línea incluye:\n`,
+      html: makeList(['Neutralizador de olor profesional','Shampoo hidratante','Acondicionador de alto rendimiento','Perfume canino de larga duración']),
+      chips: 'inicio'
+    };
+  }
+ 
+  // ── Perro nervioso ──
+  if (i.esNervioso) {
+    return {
+      text: `Nos especializamos en <b>manejo respetuoso y sin estrés</b> 🤍\n\nTenemos experiencia con perros ansiosos. Sin embargo, por seguridad de todos no trabajamos con perritos agresivos.\n\nSi tu mascota tiene un carácter especial, cuéntanoslo al agendar para prepararnos mejor 🐾`,
+      html: makeWa('Consultar sobre mi perro'),
+      chips: 'agendar'
+    };
+  }
+ 
+  // ── Cuánto demora ──
+  if (i.esTiempo) {
+    return {
+      text: `El tiempo varía según el servicio y tamaño 🕐\n\n<b>Solo Baño:</b> 1 a 2 horas\n<b>Corte y Baño:</b> 2 a 3 horas\n\nPerros con pelaje largo, con nudos o razas especiales pueden requerir más tiempo. Te avisamos al momento de agendar.`,
+      chips: 'inicio'
+    };
+  }
+ 
+  // ── Talla / tamaño ──
+  if (i.esTalla) {
+    return {
+      text: `Las tallas se definen por el <b>peso de tu perrito</b>:\n`,
+      html: makeList([
+        'XS: 0 a 5 kg',
+        'S: 5,1 a 10 kg',
+        'M: 10,1 a 20 kg',
+        'L: 20,1 a 30 kg'
+      ]) + '<br>¿Cuánto pesa tu perro?',
+      chips: 'peso'
+    };
+  }
+ 
+  // ── Reseñas ──
+  if (i.esReseñas) {
+    return {
+      text: `¡Nos alegra que preguntes! Puedes ver nuestras reseñas y fotos de trabajo en:\n\n📸 <b>Instagram:</b> @petfashiondogsalon\n📍 <b>Google Maps:</b> Pet Fashion Dog Salon, Isla Negra`,
+      html: `<a class="pf-wa" style="background:#E1306C" href="https://www.instagram.com/petfashiondogsalon" target="_blank" rel="noopener">
+               Ver Instagram
+             </a>`,
+      chips: 'inicio'
+    };
+  }
+ 
+  // ── Fallback inteligente ──
+  return {
+    text: `Gracias por tu consulta 🐾 No estoy seguro de entender bien tu pregunta.\n\nPuedo ayudarte con <b>precios</b>, <b>servicios</b>, <b>agendar una hora</b> o cualquier duda sobre Pet Fashion. ¡Prueba una de estas opciones!`,
+    chips: 'inicio'
+  };
+}
+ 
+// ─────────────────────────────────────────────
+//  HELPERS HTML
+// ─────────────────────────────────────────────
+function makeList(items) {
+  return '<ul>' + items.map(i => `<li>${i}</li>`).join('') + '</ul>';
+}
+ 
+function makeWa(msg, inline = false) {
+  const url = `${WA_URL}?text=${encodeURIComponent('Hola! ' + msg)}`;
+  const style = inline ? 'display:inline-flex' : '';
+  return `<a class="pf-wa" href="${url}" target="_blank" rel="noopener" style="${style}">
+    <svg><use href="#pf-ico-wa"/></svg> ${msg}
+  </a>`;
+}
+ 
+function preciosServicio(nombre, tabla) {
+  const rows = Object.entries(tabla)
+    .filter(([k]) => k !== 'precio' && k !== 'descripcion')
+    .map(([k, v]) => {
+      const label = k.replace('_manto', ' manto corto').replace('_doble', ' doble capa');
+      return `<div class="pf-card-row"><span>${label.toUpperCase()} (${v[0]}–${v[1]} kg)</span><span>${fmt(v[2])}</span></div>`;
+    }).join('');
+  return {
+    text: `Precios del servicio de <b>${nombre}</b>:`,
+    html: `<div class="pf-card"><div class="pf-card-title">${nombre}</div><div class="pf-card-rows">${rows}</div></div>`,
+    chips: 'peso'
+  };
+}
+ 
+function fallback() {
+  return {
+    text: 'Para una cotización personalizada, contáctanos por WhatsApp y te respondemos enseguida 🐾',
+    html: makeWa('Solicitar cotización'),
+    chips: 'inicio'
+  };
+}
+ 
+// ─────────────────────────────────────────────
+//  CHIPS DE RESPUESTA RÁPIDA
+// ─────────────────────────────────────────────
+const CHIPS = {
+  inicio: [
+    { l:'💰 Ver todos los precios', t:'¿Cuáles son los precios?' },
+    { l:'✂️ Corte y Baño',         t:'¿Qué incluye el corte y baño?' },
+    { l:'🛁 Solo Baño',            t:'¿Qué incluye el solo baño?' },
+    { l:'💅 Corte de Uñas',        t:'¿Tienen corte de uñas?' },
+    { l:'🔧 Afilado',              t:'¿Qué es el afilado de cuchillas?' },
+    { l:'📍 Ubicación',            t:'¿Dónde están ubicados?' },
+  ],
+  peso: [
+    { l:'Mi perro pesa 3 kg',  t:'Mi perro pesa 3 kg' },
+    { l:'Mi perro pesa 7 kg',  t:'Mi perro pesa 7 kg' },
+    { l:'Mi perro pesa 15 kg', t:'Mi perro pesa 15 kg' },
+    { l:'Mi perro pesa 25 kg', t:'Mi perro pesa 25 kg' },
+  ],
+  precio_servicio: [
+    { l:'¿Cuánto cuesta?',      t:'¿Cuál es el precio?' },
+    { l:'📱 Agendar hora',      href: `${WA_URL}?text=${encodeURIComponent('Hola! Quiero agendar una cita')}` },
+  ],
+  post_precio: [
+    { l:'¿Qué incluye?',       t:'¿Qué incluye ese servicio?' },
+    { l:'📱 Agendar ahora',    href: `${WA_URL}?text=${encodeURIComponent('Hola! Quiero agendar una cita')}` },
+    { l:'Ver otro servicio',   t:'¿Cuáles son los precios?' },
+  ],
+  agendar: [
+    { l:'📱 Agendar WhatsApp', href: `${WA_URL}?text=${encodeURIComponent('Hola! Quiero agendar una cita')}` },
+    { l:'Ver más servicios',   t:'¿Cuáles son los servicios?' },
+  ]
+};
+ 
+// ─────────────────────────────────────────────
+//  DOM & STATE
+// ─────────────────────────────────────────────
+const trigger = document.getElementById('pf-trigger');
+const chat    = document.getElementById('pf-chat');
+const msgBox  = document.getElementById('pf-msgs');
+const chips   = document.getElementById('pf-chips');
+const inp     = document.getElementById('pf-inp');
+const btn     = document.getElementById('pf-btn');
+const dot     = document.getElementById('pf-dot');
+const closeX  = chat.querySelector('.pf-hdr-x');
+ 
+let isOpen = false, started = false;
+ 
+// ─────────────────────────────────────────────
+//  RENDER
+// ─────────────────────────────────────────────
+function addMsg(role, text, extraHtml = '') {
+  const wrap = document.createElement('div');
+  wrap.className = `pf-msg ${role}`;
+ 
+  if (role === 'bot') {
+    const av = document.createElement('div');
+    av.className = 'pf-av';
+    av.innerHTML = `<svg aria-hidden="true"><use href="#pf-ico-paw"/></svg>`;
+    wrap.appendChild(av);
+  }
+ 
+  const bbl = document.createElement('div');
+  bbl.className = 'pf-bbl';
+  // Convert \n to <br>, bold markers
+  bbl.innerHTML = (text || '').replace(/\n/g,'<br>') + (extraHtml || '');
+  wrap.appendChild(bbl);
+ 
+  if (role === 'usr') {
+    const av = document.createElement('div');
+    av.className = 'pf-av';
+    av.innerHTML = `<svg aria-hidden="true"><use href="#pf-ico-usr"/></svg>`;
+    wrap.appendChild(av);
+  }
+ 
+  msgBox.appendChild(wrap);
+  scroll();
+}
+ 
+function showTyping() {
+  const w = document.createElement('div');
+  w.className = 'pf-msg bot'; w.id = 'pf-typing';
+  const av = document.createElement('div');
+  av.className = 'pf-av';
+  av.innerHTML = `<svg aria-hidden="true"><use href="#pf-ico-paw"/></svg>`;
+  const b = document.createElement('div');
+  b.className = 'pf-bbl pf-typing';
+  b.innerHTML = '<s></s><s></s><s></s>';
+  w.appendChild(av); w.appendChild(b);
+  msgBox.appendChild(w);
+  scroll();
+}
+ 
+function removeTyping() { const el = document.getElementById('pf-typing'); if (el) el.remove(); }
+ 
+function renderChips(key) {
+  chips.innerHTML = '';
+  (CHIPS[key] || []).forEach(c => {
+    const el = document.createElement(c.href ? 'a' : 'button');
+    el.className = 'pf-chip';
+    el.textContent = c.l;
+    if (c.href) { el.href = c.href; el.target = '_blank'; el.rel = 'noopener'; }
+    else el.addEventListener('click', () => { chips.innerHTML=''; sendMsg(c.t); });
+    chips.appendChild(el);
+  });
+}
+ 
+function scroll() { requestAnimationFrame(() => { msgBox.scrollTop = msgBox.scrollHeight; }); }
+ 
+// ─────────────────────────────────────────────
+//  SEND
+// ─────────────────────────────────────────────
+function sendMsg(text) {
+  text = (text || inp.value).trim();
+  if (!text) return;
+  inp.value = ''; inp.style.height = 'auto'; btn.disabled = true;
+  chips.innerHTML = '';
+ 
+  addMsg('usr', text);
+  showTyping();
+ 
+  // Simulated "thinking" delay for natural feel
+  const delay = 400 + Math.random() * 500;
+  setTimeout(() => {
+    removeTyping();
+    const res = getResponse(text);
+    addMsg('bot', res.text, res.html || '');
+    renderChips(res.chips || 'inicio');
+  }, delay);
+}
+ 
+// ─────────────────────────────────────────────
+//  OPEN / CLOSE
+// ─────────────────────────────────────────────
+function open() {
+  isOpen = true;
+  chat.classList.add('open');
+  chat.setAttribute('aria-hidden','false');
+  trigger.classList.add('open');
+  trigger.setAttribute('aria-expanded','true');
+  dot.classList.add('hidden');
+  if (!started) { welcome(); started = true; }
+  inp.focus();
+}
+ 
+function close() {
+  isOpen = false;
+  chat.classList.remove('open');
+  chat.setAttribute('aria-hidden','true');
+  trigger.classList.remove('open');
+  trigger.setAttribute('aria-expanded','false');
+}
+ 
+function welcome() {
+  addMsg('bot', `¡Hola! Bienvenido a <b>Pet Fashion Dog Salon</b> 🐾\n\nSoy el asistente virtual de Elizabeth y Ricardo. Puedo ayudarte con:\n\n• Conocer nuestros servicios\n• Estimar el precio según el tamaño de tu perrito\n• Resolver cualquier duda\n\n¿En qué te puedo ayudar?`);
+  renderChips('inicio');
+}
+ 
+trigger.addEventListener('click', () => isOpen ? close() : open());
+closeX.addEventListener('click', close);
+document.addEventListener('keydown', e => { if (e.key==='Escape' && isOpen) close(); });
+ 
+inp.addEventListener('input', () => {
+  btn.disabled = !inp.value.trim();
+  inp.style.height = 'auto';
+  inp.style.height = Math.min(inp.scrollHeight, 88) + 'px';
+});
+inp.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (!btn.disabled) sendMsg(); }
+});
+btn.addEventListener('click', () => sendMsg());
+ 
+// Notification after 3s
+setTimeout(() => { if (!isOpen) dot.classList.remove('hidden'); }, 3000);
+ 
+})();
+</script>
+
 
 </body>
 </html>
