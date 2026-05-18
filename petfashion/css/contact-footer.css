@@ -70,7 +70,7 @@
 @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 540px) { .footer-top { grid-template-columns: 1fr; } }
 
-.footer-brand-logo  { width: 80px; }
+.footer-brand-logo  { width: 90px; }
 .footer-brand-desc  { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.35); margin-top: 16px; margin-bottom: var(--sp-md); max-width: 260px; }
 
 .footer-socials  { display: flex; gap: 12px; }
