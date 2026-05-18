@@ -1,0 +1,79 @@
+/* ═══════════════════════════════════════════
+   SERVICIOS
+═══════════════════════════════════════════ */
+#servicios { background: var(--c-noir); }
+
+.services-header { text-align: center; margin-bottom: var(--sp-xl); }
+
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
+
+/* Card base */
+.service-card {
+  background: var(--c-dark-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  position: relative; overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  cursor: default;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
+  opacity: 0; transition: opacity var(--transition);
+}
+
+/* Watermark icon */
+.service-card-watermark {
+  position: absolute; bottom: -16px; right: -8px; width: 100px; height: 100px;
+  color: var(--c-gold-light); opacity: 0.04;
+  transition: opacity var(--transition); pointer-events: none;
+}
+
+.service-card:hover {
+  border-color: rgba(201,146,42,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(201,146,42,0.08);
+}
+.service-card:hover::before              { opacity: 1; }
+.service-card:hover .service-card-watermark { opacity: 0.07; }
+
+/* Featured variant */
+.service-card--featured {
+  background: linear-gradient(145deg, #1A1208 0%, #241709 100%);
+  border-color: rgba(201,146,42,0.25);
+}
+.service-card--featured::before { opacity: 1; }
+
+/* Card internals */
+.service-feat-tag {
+  display: inline-block; font-size: 9px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--c-gold); background: rgba(201,146,42,0.12);
+  border: 1px solid rgba(201,146,42,0.25);
+  padding: 4px 12px; border-radius: 20px; margin-bottom: 20px;
+}
+.service-icon { width: 44px; height: 44px; color: var(--c-gold); margin-bottom: var(--sp-sm); }
+
+.service-name { font-family: var(--f-display); font-size: 24px; color: var(--c-white); margin-bottom: var(--sp-sm); line-height: 1.2; }
+.service-name em { font-style: italic; color: var(--c-gold-light); }
+
+.service-desc { font-family: var(--f-sans); font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.45); margin-bottom: var(--sp-md); }
+
+.service-includes {
+  display: flex; flex-direction: column; gap: 8px;
+  margin-bottom: var(--sp-md); padding-top: var(--sp-sm);
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.service-includes li { font-size: 13px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 10px; }
+.service-includes li::before { content: '✦'; color: var(--c-gold); font-size: 8px; flex-shrink: 0; }
+
+.service-link {
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--c-gold); display: flex; align-items: center; gap: 8px;
+  transition: gap var(--transition), color var(--transition);
+}
+.service-link:hover      { gap: 14px; color: var(--c-gold-light); }
+.service-link::after     { content: '→'; }

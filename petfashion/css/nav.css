@@ -1,0 +1,124 @@
+/* ═══════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════ */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 24px var(--gutter);
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+}
+#navbar.scrolled {
+  background: rgba(14,14,14,0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 16px var(--gutter);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Logo */
+.nav-logo {
+  font-family: var(--f-display);
+  font-size: 22px;
+  display: flex; align-items: center; gap: 0;
+  z-index: 1001;
+  letter-spacing: 0.5px;
+}
+.nav-logo-pet    { color: var(--c-cream); }
+.nav-logo-fashion { font-style: italic; color: var(--c-gold-light); margin-left: 5px; }
+
+/* Location bar */
+#location-bar {
+  position: fixed; top: 72px; left: 0; right: 0; z-index: 999;
+  display: flex; align-items: center; justify-content: center;
+  padding: 5px var(--gutter);
+  transition: top var(--transition), opacity var(--transition);
+  pointer-events: none;
+}
+#navbar.scrolled ~ #location-bar,
+#location-bar.scrolled { top: 56px; }
+
+.location-bar-inner {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--f-sans); font-size: 9px; font-weight: 600;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.location-bar-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--c-gold); opacity: 0.6;
+}
+
+/* Sub-bar */
+.nav-location-bar {
+  position: fixed; top: 68px; left: 0; right: 0; z-index: 998;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-family: var(--f-sans); font-size: 9px; font-weight: 600;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  pointer-events: none;
+  transition: top var(--transition);
+}
+#navbar.scrolled ~ .nav-location-bar { top: 52px; }
+
+/* Desktop links */
+.nav-links { display: flex; align-items: center; gap: 36px; }
+.nav-links a {
+  font-family: var(--f-sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  transition: color var(--transition);
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 1px; background: var(--c-gold);
+  transition: width var(--transition);
+}
+.nav-links a:hover             { color: var(--c-white); }
+.nav-links a:hover::after      { width: 100%; }
+
+/* CTA nav button */
+.nav-cta {
+  font-family: var(--f-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--c-white) !important;
+  background: var(--c-gold);
+  padding: 12px 24px; border-radius: 40px;
+  transition: background var(--transition), transform var(--transition) !important;
+}
+.nav-cta:hover  { background: var(--c-gold-light) !important; transform: translateY(-1px) !important; }
+.nav-cta::after { display: none !important; }
+
+/* Hamburger */
+.nav-toggle {
+  display: none; flex-direction: column; gap: 5px;
+  padding: 8px; z-index: 1001; cursor: pointer;
+}
+.nav-toggle span {
+  display: block; width: 24px; height: 1.5px;
+  background: white; transition: var(--transition);
+  transform-origin: center;
+}
+.nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+/* Mobile overlay */
+.nav-mobile {
+  display: none;
+  position: fixed; inset: 0;
+  background: var(--c-noir); z-index: 999;
+  flex-direction: column; align-items: center; justify-content: center; gap: 40px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.nav-mobile.open    { opacity: 1; pointer-events: all; }
+.nav-mobile a       { font-family: var(--f-display); font-size: 32px; color: var(--c-white); transition: color var(--transition); }
+.nav-mobile a:hover { color: var(--c-gold-light); }
+.nav-mobile .nav-cta { font-family: var(--f-sans); font-size: 13px; }
+
+@media (max-width: 800px) {
+  .nav-links  { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-mobile { display: flex; }
+}

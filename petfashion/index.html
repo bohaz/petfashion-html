@@ -52,6 +52,7 @@
     "paymentAccepted": "Cash, Credit Card, Transfer",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Santa Luisa #51",
       "addressLocality": "Isla Negra",
       "addressRegion": "Región de Valparaíso",
       "addressCountry": "CL"
@@ -65,8 +66,8 @@
       "@type": "OfferCatalog",
       "name": "Servicios de Peluquería Canina",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Servicio de Corte y Baño", "description": "Baño, secado, corte de pelo, vaciado de glándulas anales, limpieza de oídos y corte de uñas." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Baño y Secado", "description": "Baño completo con secado y cepillado profesional." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corte y Baño", "description": "Baño, secado, corte de pelo, vaciado de glándulas anales, limpieza de oídos y corte de uñas." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Solo Baño", "description": "Baño completo con secado y cepillado profesional." } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Afilado de Cuchillas", "description": "Servicio profesional de afilado de tijeras y cuchillas de peluquería canina." } }
       ]
     }
@@ -83,54 +84,43 @@
   }
   </script>
 
-  <!-- SVG SPRITE (inline, hidden) — todos los íconos del sitio -->
+  <!-- SVG SPRITE (inline, hidden) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <defs>
-      <!-- Paw print -->
       <symbol id="ico-paw" viewBox="0 0 24 24" fill="currentColor">
-        <circle cx="4.5" cy="7" r="2"/>
-        <circle cx="9"   cy="4" r="1.5"/>
-        <circle cx="15"  cy="4" r="1.5"/>
-        <circle cx="19.5" cy="7" r="2"/>
+        <circle cx="4.5" cy="7" r="2"/><circle cx="9" cy="4" r="1.5"/>
+        <circle cx="15" cy="4" r="1.5"/><circle cx="19.5" cy="7" r="2"/>
         <path d="M12 9c-2.8 0-6 2.2-6 5.5C6 18 8.5 20 12 20s6-2 6-5.5C18 11.2 14.8 9 12 9z"/>
       </symbol>
-      <!-- Scissors -->
       <symbol id="ico-scissors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
         <line x1="20" y1="4" x2="8.12" y2="15.88"/>
         <line x1="14.47" y1="14.48" x2="20" y2="20"/>
         <line x1="8.12" y1="8.12" x2="12" y2="12"/>
       </symbol>
-      <!-- No-pill / shield-check (sin sedación) -->
       <symbol id="ico-nopill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         <polyline points="9 12 11 14 15 10"/>
       </symbol>
-      <!-- Location pin -->
       <symbol id="ico-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
         <circle cx="12" cy="10" r="3"/>
       </symbol>
-      <!-- Dog -->
       <symbol id="ico-dog" viewBox="0 0 50 50">
         <path d="M33.5 2C34 1 35 0.5 36 0.7C37 0.9 37.5 1.8 37.3 2.8L37.2 6C40 7 42 9 45 12C47 14 49 14.5 49.5 15.5C50 17 49.5 18.5 48 19.5C47 20.2 45.5 21 43 22C41 23 40.5 24 40.5 26C40.5 28.5 40 29.5 39 33C37.5 37 37 38.5 36.8 40C36.5 42.5 37 44 38 45C39 46 40 46.5 41.5 47C42 47.2 42 48.2 41.5 48.5C41 49 40 49 39 48.5C37 48 35.5 47 34.5 45.5C34 44.5 33.8 43.5 33.8 42C33.8 40 34.2 38 35.5 34C37 29 36.5 27.5 36.5 25.5C36.5 23 35.5 21 37 20C38 19 40 18.5 43 17C46 15.5 47.5 15.5 47 14.5C46.5 14 45 13 44 12C42 10.5 40 9 38 8.5C36.5 8 35 8 34.5 8.5C33.5 9.5 32.5 12 31 15C30 17.5 29.5 18.5 28.5 20C27.5 21.5 26 22 25 22.5C24 23 23 23 22.5 22.8C22 22.5 21.5 22.5 20 23C16 25 13 27 11 29.5C9 32 8 34.5 7.5 37.5C7.2 39 7.2 42 7.5 43.5C8 46 9 48 11 49C12.5 50 14 50 16 50C18 50 19 49.8 23 49C27 48.5 28 48.5 29.5 48.5C30 48.5 30.5 48 30.5 47.5C30.5 47 29.5 46.5 28 46.5C27 46.5 26 46.5 26 46.5C28 42 28.5 38 27 35C26 33 24 32 21 32C19 32 19 32 19 32.5C19 33 20 33.5 21.5 34C24.5 35 26 36 26 38C26 39 25.5 42 25 43.5C24.5 45 24 45.5 23.5 46L22 46C17 46.5 15.5 47 14 46.5C12.5 46 11.5 45 11 44C10.5 43 9.8 40 9.5 38C9.2 36 9.3 33 9.8 31C11 26 15 23 23 20C24 19.5 24.5 19 24.8 18.5C25 18 25.5 17.5 26.5 17C27.5 16.5 28 16 29 15C30.5 13.5 31 12.5 32.5 9.5C34 6.5 34.5 5.5 33.5 2Z" fill="currentColor"/>
       </symbol>
-      <!-- People / users -->
       <symbol id="ico-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
         <circle cx="9" cy="7" r="4"/>
         <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
         <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
       </symbol>
-      <!-- Star -->
       <symbol id="ico-star" viewBox="0 0 24 24" fill="currentColor">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
       </symbol>
-      <!-- Heart -->
       <symbol id="ico-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
       </symbol>
-      <!-- Trophy -->
       <symbol id="ico-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="8 21 12 17 16 21"/>
         <line x1="12" y1="17" x2="12" y2="11"/>
@@ -139,53 +129,42 @@
         <path d="M7 4h10v6a5 5 0 0 1-10 0V4z"/>
         <line x1="8" y1="21" x2="16" y2="21"/>
       </symbol>
-      <!-- Shield check (sin bozal) -->
       <symbol id="ico-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         <line x1="9" y1="12" x2="11" y2="14"/><line x1="11" y1="14" x2="15" y2="10"/>
       </symbol>
-      <!-- Sparkle / award -->
       <symbol id="ico-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17 5.8 21.3l2.4-7.4L2 9.4h7.6L12 2z"/>
       </symbol>
-      <!-- Bath tub -->
       <symbol id="ico-bath" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M7 12h10v4a4 4 0 0 1-4 4H11a4 4 0 0 1-4-4v-4z"/>
         <path d="M5 12H19"/>
         <path d="M7 12V6a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1"/>
         <path d="M9 8h1"/>
       </symbol>
-      <!-- Tool / blade sharpening -->
       <symbol id="ico-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77z"/>
       </symbol>
-      <!-- Camera -->
       <symbol id="ico-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
         <circle cx="12" cy="13" r="4"/>
       </symbol>
-      <!-- User (avatar) -->
       <symbol id="ico-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
         <circle cx="12" cy="7" r="4"/>
       </symbol>
-      <!-- WhatsApp -->
       <symbol id="ico-whatsapp" viewBox="0 0 24 24" fill="currentColor">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
       </symbol>
-      <!-- Instagram -->
       <symbol id="ico-instagram" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
       </symbol>
-      <!-- Threads -->
       <symbol id="ico-threads" viewBox="0 0 192 192" fill="currentColor">
         <path d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.347-10.548h.23c8.249.053 14.474 2.452 18.502 7.13 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.371-39.134 15.264-38.105 34.568.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.376-11.319 11.308-24.925 16.2-45.488 16.351-22.809-.169-40.06-7.484-51.275-21.742C35.236 139.966 29.808 120.682 29.605 96c.203-24.682 5.63-43.966 16.133-57.317C56.954 24.425 74.205 17.11 97.014 16.94c22.975.17 40.526 7.52 52.171 21.847 5.71 7.026 10.015 15.86 12.853 26.162l16.147-4.308c-3.44-12.68-8.853-23.606-16.219-32.668C147.036 9.607 125.202.195 97.07 0h-.113C68.882.195 47.292 9.6 32.788 27.99 19.882 44.485 13.224 67.315 13.001 95.932L13 96v.067c.224 28.617 6.882 51.447 19.788 67.942 14.504 18.39 36.094 27.797 64.188 27.991h.113c24.925-.173 42.288-6.698 56.72-21.119 18.718-18.702 18.139-42.093 11.952-56.428-4.313-10.055-12.575-18.311-23.224-23.465zm-41.082 55.579c-10.43.588-21.286-4.098-21.82-14.135-.397-7.442 5.296-15.746 22.461-16.735 1.966-.113 3.895-.169 5.79-.169 6.235 0 12.068.606 17.37 1.765-1.978 24.65-13.826 28.679-23.801 29.274z"/>
       </symbol>
-      <!-- Chat bubble -->
       <symbol id="ico-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
       </symbol>
-      <!-- Award ribbon -->
       <symbol id="ico-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="8" r="7"/>
         <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
@@ -198,1043 +177,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-  /* ═══════════════════════════════════════════
-     CSS CUSTOM PROPERTIES
-  ═══════════════════════════════════════════ */
-  :root {
-    --c-noir:        #0E0E0E;
-    --c-charcoal:    #1A1A1A;
-    --c-dark-card:   #161616;
-    --c-gold:        #C9922A;
-    --c-gold-light:  #E4B355;
-    --c-gold-pale:   #F5E6C8;
-    --c-terracotta:  #A64B2A;
-    --c-cream:       #FAF7F2;
-    --c-white:       #FFFFFF;
-    --c-muted:       #7A7369;
-    --c-border:      #E8E0D4;
-    --f-display: 'Playfair Display', Georgia, serif;
-    --f-serif:   'Cormorant Garamond', Georgia, serif;
-    --f-sans:    'Jost', sans-serif;
-    --sp-xs:  8px;  --sp-sm:  16px; --sp-md:  32px;
-    --sp-lg:  64px; --sp-xl:  96px; --sp-2xl: 140px;
-    --max-w: 1160px;
-    --gutter: clamp(20px, 5vw, 60px);
-    --shadow-sm: 0 2px 12px rgba(0,0,0,0.06);
-    --shadow-md: 0 8px 32px rgba(0,0,0,0.10);
-    --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
-    --radius-sm: 8px; --radius-md: 16px; --radius-lg: 24px;
-    --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* RESET */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-  body { font-family: var(--f-sans); font-weight: 300; background: var(--c-cream); color: var(--c-noir); overflow-x: hidden; line-height: 1.6; }
-  img { display: block; max-width: 100%; }
-  a { color: inherit; text-decoration: none; }
-  ul, ol { list-style: none; }
-  button { cursor: pointer; border: none; background: none; font: inherit; }
-  svg.icon { display: inline-block; flex-shrink: 0; }
-
-  /* UTILITIES */
-  .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
-  .section { padding: var(--sp-2xl) 0; }
-  .section--dark { background: var(--c-noir); }
-  .section--charcoal { background: var(--c-charcoal); }
-  .section--white { background: var(--c-white); }
-
-  .label { display: inline-block; font-family: var(--f-sans); font-size: 10px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; color: var(--c-gold); margin-bottom: var(--sp-sm); }
-  .label--light { color: var(--c-gold-light); }
-  .heading-lg { font-family: var(--f-display); font-size: clamp(32px, 4vw, 52px); line-height: 1.1; font-weight: 700; }
-  .subheading { font-family: var(--f-serif); font-size: clamp(18px, 2vw, 22px); line-height: 1.65; font-weight: 300; color: var(--c-muted); }
-  .italic { font-style: italic; }
-  .gold { color: var(--c-gold); }
-  .gold-light { color: var(--c-gold-light); }
-  .text-white { color: var(--c-white); }
-  .text-muted-light { color: rgba(255,255,255,0.5); }
-  .divider { width: 48px; height: 1px; background: var(--c-gold); margin: var(--sp-md) 0; }
-  .text-center { text-align: center; }
-  .mb-sm { margin-bottom: var(--sp-sm); }
-  .mb-md { margin-bottom: var(--sp-md); }
-  .mb-lg { margin-bottom: var(--sp-lg); }
-  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
-  :focus-visible { outline: 2px solid var(--c-gold); outline-offset: 4px; border-radius: 4px; }
-
-  /* REVEAL ANIMATION */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
-
-  /* ══ LOGO PLACEHOLDER ══
-     Reemplaza este bloque con tu logo real.
-     Color blanco: para fondo oscuro.
-     Color dorado: para fondo crema/blanco. */
-  .logo-placeholder {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--f-sans);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 4px;
-    border: 1.5px dashed currentColor;
-    opacity: 0.6;
-  }
-  .logo-placeholder--light { color: var(--c-white); }
-  .logo-placeholder--gold  { color: var(--c-gold-light); }
-
-  /* ══════════════════════════════════════════
-     NAVIGATION
-  ══════════════════════════════════════════ */
-  #navbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    padding: 24px var(--gutter);
-    display: flex; align-items: center; justify-content: space-between;
-    transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
-  }
-  #navbar.scrolled {
-    background: rgba(14,14,14,0.97);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 16px var(--gutter);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.05);
-  }
-  .nav-logo {
-    font-family: var(--f-display);
-    font-size: 22px;
-    display: flex; align-items: center; gap: 0; z-index: 1001;
-    letter-spacing: 0.5px;
-  }
-  .nav-logo-pet { color: var(--c-cream); }
-  .nav-logo-fashion { font-style: italic; color: var(--c-gold-light); margin-left: 5px; }
-
-  /* Location bar below navbar */
-  #location-bar {
-    position: fixed; top: 72px; left: 0; right: 0; z-index: 999;
-    display: flex; align-items: center; justify-content: center;
-    padding: 5px var(--gutter);
-    transition: top var(--transition), opacity var(--transition);
-    pointer-events: none;
-  }
-  #navbar.scrolled ~ #location-bar,
-  #location-bar.scrolled { top: 56px; }
-  .location-bar-inner {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--f-sans); font-size: 9px; font-weight: 600;
-    letter-spacing: 5px; text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-  }
-  .location-bar-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--c-gold); opacity: 0.6; }
-
-  /* Location sub-bar under navbar */
-  .nav-location-bar {
-    position: fixed; top: 68px; left: 0; right: 0; z-index: 998;
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-    font-family: var(--f-sans); font-size: 9px; font-weight: 600;
-    letter-spacing: 5px; text-transform: uppercase;
-    color: rgba(255,255,255,0.28);
-    pointer-events: none;
-    transition: top var(--transition);
-  }
-  #navbar.scrolled ~ .nav-location-bar { top: 52px; }
-  .nav-links { display: flex; align-items: center; gap: 36px; }
-  .nav-links a {
-    font-family: var(--f-sans); font-size: 12px; font-weight: 500;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: rgba(255,255,255,0.7); transition: color var(--transition); position: relative;
-  }
-  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--c-gold); transition: width var(--transition); }
-  .nav-links a:hover { color: var(--c-white); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-cta {
-    font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-    letter-spacing: 3px; text-transform: uppercase;
-    color: var(--c-white) !important; background: var(--c-gold);
-    padding: 12px 24px; border-radius: 40px;
-    transition: background var(--transition), transform var(--transition) !important;
-  }
-  .nav-cta:hover { background: var(--c-gold-light) !important; transform: translateY(-1px) !important; }
-  .nav-cta::after { display: none !important; }
-  .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 8px; z-index: 1001; cursor: pointer; }
-  .nav-toggle span { display: block; width: 24px; height: 1.5px; background: white; transition: var(--transition); transform-origin: center; }
-  .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
-  .nav-toggle.open span:nth-child(2) { opacity: 0; }
-  .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
-  .nav-mobile {
-    display: none; position: fixed; inset: 0; background: var(--c-noir); z-index: 999;
-    flex-direction: column; align-items: center; justify-content: center; gap: 40px;
-    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-  }
-  .nav-mobile.open { opacity: 1; pointer-events: all; }
-  .nav-mobile a { font-family: var(--f-display); font-size: 32px; color: var(--c-white); transition: color var(--transition); }
-  .nav-mobile a:hover { color: var(--c-gold-light); }
-  .nav-mobile .nav-cta { font-family: var(--f-sans); font-size: 13px; }
-  @media (max-width: 800px) { .nav-links { display: none; } .nav-toggle { display: flex; } .nav-mobile { display: flex; } }
-
-  /* ══════════════════════════════════════════
-     HERO
-  ══════════════════════════════════════════ */
-  #hero {
-    position: relative; min-height: 100svh; background: var(--c-noir);
-    display: flex; align-items: flex-end; overflow: hidden; padding-bottom: var(--sp-xl);
-  }
-  .hero-bg { position: absolute; inset: 0; z-index: 0; }
-  .hero-bg-gradient {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 70% 60% at 65% 30%, rgba(201,146,42,0.18) 0%, transparent 65%),
-      radial-gradient(ellipse 50% 40% at 20% 70%, rgba(166,75,42,0.10) 0%, transparent 60%),
-      linear-gradient(180deg, rgba(14,14,14,0.3) 0%, rgba(14,14,14,0.85) 70%, var(--c-noir) 100%);
-  }
-  /* SVG paw pattern grid */
-  .hero-paw-pattern {
-    position: absolute; top: 0; right: 0; width: 55%; height: 100%;
-    opacity: 0.04; pointer-events: none;
-    display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; padding: 40px;
-    transform: rotate(-8deg) scale(1.1); transform-origin: top right;
-  }
-  .hero-paw-pattern svg { width: 36px; height: 36px; color: var(--c-gold-light); }
-  .hero-accent-line { position: absolute; top: 0; left: var(--gutter); width: 1px; height: 100%; background: linear-gradient(180deg, transparent 0%, var(--c-gold) 30%, var(--c-gold) 70%, transparent 100%); opacity: 0.25; }
-  .hero-content { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: flex-end; margin-top: 70px; }
-  @media (max-width: 768px) { .hero-content { grid-template-columns: 1fr; gap: 40px; } }
-  .hero-left { max-width: 580px; }
-  .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: var(--sp-md); }
-  .hero-eyebrow-line { width: 32px; height: 1px; background: var(--c-gold); }
-  .hero-eyebrow-text { font-family: var(--f-sans); font-size: 10px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; color: var(--c-gold); }
-  .hero-h1 { font-family: var(--f-display); font-size: clamp(48px, 7vw, 88px); line-height: 1.0; color: var(--c-white); font-weight: 700; margin-bottom: var(--sp-md); }
-  .hero-h1 em { font-style: italic; color: var(--c-gold-light); }
-  .hero-desc { font-family: var(--f-serif); font-size: clamp(17px, 2vw, 20px); line-height: 1.7; color: rgba(255,255,255,0.55); margin-bottom: var(--sp-lg); max-width: 440px; }
-  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
-  .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: var(--sp-md); }
-  .badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--f-sans); font-size: 11px; font-weight: 500;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 8px 16px; border-radius: 40px;
-    border: 1px solid rgba(201,146,42,0.4);
-    background: rgba(201,146,42,0.08); color: var(--c-gold-light);
-  }
-  .badge svg { width: 14px; height: 14px; }
-  .hero-right { display: flex; flex-direction: column; gap: 16px; align-self: flex-end; }
-  @media (max-width: 768px) { .hero-right { display: none; } }
-  .hero-stat {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-    backdrop-filter: blur(20px); border-radius: var(--radius-md);
-    padding: 24px 28px; display: flex; align-items: center; gap: 20px;
-    animation: hero-float 5s ease-in-out infinite;
-  }
-  .hero-stat:nth-child(2) { animation-delay: 1.5s; margin-left: 40px; }
-  .hero-stat:nth-child(3) { animation-delay: 0.75s; margin-left: 20px; }
-  @keyframes hero-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-  .hero-stat-icon { width: 52px; height: 52px; background: rgba(201,146,42,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--c-gold-light); }
-  .hero-stat-icon svg { width: 22px; height: 22px; }
-  .hero-stat-num { font-family: var(--f-display); font-size: 28px; font-weight: 700; color: var(--c-white); line-height: 1; }
-  .hero-stat-label { font-family: var(--f-sans); font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 1px; margin-top: 3px; }
-  .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2; animation: scroll-pulse 2s ease-in-out infinite; }
-  @keyframes scroll-pulse { 0%,100% { opacity: 0.3; transform: translateX(-50%) translateY(0); } 50% { opacity: 0.6; transform: translateX(-50%) translateY(6px); } }
-  .hero-scroll span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); font-family: var(--f-sans); }
-  .hero-scroll-line { width: 1px; height: 40px; background: linear-gradient(180deg, rgba(201,146,42,0.6), transparent); }
-
-  /* ══════════════════════════════════════════
-     TRUST BAR
-  ══════════════════════════════════════════ */
-  #trust { background: var(--c-charcoal); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 32px 0; }
-  .trust-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
-  .trust-item { display: flex; align-items: center; gap: 14px; padding: 16px 40px; position: relative; }
-  .trust-item + .trust-item::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); height: 32px; width: 1px; background: rgba(255,255,255,0.1); }
-  @media (max-width: 640px) { .trust-item + .trust-item::before { display: none; } .trust-item { padding: 12px 20px; } }
-  .trust-icon { width: 24px; height: 24px; color: var(--c-gold); flex-shrink: 0; }
-  .trust-text { font-family: var(--f-sans); font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.65); }
-  .trust-text strong { color: var(--c-gold-light); font-weight: 600; }
-
-  /* ══════════════════════════════════════════
-     ABOUT / EQUIPO
-  ══════════════════════════════════════════ */
-  #nosotros { background: var(--c-cream); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
-
-  /* Two-photo team grid */
-  .team-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; }
-  .team-photo-wrap { display: flex; flex-direction: column; gap: 12px; }
-  .team-photo-wrap:nth-child(2) { margin-top: 40px; } /* stagger */
-
-  .team-img-frame {
-    width: 100%; aspect-ratio: 3/4;
-    background: var(--c-charcoal); border-radius: var(--radius-lg); overflow: hidden; position: relative;
-  }
-  .team-img-placeholder {
-    width: 100%; height: 100%;
-    background: linear-gradient(145deg, #1a1a1a 0%, #2a1f0e 60%, #1a1208 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-  }
-  .team-img-placeholder svg { width: 48px; height: 48px; color: var(--c-gold); opacity: 0.25; }
-  .team-img-placeholder p { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--c-gold-light); opacity: 0.35; font-family: var(--f-sans); }
-  /* How to replace:
-     <img src="/images/groomer-1.jpg"
-          alt="[Nombre], Groomer en Pet Fashion Isla Negra"
-          width="400" height="533" loading="lazy"> */
-
-  .team-img-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .team-name-tag {
-    background: var(--c-white); border-radius: 10px; padding: 14px 16px;
-    border: 1px solid var(--c-border); box-shadow: var(--shadow-sm);
-  }
-  .team-name { font-family: var(--f-display); font-size: 16px; color: var(--c-noir); }
-  .team-role { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--c-gold); margin-top: 3px; }
-
-  /* Accent stat card — full-width bar below both photos */
-  .about-accent-card {
-    margin-top: 16px;
-    background: var(--c-gold); border-radius: var(--radius-md); padding: 20px 28px;
-    box-shadow: var(--shadow-lg);
-    display: flex; align-items: center; gap: 16px;
-  }
-  .about-accent-num { font-family: var(--f-display); font-size: 36px; font-weight: 700; color: var(--c-white); line-height: 1; white-space: nowrap; }
-  .about-accent-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.3); flex-shrink: 0; }
-  .about-accent-text { font-family: var(--f-sans); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.85); line-height: 1.5; }
-
-  .about-content { padding: 20px 0; }
-  .about-quote { font-family: var(--f-serif); font-size: clamp(18px, 2.2vw, 24px); font-style: italic; line-height: 1.6; color: var(--c-noir); margin-bottom: var(--sp-md); padding-left: 20px; border-left: 2px solid var(--c-gold); }
-  .about-body { font-family: var(--f-sans); font-size: 15px; line-height: 1.85; color: var(--c-muted); margin-bottom: var(--sp-md); }
-  .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: var(--sp-md); }
-  .about-value { display: flex; align-items: flex-start; gap: 12px; }
-  .about-value-icon { width: 36px; height: 36px; background: var(--c-gold-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--c-gold); }
-  .about-value-icon svg { width: 17px; height: 17px; }
-  .about-value-text { font-family: var(--f-sans); font-size: 13px; font-weight: 500; color: var(--c-noir); line-height: 1.4; }
-  .about-value-sub { font-size: 12px; font-weight: 300; color: var(--c-muted); margin-top: 2px; }
-
-  /* ══════════════════════════════════════════
-     SERVICES
-  ══════════════════════════════════════════ */
-  #servicios { background: var(--c-noir); }
-  .services-header { text-align: center; margin-bottom: var(--sp-xl); }
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
-  .service-card {
-    background: var(--c-dark-card); border: 1px solid rgba(255,255,255,0.06);
-    border-radius: var(--radius-lg); padding: 40px 36px;
-    position: relative; overflow: hidden;
-    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
-    cursor: default;
-  }
-  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--c-gold), transparent); opacity: 0; transition: opacity var(--transition); }
-  /* SVG watermark icon in corner */
-  .service-card-watermark { position: absolute; bottom: -16px; right: -8px; width: 100px; height: 100px; color: var(--c-gold-light); opacity: 0.04; transition: opacity var(--transition); pointer-events: none; }
-  .service-card:hover { border-color: rgba(201,146,42,0.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(201,146,42,0.08); }
-  .service-card:hover::before { opacity: 1; }
-  .service-card:hover .service-card-watermark { opacity: 0.07; }
-  .service-card--featured { background: linear-gradient(145deg, #1A1208 0%, #241709 100%); border-color: rgba(201,146,42,0.25); }
-  .service-card--featured::before { opacity: 1; }
-  .service-feat-tag { display: inline-block; font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--c-gold); background: rgba(201,146,42,0.12); border: 1px solid rgba(201,146,42,0.25); padding: 4px 12px; border-radius: 20px; margin-bottom: 20px; }
-  .service-icon { width: 44px; height: 44px; color: var(--c-gold); margin-bottom: var(--sp-sm); }
-  .service-name { font-family: var(--f-display); font-size: 24px; color: var(--c-white); margin-bottom: var(--sp-sm); line-height: 1.2; }
-  .service-name em { font-style: italic; color: var(--c-gold-light); }
-  .service-desc { font-family: var(--f-sans); font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.45); margin-bottom: var(--sp-md); }
-  .service-includes { display: flex; flex-direction: column; gap: 8px; margin-bottom: var(--sp-md); padding-top: var(--sp-sm); border-top: 1px solid rgba(255,255,255,0.07); }
-  .service-includes li { font-size: 13px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 10px; }
-  .service-includes li::before { content: '✦'; color: var(--c-gold); font-size: 8px; flex-shrink: 0; }
-  .service-link { font-family: var(--f-sans); font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--c-gold); display: flex; align-items: center; gap: 8px; transition: gap var(--transition), color var(--transition); }
-  .service-link:hover { gap: 14px; color: var(--c-gold-light); }
-  .service-link::after { content: '→'; }
-
-  /* ══════════════════════════════════════════
-     WHY PET FASHION
-  ══════════════════════════════════════════ */
-  #por-que { background: var(--c-white); }
-  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  @media (max-width: 768px) { .why-grid { grid-template-columns: 1fr; gap: 48px; } }
-  .why-features { display: flex; flex-direction: column; gap: 28px; }
-  .why-feature { display: flex; align-items: flex-start; gap: 20px; padding-bottom: 28px; border-bottom: 1px solid var(--c-border); }
-  .why-feature:last-child { border-bottom: none; padding-bottom: 0; }
-  .why-feature-num { font-family: var(--f-display); font-size: 13px; font-weight: 700; color: var(--c-gold); letter-spacing: 2px; padding-top: 4px; flex-shrink: 0; width: 28px; }
-  .why-feature-title { font-family: var(--f-display); font-size: 20px; color: var(--c-noir); margin-bottom: 6px; line-height: 1.2; }
-  .why-feature-desc { font-family: var(--f-sans); font-size: 14px; line-height: 1.75; color: var(--c-muted); }
-  .why-visual { background: var(--c-noir); border-radius: var(--radius-lg); padding: 56px 48px; position: relative; overflow: hidden; }
-  .why-visual::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(201,146,42,0.2) 0%, transparent 70%); }
-  .why-visual-paw { width: 64px; height: 64px; color: var(--c-gold); margin-bottom: var(--sp-md); display: block; }
-  .why-visual-quote { font-family: var(--f-serif); font-size: clamp(20px, 2.5vw, 26px); font-style: italic; color: var(--c-white); line-height: 1.55; margin-bottom: var(--sp-md); }
-  .why-visual-author { font-family: var(--f-sans); font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--c-gold); }
-  .why-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); border-radius: var(--radius-sm); overflow: hidden; margin-top: var(--sp-lg); }
-  .why-stat { background: rgba(255,255,255,0.03); padding: 24px; text-align: center; }
-  .why-stat-num { font-family: var(--f-display); font-size: 32px; font-weight: 700; color: var(--c-white); line-height: 1; }
-  .why-stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.35); margin-top: 6px; }
-
-  /* ══════════════════════════════════════════
-     GALLERY
-  ══════════════════════════════════════════ */
-  #galeria { background: var(--c-cream); }
-  .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--sp-lg); flex-wrap: wrap; gap: 20px; }
-  .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-  .gallery-item { border-radius: var(--radius-md); overflow: hidden; position: relative; background: #e8dfd4; cursor: pointer; }
-  .gallery-item--1 { grid-column: span 7; aspect-ratio: 1; }
-  .gallery-item--2 { grid-column: span 5; aspect-ratio: 1; }
-  .gallery-item--3 { grid-column: span 4; aspect-ratio: 1; }
-  .gallery-item--4 { grid-column: span 4; aspect-ratio: 1; }
-  .gallery-item--5 { grid-column: span 4; aspect-ratio: 1; }
-  @media (max-width: 768px) {
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
-    .gallery-item--1 { grid-column: span 2; aspect-ratio: 1; }
-    .gallery-item--2 { grid-column: span 2; aspect-ratio: 1; }
-    .gallery-item--3, .gallery-item--4, .gallery-item--5 { grid-column: span 1; aspect-ratio: 1; }
-  }
-  .gallery-item-inner { width: 100%; height: 100%; background: linear-gradient(135deg, #e8dfd4 0%, #d4c8b8 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; position: relative; overflow: hidden; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
-  .gallery-item:hover .gallery-item-inner { transform: scale(1.03); }
-  .gallery-item-inner svg { width: 36px; height: 36px; color: var(--c-muted); opacity: 0.4; }
-  .gallery-placeholder-text { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--c-muted); opacity: 0.6; font-family: var(--f-sans); }
-  .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(14,14,14,0.7) 100%); opacity: 0; transition: opacity var(--transition); display: flex; align-items: flex-end; padding: 20px; }
-  .gallery-item:hover .gallery-overlay { opacity: 1; }
-  .gallery-overlay-text { font-family: var(--f-sans); font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--c-white); }
-
-  /* ══════════════════════════════════════════
-     TESTIMONIALS
-  ══════════════════════════════════════════ */
-  #testimonios { background: var(--c-charcoal); }
-  .testimonials-header { text-align: center; margin-bottom: var(--sp-xl); }
-  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
-  .testimonial-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius-md); padding: 36px 32px; position: relative; transition: border-color var(--transition), transform var(--transition); }
-  .testimonial-card:hover { border-color: rgba(201,146,42,0.2); transform: translateY(-4px); }
-  .testimonial-quote-mark { font-family: var(--f-display); font-size: 80px; line-height: 0.7; color: var(--c-gold); opacity: 0.3; margin-bottom: 16px; display: block; }
-  .testimonial-text { font-family: var(--f-serif); font-size: 17px; font-style: italic; line-height: 1.7; color: rgba(255,255,255,0.75); margin-bottom: 24px; }
-  .testimonial-stars { display: flex; gap: 4px; margin-bottom: 16px; }
-  .testimonial-stars svg { width: 14px; height: 14px; color: var(--c-gold); }
-  .testimonial-author { display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 20px; }
-  .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: rgba(201,146,42,0.15); border: 1px solid rgba(201,146,42,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--c-gold); }
-  .testimonial-avatar svg { width: 22px; height: 22px; }
-  .testimonial-name { font-family: var(--f-sans); font-size: 13px; font-weight: 600; color: var(--c-white); }
-  .testimonial-pet { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 2px; }
-
-  /* ══════════════════════════════════════════
-     CTA + CONTACT
-  ══════════════════════════════════════════ */
-  #contacto { background: var(--c-cream); padding: var(--sp-2xl) 0; }
-  .cta-wrap { background: var(--c-noir); border-radius: var(--radius-lg); padding: clamp(48px, 8vw, 96px); display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; position: relative; overflow: hidden; }
-  @media (max-width: 640px) { .cta-wrap { grid-template-columns: 1fr; text-align: center; } .cta-actions { justify-content: center; } }
-  .cta-wrap::before { content: ''; position: absolute; top: -60px; right: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(201,146,42,0.15) 0%, transparent 70%); }
-  /* SVG watermark in CTA */
-  .cta-paw-watermark { position: absolute; bottom: -20px; right: 48px; width: 160px; height: 160px; color: var(--c-gold-light); opacity: 0.04; pointer-events: none; }
-  .cta-label { font-size: 10px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; color: var(--c-gold); margin-bottom: 16px; }
-  .cta-title { font-family: var(--f-display); font-size: clamp(28px, 4vw, 48px); color: var(--c-white); line-height: 1.1; margin-bottom: 16px; }
-  .cta-title em { font-style: italic; color: var(--c-gold-light); }
-  .cta-subtitle { font-family: var(--f-serif); font-size: 18px; color: rgba(255,255,255,0.45); line-height: 1.6; }
-  .cta-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; flex-shrink: 0; }
-  @media (max-width: 640px) { .cta-actions { align-items: center; } }
-  .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: var(--sp-lg); }
-  @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
-  .contact-card { background: var(--c-white); border: 1px solid var(--c-border); border-radius: var(--radius-md); padding: 28px; display: flex; align-items: center; gap: 16px; transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition); }
-  .contact-card:hover { border-color: var(--c-gold); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-  .contact-card-icon { width: 48px; height: 48px; background: var(--c-gold-pale); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--c-gold); }
-  .contact-card-icon svg { width: 22px; height: 22px; }
-  .contact-card-label { font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--c-muted); margin-bottom: 4px; }
-  .contact-card-value { font-family: var(--f-sans); font-size: 14px; font-weight: 500; color: var(--c-noir); }
-
-  /* ══════════════════════════════════════════
-     FOOTER
-  ══════════════════════════════════════════ */
-  #footer { background: var(--c-noir); }
-  .footer-top { padding: var(--sp-xl) 0; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 540px) { .footer-top { grid-template-columns: 1fr; } }
-  .footer-brand-desc { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.35); margin-top: 16px; margin-bottom: var(--sp-md); max-width: 260px; }
-  .footer-socials { display: flex; gap: 12px; }
-  .footer-social { width: 40px; height: 40px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: background var(--transition), border-color var(--transition), transform var(--transition); color: rgba(255,255,255,0.6); }
-  .footer-social svg { width: 18px; height: 18px; }
-  .footer-social:hover { background: var(--c-gold); border-color: var(--c-gold); color: white; transform: translateY(-3px); }
-  .footer-col-title { font-family: var(--f-sans); font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--c-gold); margin-bottom: 20px; }
-  .footer-links { display: flex; flex-direction: column; gap: 12px; }
-  .footer-links a { font-size: 14px; color: rgba(255,255,255,0.4); transition: color var(--transition); display: flex; align-items: center; gap: 8px; }
-  .footer-links a:hover { color: var(--c-white); }
-  .footer-links a::before { content: '✦'; font-size: 8px; color: var(--c-gold); opacity: 0.5; }
-  .footer-bottom { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
-  .footer-legal { display: flex; gap: 24px; }
-  .footer-legal a { font-size: 12px; color: rgba(255,255,255,0.2); transition: color var(--transition); }
-  .footer-legal a:hover { color: rgba(255,255,255,0.5); }
-  .footer-brand-logo { width: 80px; }
-
-
-  /* ══════════════════════════════════════════
-     BUTTONS
-  ══════════════════════════════════════════ */
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--f-sans); font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; padding: 16px 32px; border-radius: 40px; transition: background var(--transition), color var(--transition), transform var(--transition), box-shadow var(--transition); cursor: pointer; border: none; white-space: nowrap; }
-  .btn:hover { transform: translateY(-2px); }
-  .btn svg { width: 16px; height: 16px; }
-  .btn-gold { background: var(--c-gold); color: var(--c-white); }
-  .btn-gold:hover { background: var(--c-gold-light); box-shadow: 0 8px 32px rgba(201,146,42,0.3); }
-  .btn-ghost { background: transparent; color: var(--c-white); border: 1px solid rgba(255,255,255,0.25); }
-  .btn-ghost:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.5); }
-  .btn-dark { background: var(--c-noir); color: var(--c-white); }
-  .btn-dark:hover { background: var(--c-charcoal); }
-
-  /* WhatsApp FAB */
-  .whatsapp-fab { position: fixed; bottom: 28px; right: 28px; z-index: 900; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform var(--transition), box-shadow var(--transition); text-decoration: none; animation: fab-pulse 3s ease-in-out infinite; color: white; }
-  .whatsapp-fab svg { width: 28px; height: 28px; }
-  .whatsapp-fab:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,0.5); animation: none; }
-  @keyframes fab-pulse { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); } 50% { box-shadow: 0 4px 30px rgba(37,211,102,0.65); } }
-
-  /* ══════════════════════════════════════════
-     CATÁLOGO DE PRECIOS
-  ══════════════════════════════════════════ */
-  .section--cream { background: var(--c-cream); }
-
-  .cat-header { margin-bottom: var(--sp-xl); }
-
-  /* Tabs nav */
-  .cat-tabs {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 48px;
-    background: var(--c-white);
-    border: 1px solid var(--c-border);
-    border-radius: 60px;
-    padding: 6px;
-    max-width: 680px;
-    margin-left: auto; margin-right: auto;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .cat-tab {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--f-sans); font-size: 12px; font-weight: 500;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 12px 24px; border-radius: 40px;
-    color: var(--c-muted); background: transparent;
-    transition: background var(--transition), color var(--transition), box-shadow var(--transition);
-    cursor: pointer; white-space: nowrap; flex: 1; justify-content: center;
-    min-width: 0;
-  }
-
-  .cat-tab:hover { color: var(--c-noir); background: var(--c-gold-pale); }
-
-  .cat-tab--active {
-    background: var(--c-noir); color: var(--c-white);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  }
-
-  .cat-tab--active:hover { background: var(--c-charcoal); color: var(--c-white); }
-
-  @media (max-width: 640px) {
-    .cat-tabs { border-radius: var(--radius-md); padding: 8px; gap: 6px; }
-    .cat-tab  { font-size: 11px; padding: 10px 14px; flex: 1 1 40%; }
-  }
-
-  /* Panel */
-  .cat-panel { display: none; }
-  .cat-panel--active { display: block; }
-  .cat-panel[hidden] { display: none; }
-
-  /* Layout: includes card + price grid */
-  .cat-layout {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 28px;
-    align-items: start;
-  }
-
-  .cat-layout--single {
-    grid-template-columns: 300px 1fr;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 860px) {
-    .cat-layout, .cat-layout--single { grid-template-columns: 1fr; }
-  }
-
-  /* Includes card */
-  .cat-includes-card {
-    background: var(--c-noir);
-    border-radius: var(--radius-lg);
-    padding: 36px 32px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cat-includes-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
-  }
-
-  .cat-includes-title {
-    font-family: var(--f-sans);
-    font-size: 10px; font-weight: 600;
-    letter-spacing: 4px; text-transform: uppercase;
-    color: var(--c-gold); margin-bottom: 20px;
-  }
-
-  .cat-includes-list {
-    display: flex; flex-direction: column; gap: 11px;
-  }
-
-  .cat-includes-list li {
-    font-size: 13.5px; color: rgba(255,255,255,0.7);
-    display: flex; align-items: flex-start; gap: 10px;
-    line-height: 1.4;
-  }
-
-  .cat-includes-list li::before {
-    content: '✦'; color: var(--c-gold); font-size: 9px; flex-shrink: 0; margin-top: 3px;
-  }
-
-  .cat-note {
-    margin-top: 24px; padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    font-size: 12px; color: rgba(255,255,255,0.35);
-    line-height: 1.6; display: flex; gap: 8px; align-items: flex-start;
-  }
-
-  .cat-note svg { flex-shrink: 0; color: var(--c-gold); margin-top: 2px; }
-
-  /* Price grid */
-  .cat-prices {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .cat-prices--3col { grid-template-columns: repeat(3, 1fr); }
-
-  @media (max-width: 640px) {
-    .cat-prices       { grid-template-columns: 1fr 1fr; }
-    .cat-prices--3col { grid-template-columns: 1fr 1fr; }
-  }
-
-  /* Price card */
-  .cat-price-card {
-    background: var(--c-white);
-    border: 1px solid var(--c-border);
-    border-radius: var(--radius-md);
-    padding: 28px 20px 24px;
-    display: flex; flex-direction: column; align-items: center;
-    text-align: center; gap: 6px;
-    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
-    position: relative; overflow: hidden;
-  }
-
-  .cat-price-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: var(--c-gold-pale);
-    transition: background var(--transition);
-  }
-
-  .cat-price-card:hover {
-    border-color: var(--c-gold);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 36px rgba(201,146,42,0.12);
-  }
-
-  .cat-price-card:hover::before { background: var(--c-gold); }
-
-  .cat-price-card--wide { grid-column: span 2; }
-
-  @media (max-width: 640px) { .cat-price-card--wide { grid-column: span 2; } }
-
-  .cat-size-icon {
-    width: 60px; margin-bottom: 4px;
-  }
-
-  .cat-size-icon svg { width: 100%; height: 100%; }
-
-  .cat-size-badge {
-    font-family: var(--f-display);
-    font-size: 28px; font-weight: 700; color: var(--c-gold);
-    line-height: 1;
-  }
-
-  .cat-size-range {
-    font-family: var(--f-sans); font-size: 11px;
-    color: var(--c-muted); letter-spacing: 0.5px;
-  }
-
-  .cat-price {
-    font-family: var(--f-display);
-    font-size: 26px; font-weight: 700; color: var(--c-noir);
-    margin-top: 6px; line-height: 1;
-  }
-
-  .cat-price-split { width: 100%; margin-top: 6px; }
-
-  .cat-price-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--c-border);
-  }
-
-  .cat-price-row:last-child { border-bottom: none; }
-
-  .cat-price-label { font-size: 12px; color: var(--c-muted); }
-
-  .cat-price-row .cat-price { font-size: 20px; margin-top: 0; }
-
-  /* CTA button on card */
-  .cat-cta {
-    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-    margin-top: 12px;
-    font-family: var(--f-sans); font-size: 10px; font-weight: 600;
-    letter-spacing: 2.5px; text-transform: uppercase;
-    padding: 10px 20px; border-radius: 40px;
-    background: var(--c-gold); color: var(--c-white);
-    transition: background var(--transition), transform var(--transition);
-  }
-
-  .cat-cta:hover { background: var(--c-gold-light); transform: translateY(-1px); }
-
-  .cat-cta--lg {
-    font-size: 11px; padding: 14px 28px;
-    margin-top: 20px; width: 100%; justify-content: center;
-  }
-
-  /* Blade card */
-  .cat-blade-card {
-    background: var(--c-white); border: 1px solid var(--c-border);
-    border-radius: var(--radius-lg); padding: 48px 40px;
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-    position: relative; overflow: hidden;
-  }
-
-  .cat-blade-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: var(--c-gold);
-  }
-
-  .cat-blade-icon {
-    width: 80px; height: 48px;
-    margin-bottom: 40px;
-  }
-
-  .cat-blade-icon svg { width: 100%; height: 100%; }
-
-  .cat-blade-label {
-    font-size: 10px; font-weight: 600; letter-spacing: 4px;
-    text-transform: uppercase; color: var(--c-muted); margin-bottom: 8px;
-  }
-
-  .cat-blade-price {
-    font-family: var(--f-display); font-size: 52px; font-weight: 700;
-    color: var(--c-noir); line-height: 1;
-  }
-
-  .cat-blade-sub {
-    font-size: 13px; color: var(--c-muted); margin-top: 4px;
-  }
-
-  /* Footer note */
-  .cat-footer-note {
-    text-align: center; margin-top: 40px;
-    font-size: 13px; color: var(--c-muted);
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-  }
-
-  .cat-footer-note svg { color: var(--c-gold); }
-
-  /* ══════════════════════════════════════════
-     FAQ
-  ══════════════════════════════════════════ */
-  #faq { background: var(--c-white); }
-  .faq-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    align-items: start;
-  }
-  @media (max-width: 768px) { .faq-grid { grid-template-columns: 1fr; } }
-
-  .faq-item {
-    border: 1px solid var(--c-border);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    transition: border-color var(--transition), box-shadow var(--transition);
-    background: var(--c-cream);
-  }
-  .faq-item:hover { border-color: var(--c-gold); box-shadow: 0 4px 20px rgba(201,146,42,0.08); }
-  .faq-item.open { border-color: var(--c-gold); background: var(--c-white); }
-
-  .faq-question {
-    width: 100%; display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; padding: 22px 24px;
-    font-family: var(--f-sans); font-size: 14px; font-weight: 500;
-    color: var(--c-noir); text-align: left; cursor: pointer;
-    background: none; border: none; transition: color var(--transition);
-  }
-  .faq-item.open .faq-question { color: var(--c-gold); }
-
-  .faq-icon {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: var(--c-gold-pale); flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--c-gold); font-size: 16px; font-weight: 300;
-    transition: background var(--transition), transform var(--transition);
-  }
-  .faq-item.open .faq-icon { background: var(--c-gold); color: white; transform: rotate(45deg); }
-
-  .faq-answer {
-    display: none; padding: 0 24px 22px;
-    font-family: var(--f-sans); font-size: 13.5px; font-weight: 300;
-    color: var(--c-muted); line-height: 1.8;
-    border-top: 1px solid var(--c-border);
-    padding-top: 16px;
-  }
-  .faq-item.open .faq-answer { display: block; }
-
-  .faq-category {
-    font-size: 10px; font-weight: 600; letter-spacing: 4px;
-    text-transform: uppercase; color: var(--c-gold);
-    margin: 40px 0 16px; display: block;
-  }
-  .faq-category:first-child { margin-top: 0; }
-
-  .faq-cta-box {
-    background: var(--c-noir); border-radius: var(--radius-lg);
-    padding: 40px 48px; margin-top: 56px;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 32px; flex-wrap: wrap;
-    position: relative; overflow: hidden;
-  }
-  .faq-cta-box::before {
-    content: ''; position: absolute; top: -40px; right: -40px;
-    width: 180px; height: 180px;
-    background: radial-gradient(circle, rgba(201,146,42,0.18) 0%, transparent 70%);
-  }
-  .faq-cta-title { font-family: var(--f-display); font-size: 22px; color: white; }
-  .faq-cta-title em { font-style: italic; color: var(--c-gold-light); }
-  .faq-cta-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
-  </style>
-
-  <!-- Bot styles -->
-   <style id="pf-chat-styles">
-  :root {
-    --pf-noir:      #0E0E0E;
-    --pf-charcoal:  #1A1A1A;
-    --pf-card:      #161616;
-    --pf-gold:      #C9922A;
-    --pf-gold-l:    #E4B355;
-    --pf-gold-pale: #F5E6C8;
-    --pf-white:     #FFFFFF;
-    --pf-muted:     rgba(255,255,255,0.4);
-    --pf-border:    rgba(255,255,255,0.07);
-    --pf-radius:    20px;
-    --pf-ease:      0.3s cubic-bezier(0.4,0,0.2,1);
-  }
- 
-
- 
-  /* ── Trigger ── */
-  #pf-trigger {
-    position:fixed; bottom:28px; left:28px; z-index:9000;
-    width:62px; height:62px; border-radius:50%;
-    background:var(--pf-noir); border:1.5px solid rgba(201,146,42,.4);
-    display:flex; align-items:center; justify-content:center;
-    cursor:pointer;
-    box-shadow:0 4px 24px rgba(0,0,0,.5);
-    transition:transform var(--pf-ease), border-color var(--pf-ease), box-shadow var(--pf-ease);
-    animation:pfPulse 3s ease-in-out infinite;
-  }
-  #pf-trigger:hover { transform:scale(1.08); border-color:var(--pf-gold);
-                      box-shadow:0 8px 32px rgba(201,146,42,.25); animation:none; }
-  #pf-trigger svg { width:26px; height:26px; color:var(--pf-gold-l); transition:transform var(--pf-ease); }
-  #pf-trigger:hover svg { transform:scale(1.1); }
-  #pf-trigger.open .ico-paw  { display:none; }
-  #pf-trigger.open .ico-x    { display:block !important; }
-  @keyframes pfPulse {
-    0%,100% { box-shadow:0 4px 24px rgba(0,0,0,.5), 0 0 0 0 rgba(201,146,42,.25); }
-    50%      { box-shadow:0 4px 24px rgba(0,0,0,.5), 0 0 0 9px rgba(201,146,42,0); }
-  }
- 
-  /* Notification dot */
-  #pf-dot {
-    position:absolute; top:-2px; right:-2px;
-    width:14px; height:14px; border-radius:50%;
-    background:var(--pf-gold); border:2px solid #0E0E0E;
-  }
-  #pf-dot.hidden { display:none; }
- 
-  /* ── Chat window ── */
-  #pf-chat {
-    position:fixed; bottom:108px; left:28px; z-index:8999;
-    width:380px; max-height:580px;
-    background:var(--pf-charcoal);
-    border-radius:var(--pf-radius);
-    border:1px solid rgba(201,146,42,.18);
-    box-shadow:0 24px 64px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.04);
-    display:flex; flex-direction:column; overflow:hidden;
-    transform:translateY(14px) scale(.97); opacity:0; pointer-events:none;
-    transition:transform var(--pf-ease), opacity var(--pf-ease);
-  }
-  #pf-chat.open { transform:translateY(0) scale(1); opacity:1; pointer-events:all; }
-  #pf-chat::before { content:''; height:2px; flex-shrink:0;
-    background:linear-gradient(90deg, transparent, var(--pf-gold), transparent); }
- 
-  @media(max-width:440px){
-    #pf-chat { width:calc(100vw - 24px); left:12px; bottom:96px; max-height:72vh; }
-    #pf-trigger { left:16px; bottom:16px; }
-  }
- 
-  /* ── Header ── */
-  .pf-hdr {
-    padding:14px 18px; border-bottom:1px solid var(--pf-border);
-    display:flex; align-items:center; gap:12px; flex-shrink:0;
-  }
-  .pf-hdr-av {
-    width:40px; height:40px; border-radius:50%; flex-shrink:0;
-    background:linear-gradient(135deg,#1A1208,#2a1f0e);
-    border:1.5px solid rgba(201,146,42,.35);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--pf-gold);
-  }
-  .pf-hdr-av svg { width:19px; height:19px; }
-  .pf-hdr-name { font-family:'Playfair Display',serif; font-size:15px; color:#fff; line-height:1.1; }
-  .pf-hdr-name em { font-style:italic; color:var(--pf-gold-l); }
-  .pf-hdr-sub { font-size:11px; color:var(--pf-muted); margin-top:2px;
-                display:flex; align-items:center; gap:5px; }
-  .pf-dot-live { width:6px; height:6px; border-radius:50%; background:#27AE60;
-    animation:pfBlink 2s ease-in-out infinite; }
-  @keyframes pfBlink { 0%,100%{opacity:1} 50%{opacity:.35} }
-  .pf-hdr-x { margin-left:auto; background:none; border:none; cursor:pointer;
-    color:var(--pf-muted); padding:4px; border-radius:6px; line-height:0;
-    transition:color var(--pf-ease); }
-  .pf-hdr-x:hover { color:#fff; }
-  .pf-hdr-x svg { width:18px; height:18px; }
- 
-  /* ── Messages ── */
-  .pf-msgs {
-    flex:1; overflow-y:auto; padding:14px;
-    display:flex; flex-direction:column; gap:10px; scroll-behavior:smooth;
-  }
-  .pf-msgs::-webkit-scrollbar { width:3px; }
-  .pf-msgs::-webkit-scrollbar-thumb { background:rgba(255,255,255,.08); border-radius:3px; }
- 
-  .pf-msg { display:flex; gap:8px; align-items:flex-end; animation:pfIn .28s ease; }
-  @keyframes pfIn { from{opacity:0;transform:translateY(7px)} to{opacity:1;transform:translateY(0)} }
-  .pf-msg.bot { align-self:flex-start; max-width:90%; }
-  .pf-msg.usr { align-self:flex-end; flex-direction:row-reverse; max-width:80%; }
- 
-  .pf-av {
-    width:28px; height:28px; border-radius:50%; flex-shrink:0;
-    display:flex; align-items:center; justify-content:center;
-    color:var(--pf-gold);
-    background:rgba(201,146,42,.1); border:1px solid rgba(201,146,42,.22);
-  }
-  .pf-av svg { width:13px; height:13px; }
- 
-  .pf-bbl {
-    padding:10px 14px; border-radius:15px;
-    font-family:'Jost',sans-serif; font-size:13.5px; line-height:1.62;
-  }
-  .bot .pf-bbl {
-    background:var(--pf-card); color:rgba(255,255,255,.85);
-    border:1px solid var(--pf-border); border-bottom-left-radius:3px;
-  }
-  .usr .pf-bbl { background:var(--pf-gold); color:#fff; border-bottom-right-radius:3px; }
- 
-  /* Rich formatting inside bubbles */
-  .pf-bbl b   { color:var(--pf-gold-l); font-weight:600; }
-  .pf-bbl .pf-price {
-    display:inline-block; background:rgba(201,146,42,.13);
-    border:1px solid rgba(201,146,42,.28);
-    color:var(--pf-gold-l); font-weight:700;
-    padding:1px 7px; border-radius:5px; font-size:13px;
-  }
-  .pf-bbl ul  { margin:6px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:4px; }
-  .pf-bbl li  { display:flex; gap:7px; align-items:flex-start; }
-  .pf-bbl li::before { content:'✦'; color:var(--pf-gold); font-size:9px; flex-shrink:0; margin-top:4px; }
- 
-  /* Service summary card */
-  .pf-card {
-    background:rgba(201,146,42,.07); border:1px solid rgba(201,146,42,.2);
-    border-radius:10px; padding:12px 14px; margin-top:8px;
-    display:flex; flex-direction:column; gap:6px;
-  }
-  .pf-card-title { font-size:11px; font-weight:600; letter-spacing:3px;
-    text-transform:uppercase; color:var(--pf-gold); }
-  .pf-card-price { font-family:'Playfair Display',serif; font-size:26px;
-    font-weight:700; color:#fff; line-height:1; }
-  .pf-card-sub { font-size:11px; color:var(--pf-muted); }
-  .pf-card-rows { display:flex; flex-direction:column; gap:4px; margin-top:4px; }
-  .pf-card-row { display:flex; justify-content:space-between; align-items:center;
-    font-size:12px; padding:4px 0; border-bottom:1px solid rgba(255,255,255,.05); }
-  .pf-card-row:last-child { border:none; }
-  .pf-card-row span:last-child { color:var(--pf-gold-l); font-weight:600; }
- 
-  /* WhatsApp CTA inside bubble */
-  .pf-wa {
-    display:inline-flex; align-items:center; gap:7px;
-    background:#25D366; color:#fff;
-    font-family:'Jost',sans-serif; font-size:11px; font-weight:600;
-    letter-spacing:1.5px; text-transform:uppercase;
-    padding:9px 16px; border-radius:20px;
-    text-decoration:none; margin-top:10px;
-    transition:background .2s; cursor:pointer;
-  }
-  .pf-wa:hover { background:#1ebe5a; }
-  .pf-wa svg { width:14px; height:14px; }
- 
-  /* Typing dots */
-  .pf-typing { display:flex; align-items:center; gap:5px; padding:12px 16px; }
-  .pf-typing s { width:6px; height:6px; border-radius:50%; background:var(--pf-muted);
-    display:block; animation:pfBounce 1.1s ease-in-out infinite; }
-  .pf-typing s:nth-child(2){ animation-delay:.13s; }
-  .pf-typing s:nth-child(3){ animation-delay:.26s; }
-  @keyframes pfBounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
- 
-  /* ── Quick chips ── */
-  #pf-chips {
-    padding:6px 14px 2px;
-    display:flex; flex-wrap:wrap; gap:6px;
-  }
-  .pf-chip {
-    font-family:'Jost',sans-serif; font-size:11px; font-weight:500;
-    padding:7px 12px; border-radius:20px;
-    border:1px solid rgba(201,146,42,.3);
-    background:rgba(201,146,42,.07); color:var(--pf-gold-l);
-    cursor:pointer; white-space:nowrap;
-    transition:background var(--pf-ease), border-color var(--pf-ease), transform var(--pf-ease);
-  }
-  .pf-chip:hover { background:rgba(201,146,42,.16); border-color:var(--pf-gold); transform:translateY(-1px); }
- 
-  /* ── Input ── */
-  .pf-foot {
-    padding:10px 14px 14px; border-top:1px solid var(--pf-border);
-    display:flex; gap:8px; align-items:flex-end; flex-shrink:0;
-  }
-  #pf-inp {
-    flex:1; background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1); border-radius:12px;
-    padding:10px 13px; color:#fff;
-    font-family:'Jost',sans-serif; font-size:13px;
-    resize:none; outline:none; max-height:88px; min-height:40px;
-    overflow-y:auto; line-height:1.5;
-    transition:border-color var(--pf-ease);
-  }
-  #pf-inp::placeholder { color:rgba(255,255,255,.22); }
-  #pf-inp:focus { border-color:rgba(201,146,42,.4); }
-  #pf-btn {
-    width:40px; height:40px; border-radius:10px; flex-shrink:0;
-    background:var(--pf-gold); border:none; cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-    color:#fff; transition:background var(--pf-ease), transform var(--pf-ease);
-  }
-  #pf-btn:hover  { background:var(--pf-gold-l); transform:scale(1.05); }
-  #pf-btn:disabled { background:rgba(255,255,255,.1); cursor:not-allowed; transform:none; }
-  #pf-btn svg { width:17px; height:17px; }
-  
-</style>
-  
+  <!-- STYLES -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/pricing.css">
+  <link rel="stylesheet" href="css/gallery.css">
+  <link rel="stylesheet" href="css/testimonials.css">
+  <link rel="stylesheet" href="css/faq.css">
+  <link rel="stylesheet" href="css/contact-footer.css">
 </head>
 
 <body>
@@ -1244,11 +197,9 @@
   ══════════════════════════════════════ -->
   <header role="banner">
     <nav id="navbar" role="navigation" aria-label="Navegación principal">
-
       <a href="/" class="nav-logo" aria-label="Pet Fashion Dog Salon - Inicio">
         <span class="nav-logo-pet">Pet</span><span class="nav-logo-fashion">Fashion</span>
       </a>
-
       <ul class="nav-links" role="list">
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#servicios">Servicios</a></li>
@@ -1262,17 +213,10 @@
           </a>
         </li>
       </ul>
-
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
         <span></span><span></span><span></span>
       </button>
     </nav>
-
-    <!-- Location sub-bar -->
-    <!-- <div class="nav-location-bar" aria-hidden="true">
-      <svg class="icon" width="11" height="11" style="opacity:0.5"><use href="#ico-pin"/></svg>
-      <span>Isla Negra · Chile</span>
-    </div> -->
 
     <div id="nav-mobile" class="nav-mobile" role="dialog" aria-modal="true" aria-label="Menú de navegación">
       <a href="#nosotros">Nosotros</a>
@@ -1294,7 +238,6 @@
       <div id="hero">
         <div class="hero-bg" aria-hidden="true">
           <div class="hero-bg-gradient"></div>
-          <!-- SVG paw pattern background -->
           <div class="hero-paw-pattern">
             <svg class="icon"><use href="#ico-paw"/></svg><svg class="icon"><use href="#ico-paw"/></svg><svg class="icon"><use href="#ico-paw"/></svg><svg class="icon"><use href="#ico-paw"/></svg><svg class="icon"><use href="#ico-paw"/></svg><svg class="icon"><use href="#ico-paw"/></svg>
             <svg class="icon"><use href="#ico-paw"/></svg><svg class="icon"><use href="#ico-paw"/></svg><svg class="icon"><use href="#ico-paw"/></svg><svg class="icon"><use href="#ico-paw"/></svg><svg class="icon"><use href="#ico-paw"/></svg><svg class="icon"><use href="#ico-paw"/></svg>
@@ -1303,7 +246,6 @@
           </div>
           <div class="hero-accent-line"></div>
         </div>
-
         <div class="container">
           <div class="hero-content">
             <div class="hero-left">
@@ -1311,32 +253,17 @@
                 <div class="hero-eyebrow-line"></div>
                 <span class="hero-eyebrow-text">Isla Negra · Chile</span>
               </div>
-
               <h1 id="hero-heading" class="hero-h1">
-                Estética y<br>
-                <em>bienestar</em><br>
-                canino
+                Estética y<br><em>bienestar</em><br>canino
               </h1>
-
               <p class="hero-desc">
                 Peluquería canina profesional sin bozal ni sedación. Porque tu mascota merece una experiencia positiva, segura y llena de amor.
               </p>
-
               <div class="hero-badges" aria-label="Características del servicio">
-                <span class="badge">
-                  <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg>
-                  Sin bozal
-                </span>
-                <span class="badge">
-                  <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-nopill"/></svg>
-                  Sin sedación
-                </span>
-                <span class="badge">
-                  <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-scissors"/></svg>
-                  Profesional
-                </span>
+                <span class="badge"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg> Sin bozal</span>
+                <span class="badge"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-nopill"/></svg> Sin sedación</span>
+                <span class="badge"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-scissors"/></svg> Profesional</span>
               </div>
-
               <div class="hero-actions">
                 <a href="https://wa.me/56945570410" class="btn btn-gold" rel="noopener" target="_blank" aria-label="Contactar por WhatsApp">
                   <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
@@ -1345,40 +272,22 @@
                 <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
               </div>
             </div>
-
-            <!-- Floating stats -->
             <div class="hero-right" aria-hidden="true">
               <div class="hero-stat">
-                <div class="hero-stat-icon">
-                  <svg class="icon"><use href="#ico-dog"/></svg>
-                </div>
-                <div>
-                  <div class="hero-stat-num">500+</div>
-                  <div class="hero-stat-label">Perritos atendidos</div>
-                </div>
+                <div class="hero-stat-icon"><svg class="icon"><use href="#ico-dog"/></svg></div>
+                <div><div class="hero-stat-num">500+</div><div class="hero-stat-label">Perritos atendidos</div></div>
               </div>
               <div class="hero-stat">
-                <div class="hero-stat-icon">
-                  <svg class="icon"><use href="#ico-people"/></svg>
-                </div>
-                <div>
-                  <div class="hero-stat-num">100+</div>
-                  <div class="hero-stat-label">Clientes felices</div>
-                </div>
+                <div class="hero-stat-icon"><svg class="icon"><use href="#ico-people"/></svg></div>
+                <div><div class="hero-stat-num">100+</div><div class="hero-stat-label">Clientes felices</div></div>
               </div>
               <div class="hero-stat">
-                <div class="hero-stat-icon">
-                  <svg class="icon"><use href="#ico-star"/></svg>
-                </div>
-                <div>
-                  <div class="hero-stat-num">4.9</div>
-                  <div class="hero-stat-label">Valoración promedio</div>
-                </div>
+                <div class="hero-stat-icon"><svg class="icon"><use href="#ico-star"/></svg></div>
+                <div><div class="hero-stat-num">4.9</div><div class="hero-stat-label">Valoración promedio</div></div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="hero-scroll" aria-hidden="true">
           <span>Scroll</span>
           <div class="hero-scroll-line"></div>
@@ -1411,125 +320,74 @@
     </div>
 
     <!-- ══════════════════════════════════════
-         NOSOTROS / EQUIPO
+         NOSOTROS
     ══════════════════════════════════════ -->
     <section id="nosotros" class="section" aria-labelledby="nosotros-heading">
       <div class="container">
         <div class="about-grid">
-
-          <!-- Two groomer photos -->
           <div class="about-img-wrap reveal">
             <div class="team-photos">
-
-              <!-- Groomer 1 -->
               <div class="team-photo-wrap">
                 <div class="team-img-frame">
                   <div class="team-img-placeholder">
-                    <img src="images/groomer-1.png"
-                         alt="[Elizabeth], Groomer Profesional en Pet Fashion Isla Negra"
-                         width="300" height="300" loading="lazy">
+                    <img src="images/groomer-1.png" alt="Elizabeth, Groomer Profesional en Pet Fashion Isla Negra" width="300" height="300" loading="lazy">
                   </div>
-                  <!--
-                    Reemplaza el div anterior con tu foto:
-                    <img src="/images/groomer-1.jpg"
-                         alt="[Nombre], Groomer Profesional en Pet Fashion Isla Negra"
-                         width="400" height="533" loading="lazy">
-                  -->
                 </div>
                 <div class="team-name-tag">
                   <div class="team-name">Elizabeth</div>
                   <div class="team-role">Pet Groomer</div>
                 </div>
               </div>
-
-              <!-- Groomer 2 -->
               <div class="team-photo-wrap">
                 <div class="team-img-frame">
                   <div class="team-img-placeholder">
-                    <img src="images/groomer-2.png"
-                         alt="[Ricardo], Groomer Profesional en Pet Fashion Isla Negra"
-                         width="300" height="300" loading="lazy">
+                    <img src="images/groomer-2.png" alt="Ricardo, Groomer Profesional en Pet Fashion Isla Negra" width="300" height="300" loading="lazy">
                   </div>
-                  <!--
-                    Reemplaza el div anterior con tu foto:
-                    <img src="/images/groomer-2.jpg"
-                         alt="[Nombre], Groomer Profesional en Pet Fashion Isla Negra"
-                         width="400" height="533" loading="lazy">
-                  -->
                 </div>
                 <div class="team-name-tag">
                   <div class="team-name">Ricardo</div>
                   <div class="team-role">Pet Groomer</div>
                 </div>
               </div>
-
-            </div><!-- /.team-photos -->
-
-            <!-- Stat bar — below both photos, full width -->
+            </div>
             <div class="about-accent-card" aria-hidden="true">
               <div class="about-accent-num">500+</div>
               <div class="about-accent-divider"></div>
               <div class="about-accent-text">Perritos<br>atendidos</div>
             </div>
-          </div><!-- /.about-img-wrap -->
-
-          <!-- Content -->
+          </div>
           <div class="about-content">
             <p class="label reveal">02 · Nosotros</p>
             <h2 id="nosotros-heading" class="heading-lg mb-md reveal reveal-delay-1">
               Más que una<br><em class="italic gold">peluquería</em>
             </h2>
-
             <blockquote class="about-quote reveal reveal-delay-2">
               "Creemos que el cuidado estético debe ser una experiencia positiva, libre de estrés"
             </blockquote>
-
             <p class="about-body reveal reveal-delay-3">
               En Pet Fashion somos un equipo de dos groomers profesionales apasionados por los animales. Trabajamos sin bozal ni sedación porque confiamos en que el trato humano y la paciencia son la mejor herramienta.
             </p>
             <p class="about-body reveal reveal-delay-3">
               Con más de 5 años de experiencia, ofrecemos un servicio completo de peluquería canina en el litoral central de Chile, pensado para el bienestar de tu mascota y la tranquilidad de tu familia.
             </p>
-
             <div class="about-values reveal reveal-delay-4">
               <div class="about-value">
-                <div class="about-value-icon" aria-hidden="true">
-                  <svg class="icon"><use href="#ico-heart"/></svg>
-                </div>
-                <div>
-                  <div class="about-value-text">Trato con amor</div>
-                  <div class="about-value-sub">Siempre con paciencia</div>
-                </div>
+                <div class="about-value-icon" aria-hidden="true"><svg class="icon"><use href="#ico-heart"/></svg></div>
+                <div><div class="about-value-text">Trato con amor</div><div class="about-value-sub">Siempre con paciencia</div></div>
               </div>
               <div class="about-value">
-                <div class="about-value-icon" aria-hidden="true">
-                  <svg class="icon"><use href="#ico-trophy"/></svg>
-                </div>
-                <div>
-                  <div class="about-value-text">Profesionalismo</div>
-                  <div class="about-value-sub">Técnica y experiencia</div>
-                </div>
+                <div class="about-value-icon" aria-hidden="true"><svg class="icon"><use href="#ico-trophy"/></svg></div>
+                <div><div class="about-value-text">Profesionalismo</div><div class="about-value-sub">Técnica y experiencia</div></div>
               </div>
               <div class="about-value">
-                <div class="about-value-icon" aria-hidden="true">
-                  <svg class="icon"><use href="#ico-shield"/></svg>
-                </div>
-                <div>
-                  <div class="about-value-text">Sin bozal</div>
-                  <div class="about-value-sub">Nunca usamos bozal</div>
-                </div>
+                <div class="about-value-icon" aria-hidden="true"><svg class="icon"><use href="#ico-shield"/></svg></div>
+                <div><div class="about-value-text">Sin bozal</div><div class="about-value-sub">Nunca usamos bozal</div></div>
               </div>
               <div class="about-value">
-                <div class="about-value-icon" aria-hidden="true">
-                  <svg class="icon"><use href="#ico-sparkle"/></svg>
-                </div>
-                <div>
-                  <div class="about-value-text">Resultados</div>
-                  <div class="about-value-sub">Calidad visible</div>
-                </div>
+                <div class="about-value-icon" aria-hidden="true"><svg class="icon"><use href="#ico-sparkle"/></svg></div>
+                <div><div class="about-value-text">Resultados</div><div class="about-value-sub">Calidad visible</div></div>
               </div>
             </div>
-
             <div class="divider reveal reveal-delay-4" style="margin-top:36px;"></div>
             <a href="#contacto" class="btn btn-gold reveal reveal-delay-4" style="margin-top:8px;">
               Conoce a nuestro equipo
@@ -1540,7 +398,7 @@
     </section>
 
     <!-- ══════════════════════════════════════
-         SERVICES
+         SERVICIOS
     ══════════════════════════════════════ -->
     <section id="servicios" class="section section--dark" aria-labelledby="servicios-heading">
       <div class="container">
@@ -1553,12 +411,10 @@
             Corte de pelo y baño para perros de todas las razas y tamaños, con el cuidado que merecen.
           </p>
         </div>
-
         <div class="services-grid">
-          <!-- Corte y baño (featured) -->
           <article class="service-card service-card--featured reveal" aria-label="Servicio de corte y baño completo">
             <svg class="service-card-watermark icon" aria-hidden="true"><use href="#ico-scissors"/></svg>
-            <div class="service-feat-tag" aria-label="Servicio destacado">★ Más popular</div>
+            <div class="service-feat-tag">★ Más popular</div>
             <svg class="service-icon icon" aria-hidden="true"><use href="#ico-scissors"/></svg>
             <h3 class="service-name">Corte y <em>baño</em></h3>
             <p class="service-desc">Nuestro servicio más completo. Ideal para un cuidado integral de tu mascota.</p>
@@ -1571,8 +427,6 @@
             </ul>
             <a href="#precios" data-tab="corte-bano" class="service-link" aria-label="Ver precios de corte y baño">Ver precios</a>
           </article>
-
-          <!-- Baño solo -->
           <article class="service-card reveal reveal-delay-1" aria-label="Servicio de baño y secado">
             <svg class="service-card-watermark icon" aria-hidden="true"><use href="#ico-bath"/></svg>
             <svg class="service-icon icon" aria-hidden="true"><use href="#ico-bath"/></svg>
@@ -1587,8 +441,6 @@
             </ul>
             <a href="#precios" data-tab="bano" class="service-link" aria-label="Ver precios de baño y secado">Ver precios</a>
           </article>
-
-          <!-- Afilado de cuchillas -->
           <article class="service-card reveal reveal-delay-2" aria-label="Servicio de afilado de cuchillas">
             <svg class="service-card-watermark icon" aria-hidden="true"><use href="#ico-tool"/></svg>
             <svg class="service-icon icon" aria-hidden="true"><use href="#ico-tool"/></svg>
@@ -1606,12 +458,10 @@
     </section>
 
     <!-- ══════════════════════════════════════
-         CATÁLOGO DE PRECIOS
+         PRECIOS
     ══════════════════════════════════════ -->
     <section id="precios" class="section section--cream" aria-labelledby="precios-heading">
       <div class="container">
-
-        <!-- Header -->
         <div class="cat-header text-center reveal">
           <p class="label">04 · Catálogo</p>
           <h2 id="precios-heading" class="heading-lg mb-md">
@@ -1622,34 +472,24 @@
           </p>
         </div>
 
-        <!-- Tab nav -->
         <div class="cat-tabs reveal reveal-delay-1" role="tablist" aria-label="Servicios">
-          <button class="cat-tab cat-tab--active" role="tab" aria-selected="true"
-                  aria-controls="tab-corte-bano" id="btn-corte-bano" data-tab="corte-bano">
-            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-scissors"/></svg>
-            Corte y Baño
+          <button class="cat-tab cat-tab--active" role="tab" aria-selected="true" aria-controls="tab-corte-bano" id="btn-corte-bano" data-tab="corte-bano">
+            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-scissors"/></svg> Corte y Baño
           </button>
-          <button class="cat-tab" role="tab" aria-selected="false"
-                  aria-controls="tab-bano" id="btn-bano" data-tab="bano">
-            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-bath"/></svg>
-            Sólo Baño
+          <button class="cat-tab" role="tab" aria-selected="false" aria-controls="tab-bano" id="btn-bano" data-tab="bano">
+            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-bath"/></svg> Sólo Baño
           </button>
-          <button class="cat-tab" role="tab" aria-selected="false"
-                  aria-controls="tab-unas" id="btn-unas" data-tab="unas">
-            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-paw"/></svg>
-            Corte de Uñas
+          <button class="cat-tab" role="tab" aria-selected="false" aria-controls="tab-unas" id="btn-unas" data-tab="unas">
+            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-paw"/></svg> Corte de Uñas
           </button>
-          <button class="cat-tab" role="tab" aria-selected="false"
-                  aria-controls="tab-afilado" id="btn-afilado" data-tab="afilado">
-            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-tool"/></svg>
-            Afilado
+          <button class="cat-tab" role="tab" aria-selected="false" aria-controls="tab-afilado" id="btn-afilado" data-tab="afilado">
+            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-tool"/></svg> Afilado
           </button>
         </div>
 
-        <!-- ── TAB: Corte y Baño ── -->
+        <!-- Corte y Baño -->
         <div id="tab-corte-bano" class="cat-panel cat-panel--active" role="tabpanel" aria-labelledby="btn-corte-bano">
           <div class="cat-layout">
-            <!-- Includes list -->
             <div class="cat-includes-card reveal">
               <p class="cat-includes-title">¿Qué incluye?</p>
               <ul class="cat-includes-list">
@@ -1665,63 +505,40 @@
                 <li>Perfume de larga duración</li>
               </ul>
             </div>
-            <!-- Price grid -->
             <div class="cat-prices">
               <div class="cat-price-card reveal">
-                <div class="cat-size-icon">
-                  <img src="images/perroXs.webp"
-                         alt="[Xs], Perro talla xs"
-                         width="" height="" loading="lazy">
-                </div>
+                <div class="cat-size-icon"><img src="images/perroXs.webp" alt="Perro talla XS" loading="lazy"></div>
                 <div class="cat-size-badge">XS</div>
                 <div class="cat-size-range">0 kg – 5 kg</div>
                 <div class="cat-price">$22.000</div>
                 <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20XS" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
               </div>
               <div class="cat-price-card reveal reveal-delay-1">
-                <div class="cat-size-icon">
-                  <img src="images/perroS.webp"
-                         alt="[S], Perro talla s"
-                         width="" height="" loading="lazy">
-                </div>
+                <div class="cat-size-icon"><img src="images/perroS.webp" alt="Perro talla S" loading="lazy"></div>
                 <div class="cat-size-badge">S</div>
                 <div class="cat-size-range">5,1 kg – 10 kg</div>
                 <div class="cat-price">$26.000</div>
                 <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20S" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
               </div>
               <div class="cat-price-card reveal reveal-delay-2">
-                <div class="cat-size-icon">
-                  <img src="images/perroM.webp"
-                         alt="[M], Perro talla m"
-                         width="" height="" loading="lazy">
-                </div>
+                <div class="cat-size-icon"><img src="images/perroM.webp" alt="Perro talla M" loading="lazy"></div>
                 <div class="cat-size-badge">M</div>
                 <div class="cat-size-range">10,1 kg – 20 kg</div>
                 <div class="cat-price">$30.000</div>
                 <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20M" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
               </div>
               <div class="cat-price-card reveal reveal-delay-3">
-                <div class="cat-size-icon">
-                  <img src="images/perroL.webp"
-                         alt="[L], Perro talla L"
-                         width="" height="" loading="lazy">
-                </div>
+                <div class="cat-size-icon"><img src="images/perroL.webp" alt="Perro talla L" loading="lazy"></div>
                 <div class="cat-size-badge">L</div>
                 <div class="cat-size-range">20,1 kg – 30 kg</div>
                 <div class="cat-price">$45.000</div>
-                <!-- <div class="cat-price-split">
-                  <div class="cat-price-row">
-                    <span class="cat-price-label">Manto corto</span>
-                    <span class="cat-price">$45.000</span>
-                  </div>
-                </div> -->
                 <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20L" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ── TAB: Solo Baño ── -->
+        <!-- Solo Baño -->
         <div id="tab-bano" class="cat-panel" role="tabpanel" aria-labelledby="btn-bano" hidden>
           <div class="cat-layout">
             <div class="cat-includes-card reveal">
@@ -1741,44 +558,28 @@
             </div>
             <div class="cat-prices">
               <div class="cat-price-card reveal">
-                <div class="cat-size-icon">
-                  <img src="images/perroXs.webp"
-                         alt="[Xs], Perro talla xs"
-                         width="" height="" loading="lazy">
-                </div>
+                <div class="cat-size-icon"><img src="images/perroXs.webp" alt="Perro talla XS" loading="lazy"></div>
                 <div class="cat-size-badge">XS</div>
                 <div class="cat-size-range">0 kg – 5 kg</div>
                 <div class="cat-price">$18.000</div>
                 <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20baño%20para%20un%20perro%20XS" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
               </div>
               <div class="cat-price-card reveal reveal-delay-1">
-                <div class="cat-size-icon">
-                  <img src="images/perroS.webp"
-                         alt="[S], Perro talla S"
-                         width="" height="" loading="lazy">
-                </div>
+                <div class="cat-size-icon"><img src="images/perroS.webp" alt="Perro talla S" loading="lazy"></div>
                 <div class="cat-size-badge">S</div>
                 <div class="cat-size-range">5,1 kg – 10 kg</div>
                 <div class="cat-price">$22.000</div>
                 <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20baño%20para%20un%20perro%20S" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
               </div>
               <div class="cat-price-card reveal reveal-delay-2">
-                <div class="cat-size-icon">
-                  <img src="images/perroM.webp"
-                         alt="[M], Perro talla M"
-                         width="" height="" loading="lazy">
-                </div>
+                <div class="cat-size-icon"><img src="images/perroM.webp" alt="Perro talla M" loading="lazy"></div>
                 <div class="cat-size-badge">M</div>
                 <div class="cat-size-range">10,1 kg – 20 kg</div>
                 <div class="cat-price">$26.000</div>
                 <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20baño%20para%20un%20perro%20M" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
               </div>
               <div class="cat-price-card reveal reveal-delay-3">
-                <div class="cat-size-icon">
-                  <img src="images/perroL.webp"
-                         alt="[L], Perro talla L"
-                         width="" height="" loading="lazy">
-                </div>
+                <div class="cat-size-icon"><img src="images/perroL.webp" alt="Perro talla L" loading="lazy"></div>
                 <div class="cat-size-badge">L</div>
                 <div class="cat-size-range">20,1 kg – 30 kg</div>
                 <div class="cat-price-split">
@@ -1797,7 +598,7 @@
           </div>
         </div>
 
-        <!-- ── TAB: Corte de Uñas ── -->
+        <!-- Corte de Uñas -->
         <div id="tab-unas" class="cat-panel" role="tabpanel" aria-labelledby="btn-unas" hidden>
           <div class="cat-layout">
             <div class="cat-includes-card reveal">
@@ -1813,54 +614,38 @@
             </div>
             <div class="cat-prices cat-prices--3col">
               <div class="cat-price-card reveal">
-                <div class="cat-size-icon">
-                  <img src="images/perroXs.webp"
-                         alt="[Xs], Perro talla Xs"
-                         width="" height="" loading="lazy">
-                </div>
+                <div class="cat-size-icon"><img src="images/perroXs.webp" alt="Perro talla XS" loading="lazy"></div>
                 <div class="cat-size-badge">XS</div>
                 <div class="cat-size-range">0 kg – 5 kg</div>
                 <div class="cat-price">$5.000</div>
                 <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20XS" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
               </div>
               <div class="cat-price-card reveal reveal-delay-1">
-                <div class="cat-size-icon">
-                  <img src="images/perroS.webp"
-                         alt="[S], Perro talla S"
-                         width="" height="" loading="lazy">
-                </div>
+                <div class="cat-size-icon"><img src="images/perroS.webp" alt="Perro talla S" loading="lazy"></div>
                 <div class="cat-size-badge">S</div>
                 <div class="cat-size-range">5,1 kg – 10 kg</div>
                 <div class="cat-price">$7.000</div>
                 <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20S" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
               </div>
               <div class="cat-price-card reveal reveal-delay-2">
-                <div class="cat-size-icon">
-                  <img src="images/perroM.webp"
-                         alt="[M], Perro talla M"
-                         width="" height="" loading="lazy">
-                </div>
+                <div class="cat-size-icon"><img src="images/perroM.webp" alt="Perro talla M" loading="lazy"></div>
                 <div class="cat-size-badge">M</div>
                 <div class="cat-size-range">10,1 kg – 20 kg</div>
                 <div class="cat-price">$10.000</div>
                 <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20M" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
               </div>
-              <div class="cat-price-card reveal reveal-delay-2">
-                <div class="cat-size-icon">
-                  <img src="images/perroL.webp"
-                         alt="[L], Perro talla L"
-                         width="" height="" loading="lazy">
-                </div>
+              <div class="cat-price-card reveal reveal-delay-3">
+                <div class="cat-size-icon"><img src="images/perroL.webp" alt="Perro talla L" loading="lazy"></div>
                 <div class="cat-size-badge">L</div>
                 <div class="cat-size-range">20,1 kg – 30 kg</div>
                 <div class="cat-price">$12.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20M" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20L" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ── TAB: Afilado de Cuchillas ── -->
+        <!-- Afilado -->
         <div id="tab-afilado" class="cat-panel" role="tabpanel" aria-labelledby="btn-afilado" hidden>
           <div class="cat-layout cat-layout--single">
             <div class="cat-includes-card reveal">
@@ -1877,9 +662,7 @@
             </div>
             <div class="cat-blade-card reveal reveal-delay-1">
               <div class="cat-blade-icon" aria-hidden="true">
-                <img src="images/Cuchilla.webp"
-                         alt="[L], Perro talla L"
-                         width="" height="" loading="lazy">
+                <img src="images/Cuchilla.webp" alt="Cuchilla de peluquería canina" loading="lazy">
               </div>
               <div class="cat-blade-label">Precio por cuchilla</div>
               <div class="cat-blade-price">$5.000</div>
@@ -1892,17 +675,15 @@
           </div>
         </div>
 
-        <!-- Bottom note -->
         <p class="cat-footer-note reveal">
           <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg>
           Los precios pueden variar según el estado del pelaje. Consulta sin compromiso.
         </p>
-
       </div>
     </section>
 
     <!-- ══════════════════════════════════════
-         WHY PET FASHION
+         POR QUÉ ELEGIRNOS
     ══════════════════════════════════════ -->
     <section id="por-que" class="section section--white" aria-labelledby="why-heading">
       <div class="container">
@@ -1946,7 +727,6 @@
               </div>
             </div>
           </div>
-
           <div class="why-visual reveal reveal-delay-2">
             <svg class="why-visual-paw icon" aria-hidden="true"><use href="#ico-paw"/></svg>
             <blockquote class="why-visual-quote">
@@ -1965,7 +745,7 @@
     </section>
 
     <!-- ══════════════════════════════════════
-         GALLERY
+         GALERÍA
     ══════════════════════════════════════ -->
     <section id="galeria" class="section" aria-labelledby="galeria-heading">
       <div class="container">
@@ -1976,64 +756,34 @@
               Antes &amp; <em class="italic gold">después</em>
             </h2>
           </div>
-          <a href="https://www.instagram.com/petfashiondogsalon" class="btn btn-dark reveal"
-             rel="noopener" target="_blank" aria-label="Ver más fotos en Instagram">
+          <a href="https://www.instagram.com/petfashiondogsalon" class="btn btn-dark reveal" rel="noopener" target="_blank">
             <svg class="icon" aria-hidden="true"><use href="#ico-instagram"/></svg>
             Ver en Instagram
           </a>
         </div>
-
         <div class="gallery-grid" aria-label="Galería de antes y después">
           <figure class="gallery-item gallery-item--1 reveal">
-            <div class="gallery-item-inner">
-              <img src="images/Gallery2.png"
-                         alt="[L], Perro talla L"
-                         width="" height="" loading="lazy">
-            </div>
+            <div class="gallery-item-inner"><img src="images/Gallery2.png" alt="Transformación de mascota en Pet Fashion" loading="lazy"></div>
             <div class="gallery-overlay"><span class="gallery-overlay-text">Ver foto</span></div>
             <figcaption class="sr-only">Transformación de mascota en Pet Fashion</figcaption>
           </figure>
           <figure class="gallery-item gallery-item--2 reveal reveal-delay-1">
-            <div class="gallery-item-inner">
-              <!-- <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
-              <span class="gallery-placeholder-text">Antes · Después</span> -->
-              <img src="images/Gallery3.png"
-                         alt="[L], Perro talla L"
-                         width="" height="" loading="lazy">
-            </div>
+            <div class="gallery-item-inner"><img src="images/Gallery3.png" alt="Transformación de mascota en Pet Fashion" loading="lazy"></div>
             <div class="gallery-overlay"><span class="gallery-overlay-text">Ver foto</span></div>
             <figcaption class="sr-only">Transformación de mascota en Pet Fashion</figcaption>
           </figure>
           <figure class="gallery-item gallery-item--3 reveal">
-            <div class="gallery-item-inner">
-              <img src="images/Gallery4.png"
-                         alt="[L], Perro talla L"
-                         width="" height="" loading="lazy">
-              <!-- <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
-              <span class="gallery-placeholder-text">Antes</span> -->
-            </div>
+            <div class="gallery-item-inner"><img src="images/Gallery4.png" alt="Mascota antes del servicio" loading="lazy"></div>
             <div class="gallery-overlay"><span class="gallery-overlay-text">Ver foto</span></div>
             <figcaption class="sr-only">Mascota antes del servicio</figcaption>
           </figure>
           <figure class="gallery-item gallery-item--4 reveal reveal-delay-1">
-            <div class="gallery-item-inner">
-              <img src="images/Gallery1.png"
-                         alt="[L], Perro talla L"
-                         width="" height="" loading="lazy">
-              <!-- <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
-              <span class="gallery-placeholder-text">Después</span> -->
-            </div>
+            <div class="gallery-item-inner"><img src="images/Gallery1.png" alt="Mascota después del servicio" loading="lazy"></div>
             <div class="gallery-overlay"><span class="gallery-overlay-text">Ver foto</span></div>
             <figcaption class="sr-only">Mascota después del servicio</figcaption>
           </figure>
           <figure class="gallery-item gallery-item--5 reveal reveal-delay-2">
-            <div class="gallery-item-inner">
-              <img src="images/Gallery3.png"
-                         alt="[L], Perro talla L"
-                         width="" height="" loading="lazy">
-              <!-- <svg class="icon" aria-hidden="true"><use href="#ico-camera"/></svg>
-              <span class="gallery-placeholder-text">Resultado</span> -->
-            </div>
+            <div class="gallery-item-inner"><img src="images/Gallery3.png" alt="Resultado de peluquería canina" loading="lazy"></div>
             <div class="gallery-overlay"><span class="gallery-overlay-text">Ver foto</span></div>
             <figcaption class="sr-only">Resultado de peluquería canina</figcaption>
           </figure>
@@ -2042,7 +792,7 @@
     </section>
 
     <!-- ══════════════════════════════════════
-         TESTIMONIALS
+         TESTIMONIOS
     ══════════════════════════════════════ -->
     <section id="testimonios" class="section section--charcoal" aria-labelledby="testimonios-heading">
       <div class="container">
@@ -2052,11 +802,10 @@
             Lo que dicen<br>nuestras <em class="italic gold-light">familias</em>
           </h2>
         </div>
-
         <div class="testimonials-grid">
-          <article class="testimonial-card reveal" aria-label="Reseña de cliente">
+          <article class="testimonial-card reveal">
             <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-            <p class="testimonial-text">Quede feliz con el trabajo !! Lo recomiendo, son muy amorosos y detallistas con su trabajo .</p>
+            <p class="testimonial-text">Quede feliz con el trabajo !! Lo recomiendo, son muy amorosos y detallistas con su trabajo.</p>
             <div class="testimonial-stars" aria-label="5 de 5 estrellas">
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
@@ -2064,15 +813,14 @@
             <div class="testimonial-author">
               <div class="testimonial-avatar" aria-hidden="true"><svg class="icon"><use href="#ico-user"/></svg></div>
               <div>
-                <div class="testimonial-name">Ambar Valenzuela leiva.</div>
+                <div class="testimonial-name">Ambar Valenzuela Leiva</div>
                 <div class="testimonial-pet">Mamá de Gaspar, Copito, Jade y Jacinta.</div>
               </div>
             </div>
           </article>
-
-          <article class="testimonial-card reveal reveal-delay-1" aria-label="Reseña de cliente">
+          <article class="testimonial-card reveal reveal-delay-1">
             <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-            <p class="testimonial-text">Me encanta esta pelu llevó a todos mis perritos allí, quedan preciosos, huelen exquisito, a parte los tratan con mucho amor, fiel clienta por siempre, no le pasó a mis perritos a nadie más, son secos en lo que hacen 🫶</p>
+            <p class="testimonial-text">Me encanta esta pelu llevó a todos mis perritos allí, quedan preciosos, huelen exquisito, a parte los tratan con mucho amor, fiel clienta por siempre 🫶</p>
             <div class="testimonial-stars" aria-label="5 de 5 estrellas">
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
@@ -2080,17 +828,14 @@
             <div class="testimonial-author">
               <div class="testimonial-avatar" aria-hidden="true"><svg class="icon"><use href="#ico-user"/></svg></div>
               <div>
-                <div class="testimonial-name">Vanessa Muñoz Contreras.</div>
+                <div class="testimonial-name">Vanessa Muñoz Contreras</div>
                 <div class="testimonial-pet">Mamá de Panda, Madonna, Bad y Lulú.</div>
               </div>
             </div>
           </article>
-
-          <article class="testimonial-card reveal reveal-delay-2" aria-label="Reseña de cliente">
+          <article class="testimonial-card reveal reveal-delay-2">
             <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-            <p class="testimonial-text">Excelente lugar para regalonear a nuestros perritos. La chica que atiende es un amor y tiene mucha llegada con los animalitos. Ellos pese a que les carga bañarse no se rehúsan a ir y salen felices y siempre huelen delicioso.
-Recomiendo demasiado este lugar.
-Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
+            <p class="testimonial-text">Excelente lugar para regalonear a nuestros perritos. La chica que atiende es un amor y tiene mucha llegada con los animalitos. Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
             <div class="testimonial-stars" aria-label="5 de 5 estrellas">
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
               <svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg><svg class="icon"><use href="#ico-star"/></svg>
@@ -2098,7 +843,7 @@ Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar" aria-hidden="true"><svg class="icon"><use href="#ico-user"/></svg></div>
               <div>
-                <div class="testimonial-name">Clau Giaconi.</div>
+                <div class="testimonial-name">Clau Giaconi</div>
                 <div class="testimonial-pet">Mamá de Balto y Nala.</div>
               </div>
             </div>
@@ -2120,128 +865,60 @@ Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
           <p class="subheading" style="max-width:500px;margin:16px auto 0;">
             Todo lo que necesitas saber antes de tu primera visita.
           </p>
-          <div class="divider divider--center"></div>
         </div>
 
-        <!-- CATEGORÍA: Nuestro servicio -->
         <span class="faq-category reveal">Nuestro servicio</span>
         <div class="faq-grid">
-
           <div class="faq-item reveal">
-            <button class="faq-question" aria-expanded="false">
-              ¿Es necesario sedar o usar bozal en la peluquería?
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              No. En Pet Fashion trabajamos únicamente sin bozal y sin sedación. Creemos que la paciencia, el trato amable y las técnicas adecuadas son suficientes para lograr un servicio de calidad que no genere estrés en tu mascota. Es nuestro compromiso fundamental con el bienestar animal.
-            </div>
+            <button class="faq-question" aria-expanded="false">¿Es necesario sedar o usar bozal en la peluquería? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">No. En Pet Fashion trabajamos únicamente sin bozal y sin sedación. Creemos que la paciencia, el trato amable y las técnicas adecuadas son suficientes para lograr un servicio de calidad que no genere estrés en tu mascota.</div>
           </div>
-
           <div class="faq-item reveal reveal-delay-1">
-            <button class="faq-question" aria-expanded="false">
-              ¿Tienen experiencia con perros nerviosos o agresivos?
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              Nos especializamos en manejo respetuoso y sin estrés, pero es importante que la mascota sea dócil y tolere el servicio. No trabajamos con perritos agresivos por seguridad de todos.
-            </div>
+            <button class="faq-question" aria-expanded="false">¿Tienen experiencia con perros nerviosos o agresivos? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Nos especializamos en manejo respetuoso y sin estrés, pero es importante que la mascota sea dócil y tolere el servicio. No trabajamos con perritos agresivos por seguridad de todos.</div>
           </div>
-
           <div class="faq-item reveal reveal-delay-1">
-            <button class="faq-question" aria-expanded="false">
-              ¿Cuánto dura una sesión de baño o corte?
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              Depende del tamaño y el estado del pelaje de tu mascota. En general, un baño completo toma entre 1 y 2 horas, y un corte con baño entre 2 y 3 horas. Los perros con pelaje muy largo, con nudos o de razas especiales pueden requerir más tiempo. Te informaremos el estimado al momento de agendar.
-            </div>
+            <button class="faq-question" aria-expanded="false">¿Cuánto dura una sesión de baño o corte? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Depende del tamaño y el estado del pelaje. Un baño completo toma entre 1 y 2 horas, y un corte con baño entre 2 y 3 horas. Te informaremos el estimado al momento de agendar.</div>
           </div>
-
           <div class="faq-item reveal reveal-delay-2">
-            <button class="faq-question" aria-expanded="false">
-              ¿Hacen baños químicos contra pulgas?
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              No realizamos baños antipulgas con productos químicos fuertes. Si tu perro tiene presencia de pulgas, te recomendamos consultar primero con tu veterinario para el tratamiento adecuado. Idealmente debe venir con su tratamiento al día (comprimido o pipeta), ya que recibimos otros perritos en el mismo espacio y velamos por su bienestar.
-            </div>
+            <button class="faq-question" aria-expanded="false">¿Hacen baños químicos contra pulgas? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">No realizamos baños antipulgas con productos químicos fuertes. Si tu perro tiene presencia de pulgas, te recomendamos consultar primero con tu veterinario. Idealmente debe venir con su tratamiento al día.</div>
           </div>
-
           <div class="faq-item reveal">
-            <button class="faq-question" aria-expanded="false">
-              ¿Qué productos utilizan durante el baño?
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              Usamos cosmética profesional de alta gama de la marca Hydra, formulada especialmente para el cuidado de la piel y pelaje de tu mascota. Incluyendo neutralizador de olor, shampoo hidratante y acondicionador. Finalizamos con perfume canino de larga duración.
-            </div>
+            <button class="faq-question" aria-expanded="false">¿Qué productos utilizan durante el baño? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Usamos cosmética profesional de alta gama de la marca Hydra, incluyendo neutralizador de olor, shampoo hidratante y acondicionador. Finalizamos con perfume canino de larga duración.</div>
           </div>
-
           <div class="faq-item reveal reveal-delay-1">
-            <button class="faq-question" aria-expanded="false">
-              ¿Cómo puedo agendar una cita?
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              La forma más rápida es escribirnos por WhatsApp al +56 9 4557 0410. También puedes contactarnos por Instagram (@petfashiondogsalon) o a través del formulario de contacto en nuestro sitio web. Te responderemos a la brevedad para confirmar disponibilidad y coordinar tu visita.
-            </div>
+            <button class="faq-question" aria-expanded="false">¿Cómo puedo agendar una cita? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">La forma más rápida es escribirnos por WhatsApp al +56 9 4557 0410. También puedes contactarnos por Instagram (@petfashiondogsalon). Te responderemos a la brevedad para confirmar disponibilidad.</div>
           </div>
-
         </div>
 
-        <!-- CATEGORÍA: Nuestros servicios en detalle -->
         <span class="faq-category reveal" style="margin-top:48px;">Servicios en detalle</span>
         <div class="faq-grid">
-
           <div class="faq-item reveal">
-            <button class="faq-question" aria-expanded="false">
-              ¿Qué incluye el servicio de Sólo Baño?
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              El servicio de Sólo Baño incluye: deslanado o cepillado previo, despejes sanitario y de cojinetes, vaciado de glándulas anales, 3 lavados (neutralizador de olor, shampoo hidratante y acondicionador), secado profesional, limpieza de oídos, corte y limado de uñas, y perfume de larga duración. No incluye corte de pelo.
-            </div>
+            <button class="faq-question" aria-expanded="false">¿Qué incluye el servicio de Sólo Baño? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">El Sólo Baño incluye: deslanado o cepillado previo, despejes sanitario y de cojinetes, vaciado de glándulas anales, 3 lavados, secado profesional, limpieza de oídos, corte y limado de uñas, y perfume. No incluye corte de pelo.</div>
           </div>
-
           <div class="faq-item reveal reveal-delay-1">
-            <button class="faq-question" aria-expanded="false">
-              ¿Qué incluye el servicio de Corte y Baño?
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              El Corte y Baño incluye todo lo del servicio de baño más el corte de pelo según la raza y preferencia del dueño. Es nuestro servicio más completo e ideal para un cuidado integral. También incluye despejes sanitario y de cojinetes, vaciado de glándulas anales, limpieza de oídos, corte y limado de uñas, y perfume final.
-            </div>
+            <button class="faq-question" aria-expanded="false">¿Qué incluye el servicio de Corte y Baño? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">El Corte y Baño incluye todo lo del servicio de baño más el corte de pelo según la raza y preferencia del dueño. Es nuestro servicio más completo e ideal para un cuidado integral.</div>
           </div>
-
         </div>
 
-        <!-- CATEGORÍA: Afilado de cuchillas -->
         <span class="faq-category reveal" style="margin-top:48px;">Afilado de cuchillas</span>
         <div class="faq-grid">
-
           <div class="faq-item reveal">
-            <button class="faq-question" aria-expanded="false">
-              ¿Qué tipo de cuchillas pueden afilar?
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              Afilamos cuchillas de peluquería canina tipo A5 desmontables, compatibles con marcas como Andis, Oster, Wahl y similares. Si tienes dudas sobre si tu cuchilla es compatible, escríbenos antes de traerla.
-            </div>
+            <button class="faq-question" aria-expanded="false">¿Qué tipo de cuchillas pueden afilar? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Afilamos cuchillas de peluquería canina tipo A5 desmontables, compatibles con marcas como Andis, Oster, Wahl y similares.</div>
           </div>
-
           <div class="faq-item reveal reveal-delay-1">
-            <button class="faq-question" aria-expanded="false">
-              ¿Cuánto tarda el servicio de afilado y qué incluye?
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-answer">
-              El afilado generalmente se realiza el mismo día. El servicio incluye afilado profesional, limpieza y desinfección de la cuchilla, lubricación y ajuste para un funcionamiento óptimo. El precio es de $5.000 por cuchilla.
-            </div>
+            <button class="faq-question" aria-expanded="false">¿Cuánto tarda el servicio de afilado y qué incluye? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">El afilado generalmente se realiza el mismo día. El servicio incluye afilado profesional, limpieza y desinfección, lubricación y ajuste. El precio es de $5.000 por cuchilla.</div>
           </div>
-
         </div>
 
-        <!-- CTA box -->
         <div class="faq-cta-box reveal">
           <div>
             <h3 class="faq-cta-title">¿Tienes otra <em>pregunta</em>?</h3>
@@ -2252,17 +929,15 @@ Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
             Preguntar por WhatsApp
           </a>
         </div>
-
       </div>
     </section>
 
     <!-- ══════════════════════════════════════
-         CTA + CONTACTO
+         CONTACTO
     ══════════════════════════════════════ -->
     <section id="contacto" class="section" aria-labelledby="contacto-heading">
       <div class="container">
         <div class="cta-wrap reveal">
-          <!-- SVG watermark -->
           <svg class="cta-paw-watermark icon" aria-hidden="true"><use href="#ico-paw"/></svg>
           <div>
             <p class="cta-label">¡Agenda hoy mismo!</p>
@@ -2274,38 +949,26 @@ Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
             </p>
           </div>
           <div class="cta-actions">
-            <a href="https://wa.me/56945570410" class="btn btn-gold" rel="noopener" target="_blank" aria-label="Agendar hora por WhatsApp">
-              <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
-              WhatsApp
+            <a href="https://wa.me/56945570410" class="btn btn-gold" rel="noopener" target="_blank">
+              <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg> WhatsApp
             </a>
-            <a href="https://www.instagram.com/petfashiondogsalon" class="btn btn-ghost" rel="noopener" target="_blank" aria-label="Contactar por Instagram">
-              <svg class="icon" aria-hidden="true"><use href="#ico-instagram"/></svg>
-              Instagram
+            <a href="https://www.instagram.com/petfashiondogsalon" class="btn btn-ghost" rel="noopener" target="_blank">
+              <svg class="icon" aria-hidden="true"><use href="#ico-instagram"/></svg> Instagram
             </a>
           </div>
         </div>
-
         <div class="contact-grid">
-          <a href="https://wa.me/56945570410" class="contact-card reveal" rel="noopener" target="_blank" aria-label="WhatsApp de Pet Fashion">
-            <div class="contact-card-icon" aria-hidden="true"><svg class="icon"><use href="#ico-whatsapp"/></svg></div>
-            <div>
-              <div class="contact-card-label">WhatsApp</div>
-              <div class="contact-card-value">Agenda tu hora aquí</div>
-            </div>
+          <a href="https://wa.me/56945570410" class="contact-card reveal" rel="noopener" target="_blank">
+            <div class="contact-card-icon"><svg class="icon"><use href="#ico-whatsapp"/></svg></div>
+            <div><div class="contact-card-label">WhatsApp</div><div class="contact-card-value">Agenda tu hora aquí</div></div>
           </a>
-          <a href="https://www.instagram.com/petfashiondogsalon" class="contact-card reveal reveal-delay-1" rel="noopener" target="_blank" aria-label="Instagram de Pet Fashion">
-            <div class="contact-card-icon" aria-hidden="true"><svg class="icon"><use href="#ico-instagram"/></svg></div>
-            <div>
-              <div class="contact-card-label">Instagram</div>
-              <div class="contact-card-value">@petfashiondogsalon</div>
-            </div>
+          <a href="https://www.instagram.com/petfashiondogsalon" class="contact-card reveal reveal-delay-1" rel="noopener" target="_blank">
+            <div class="contact-card-icon"><svg class="icon"><use href="#ico-instagram"/></svg></div>
+            <div><div class="contact-card-label">Instagram</div><div class="contact-card-value">@petfashiondogsalon</div></div>
           </a>
           <div class="contact-card reveal reveal-delay-2">
-            <div class="contact-card-icon" aria-hidden="true"><svg class="icon"><use href="#ico-pin"/></svg></div>
-            <div>
-              <div class="contact-card-label">Ubicación</div>
-              <div class="contact-card-value">Isla Negra, Chile</div>
-            </div>
+            <div class="contact-card-icon"><svg class="icon"><use href="#ico-pin"/></svg></div>
+            <div><div class="contact-card-label">Ubicación</div><div class="contact-card-value">Isla Negra, Chile</div></div>
           </div>
         </div>
       </div>
@@ -2320,28 +983,18 @@ Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
     <div class="container">
       <div class="footer-top">
         <div>
-          <div class="footer-brand-logo" aria-label="Pet Fashion Dog Salon">
-            <img src="images/Isotipo2.png"
-                         alt="[L], Perro talla L"
-                         width="" height="" loading="lazy">
-            <!-- <span style="font-family:var(--f-display);font-size:28px;color:var(--c-cream);">Pet</span><span style="font-family:var(--f-display);font-size:28px;font-style:italic;color:var(--c-gold-light);margin-left:5px;">Fashion</span> -->
+          <div class="footer-brand-logo">
+            <img src="images/Isotipo2.png" alt="Pet Fashion Dog Salon" loading="lazy">
           </div>
           <p class="footer-brand-desc">
             Peluquería canina profesional en Isla Negra. Estética y bienestar sin bozal ni sedación.
           </p>
           <div class="footer-socials" aria-label="Redes sociales">
-            <a href="https://www.instagram.com/petfashiondogsalon" class="footer-social" rel="noopener" target="_blank" aria-label="Instagram">
-              <svg class="icon"><use href="#ico-instagram"/></svg>
-            </a>
-            <a href="https://www.threads.net/@petfashiondogsalon" class="footer-social" rel="noopener" target="_blank" aria-label="Threads">
-              <svg class="icon"><use href="#ico-threads"/></svg>
-            </a>
-            <a href="https://wa.me/56945570410" class="footer-social" rel="noopener" target="_blank" aria-label="WhatsApp">
-              <svg class="icon"><use href="#ico-whatsapp"/></svg>
-            </a>
+            <a href="https://www.instagram.com/petfashiondogsalon" class="footer-social" rel="noopener" target="_blank" aria-label="Instagram"><svg class="icon"><use href="#ico-instagram"/></svg></a>
+            <a href="https://www.threads.net/@petfashiondogsalon" class="footer-social" rel="noopener" target="_blank" aria-label="Threads"><svg class="icon"><use href="#ico-threads"/></svg></a>
+            <a href="https://wa.me/56945570410" class="footer-social" rel="noopener" target="_blank" aria-label="WhatsApp"><svg class="icon"><use href="#ico-whatsapp"/></svg></a>
           </div>
         </div>
-
         <nav aria-label="Navegación footer">
           <p class="footer-col-title">Navegación</p>
           <ul class="footer-links" role="list">
@@ -2352,7 +1005,6 @@ Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
             <li><a href="#testimonios">Reseñas</a></li>
           </ul>
         </nav>
-
         <div>
           <p class="footer-col-title">Servicios</p>
           <ul class="footer-links" role="list">
@@ -2362,18 +1014,16 @@ Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
             <li><a href="#servicios">Afilado de cuchillas</a></li>
           </ul>
         </div>
-
         <div>
           <p class="footer-col-title">Contacto</p>
           <ul class="footer-links" role="list">
             <li><a href="https://wa.me/56945570410" rel="noopener" target="_blank">WhatsApp</a></li>
             <li><a href="https://www.instagram.com/petfashiondogsalon" rel="noopener" target="_blank">Instagram</a></li>
             <li><a href="https://www.petfashiondogsalon.cl" rel="noopener">petfashiondogsalon.cl</a></li>
-            <li><a href="#contacto">Calle Santa Luisa #51, Isla Negra, Chile</a></li>
+            <li><a href="#contacto">Santa Luisa #51, Isla Negra</a></li>
           </ul>
         </div>
       </div>
-
       <div class="footer-bottom">
         <p class="footer-copy">
           © <span id="year"></span> Pet Fashion Dog Salon · Isla Negra, Chile · Todos los derechos reservados.
@@ -2387,755 +1037,15 @@ Balto y Nala ahora huelen deliciosos y están limpiecitos!</p>
   </footer>
 
   <!-- WhatsApp FAB -->
-  <a href="https://wa.me/56945570410" class="whatsapp-fab" rel="noopener" target="_blank" aria-label="Contactar por WhatsApp" title="Hablar por WhatsApp">
+  <a href="https://wa.me/56945570410" class="whatsapp-fab" rel="noopener" target="_blank" aria-label="Contactar por WhatsApp">
     <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
   </a>
 
-  <!-- SVG sprite -->
-  <svg style="display:none">
-    <symbol id="pf-ico-paw" viewBox="0 0 24 24" fill="currentColor">
-      <circle cx="4.5" cy="7" r="2"/><circle cx="9" cy="4" r="1.5"/>
-      <circle cx="15" cy="4" r="1.5"/><circle cx="19.5" cy="7" r="2"/>
-      <path d="M12 9c-2.8 0-6 2.2-6 5.5C6 18 8.5 20 12 20s6-2 6-5.5C18 11.2 14.8 9 12 9z"/>
-    </symbol>
-    <symbol id="pf-ico-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-    </symbol>
-    <symbol id="pf-ico-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
-    </symbol>
-    <symbol id="pf-ico-wa" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-    </symbol>
-    <symbol id="pf-ico-usr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-    </symbol>
-  </svg>
-  
-  <!-- Trigger -->
-  <button id="pf-trigger" aria-label="Abrir asistente" aria-expanded="false">
-    <div id="pf-dot" class="hidden"></div>
-    <svg class="ico-paw" aria-hidden="true"><use href="#pf-ico-paw"/></svg>
-    <svg class="ico-x" style="display:none" aria-hidden="true"><use href="#pf-ico-x"/></svg>
-  </button>
-  
-  <!-- Window -->
-  <div id="pf-chat" role="dialog" aria-label="Asistente Pet Fashion" aria-hidden="true">
-    <div class="pf-hdr">
-      <div class="pf-hdr-av"><svg aria-hidden="true"><use href="#pf-ico-paw"/></svg></div>
-      <div>
-        <div class="pf-hdr-name">Pet <em>Fashion</em></div>
-        <div class="pf-hdr-sub"><span class="pf-dot-live"></span>Asistente virtual · siempre activo</div>
-      </div>
-      <button class="pf-hdr-x" aria-label="Cerrar">
-        <svg aria-hidden="true"><use href="#pf-ico-x"/></svg>
-      </button>
-    </div>
-    <div class="pf-msgs" id="pf-msgs" aria-live="polite"></div>
-    <div id="pf-chips"></div>
-    <div class="pf-foot">
-      <textarea id="pf-inp" rows="1" placeholder="Escríbeme tu pregunta..." maxlength="400"></textarea>
-      <button id="pf-btn" disabled><svg aria-hidden="true"><use href="#pf-ico-send"/></svg></button>
-    </div>
-  </div>
-
-
-  <script>
-    // ─── FAQ accordion ───────────────────────────
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item.open').forEach(i => {
-          i.classList.remove('open');
-          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          item.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ─── Catalog tab switching ───────────────────
-    const catTabs   = document.querySelectorAll('.cat-tab');
-    const catPanels = document.querySelectorAll('.cat-panel');
-
-    function activateTab(tabId) {
-      catTabs.forEach(t => {
-        const isActive = t.dataset.tab === tabId;
-        t.classList.toggle('cat-tab--active', isActive);
-        t.setAttribute('aria-selected', isActive);
-      });
-      catPanels.forEach(p => {
-        const isActive = p.id === `tab-${tabId}`;
-        p.classList.toggle('cat-panel--active', isActive);
-        if (isActive) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
-        // Re-trigger reveal animations in newly shown panel
-        if (isActive) {
-          p.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-            setTimeout(() => el.classList.add('visible'), 60);
-          });
-        }
-      });
-    }
-
-    catTabs.forEach(tab => {
-      tab.addEventListener('click', () => activateTab(tab.dataset.tab));
-    });
-
-    // "Ver precios" service links → open specific tab then scroll
-    document.querySelectorAll('.service-link[data-tab]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const tabId = link.dataset.tab;
-        activateTab(tabId);
-        const target = document.getElementById('precios');
-        if (target) {
-          setTimeout(() => {
-            window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-          }, 50);
-        }
-      });
-    });
-
-    const navbar = document.getElementById('navbar');
-    const locationBar = document.querySelector('.nav-location-bar');
-    const onScroll = () => {
-      const scrolled = window.scrollY > 40;
-      navbar.classList.toggle('scrolled', scrolled);
-      if (locationBar) locationBar.style.top = scrolled ? '52px' : '68px';
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    const toggle    = document.querySelector('.nav-toggle');
-    const mobileNav = document.getElementById('nav-mobile');
-    const mobileLinks = mobileNav.querySelectorAll('a');
-    const closeMobileNav = () => {
-      toggle.classList.remove('open');
-      mobileNav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    };
-    toggle.addEventListener('click', () => {
-      const isOpen = toggle.classList.toggle('open');
-      mobileNav.classList.toggle('open', isOpen);
-      toggle.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    mobileLinks.forEach(l => l.addEventListener('click', closeMobileNav));
-
-    const revealObserver = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } }),
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', e => {
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (!target) return;
-        e.preventDefault();
-        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-      });
-    });
-
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
-      navLinks.forEach(l => { l.style.color = l.getAttribute('href') === `#${current}` ? 'rgba(228,179,85,1)' : ''; });
-    }, { passive: true });
-  </script>
-
-  <!-- Bot script -->
-   <script>
-(function(){
-'use strict';
- 
-// ─────────────────────────────────────────────
-//  BASE DE CONOCIMIENTO COMPLETA — Pet Fashion
-// ─────────────────────────────────────────────
-const KB = {
-  precios: {
-    corte_bano: { XS:[0,5,22000], S:[5.1,10,26000], M:[10.1,20,30000], L:[20.1,30,45000] },
-    bano:       { XS:[0,5,18000], S:[5.1,10,22000], M:[10.1,20,26000],
-                  L_manto:[20.1,30,35000], L_doble:[20.1,30,45000] },
-    unas:       { XS:[0,5,5000],  S:[5.1,10,7000],  M:[10.1,20,10000], L:[20.1,30,12000] },
-    afilado:    { precio: 5000, descripcion: 'por cuchilla' }
-  },
-  incluye: {
-    corte_bano: ['1er lavado: neutralizador de olor','2do lavado: shampoo hidratante',
-                 '3er lavado: acondicionador','Corte de pelo según raza',
-                 'Despejes sanitario y cojinetes','Vaciado de glándulas anales',
-                 'Secado profesional','Limpieza de oídos',
-                 'Corte y limado de uñas','Perfume de larga duración'],
-    bano:       ['Deslanado o cepillado','1er lavado: neutralizador de olor',
-                 '2do lavado: shampoo hidratante','3er lavado: acondicionador',
-                 'Despejes sanitario y cojinetes','Vaciado de glándulas anales',
-                 'Secado profesional','Limpieza de oídos',
-                 'Corte y limado de uñas','Perfume de larga duración'],
-    unas:       ['Corte de uñas','Limado de uñas'],
-    afilado:    ['Afilado profesional','Limpieza y desinfección de la cuchilla',
-                 'Lubricación y ajuste para funcionamiento óptimo']
-  }
-};
- 
-function fmt(n){ return '$' + n.toLocaleString('es-CL'); }
- 
-// ─────────────────────────────────────────────
-//  ESTIMADOR DE PRECIO
-// ─────────────────────────────────────────────
-function estimarPrecio(servicio, pesoKg) {
-  const table = KB.precios[servicio];
-  if (!table) return null;
-  if (servicio === 'afilado') return { fijo: table.precio };
- 
-  let talla, precio;
-  if (pesoKg <= 5)       { talla='XS'; precio=table.XS[2]; }
-  else if (pesoKg <= 10) { talla='S';  precio=table.S[2]; }
-  else if (pesoKg <= 20) { talla='M';  precio=table.M[2]; }
-  else if (pesoKg <= 30) {
-    talla='L';
-    if (servicio === 'bano') return { talla, precio_manto: table.L_manto[2], precio_doble: table.L_doble[2] };
-    precio = table.L[2];
-  } else return null;
- 
-  return { talla, precio };
-}
- 
-// ─────────────────────────────────────────────
-//  DETECCIÓN DE INTENCIÓN (NLU básico)
-// ─────────────────────────────────────────────
-const WA_URL = 'https://wa.me/56945570410';
- 
-function detectIntent(txt) {
-  const t = txt.toLowerCase()
-    .replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u')
-    .replace(/[¿?¡!.,]/g,'');
- 
-  // Detectar peso en kg
-  const pesoMatch = t.match(/(\d+[\.,]?\d*)\s*kg/) || t.match(/pesa?\s+(\d+[\.,]?\d*)/) || t.match(/(\d+[\.,]?\d*)\s*(kilo|kg)/);
-  const peso = pesoMatch ? parseFloat(pesoMatch[1].replace(',','.')) : null;
- 
-  // Detectar servicio mencionado
-  const esCorteBano  = /corte\s*y?\s*ba[nñ]o|ba[nñ]o\s*y?\s*corte|completo/.test(t);
-  const esBano       = /solo?\s*ba[nñ]o|solo\s*ba[nñ]|ba[nñ]o\s*sin\s*corte/.test(t) || (/ba[nñ]o/.test(t) && !esCorteBano);
-  const esUnas       = /u[nñ]as?|nail/.test(t);
-  const esAfilado    = /afila(do|r)|cuchilla/.test(t);
-  const esPrecio     = /precio|costo|cuesta|cuanto|valor|tarifa|cobran/.test(t);
-  const esAgendar    = /agendar?|reservar?|hora|cita|turno|disponib/.test(t);
-  const esUbicacion  = /donde|ubicacion|direccion|santa luisa|isla negra|como llegar|mapa/.test(t);
-  const esHorario    = /horario|abierto|atienden|cuando|dias?|hora/.test(t);
-  const esBozal      = /bozal/.test(t);
-  const esSedacion   = /sedacion|sedar|sedante|dormido/.test(t);
-  const esPulgas     = /pulga|parasit|antipulg/.test(t);
-  const esProductos  = /producto|shampoo|champoo|marca|hydra|que usan/.test(t);
-  const esNervioso   = /nervioso|agresivo|asustado|miedoso|mala conducta/.test(t);
-  const esTiempo     = /cuanto\s*(tarda|tiempo|demora)/.test(t);
-  const esTalla      = /talla|tamano|grande|pequeno|mediano|chico/.test(t);
-  const esReseñas    = /reseña|opinion|instagram|google|valoracion/.test(t);
-  const esGracias    = /gracias|thank|genial|perfecto|excelente|ok|listo/.test(t);
-  const esHola       = /^(hola|hi|buenos|buenas|hey|saludos|buen dia|buen tarde|buen noche)/.test(t.trim());
- 
-  return { peso, esCorteBano, esBano, esUnas, esAfilado, esPrecio,
-           esAgendar, esUbicacion, esHorario, esBozal, esSedacion,
-           esPulgas, esProductos, esNervioso, esTiempo, esTalla,
-           esReseñas, esGracias, esHola };
-}
- 
-// ─────────────────────────────────────────────
-//  GENERADOR DE RESPUESTAS
-// ─────────────────────────────────────────────
-function getResponse(txt) {
-  const i = detectIntent(txt);
- 
-  // ── Saludo ──
-  if (i.esHola && !i.esPrecio && !i.esCorteBano && !i.esBano && !i.esUnas) {
-    return {
-      text: `¡Hola! Bienvenido a <b>Pet Fashion Dog Salon</b> 🐾\n\nSoy tu asistente virtual. Puedo ayudarte a conocer nuestros servicios, <b>estimar el precio</b> según el tamaño de tu perrito y resolver tus dudas.\n\n¿En qué te puedo ayudar hoy?`,
-      chips: 'inicio'
-    };
-  }
- 
-  // ── Gracias ──
-  if (i.esGracias) {
-    return {
-      text: `¡Con mucho gusto! 🐾 Si necesitas algo más o quieres agendar tu hora, estamos a un mensaje de distancia.\n\n`,
-      html: makeWa('Agendar por WhatsApp'),
-      chips: 'inicio'
-    };
-  }
- 
-  // ── Precio estimado con peso ──
-  if (i.peso !== null) {
-    let servicio = 'corte_bano';
-    let nombreServ = 'Corte y Baño';
-    if (i.esUnas)                 { servicio='unas';    nombreServ='Corte de Uñas'; }
-    else if (i.esBano && !i.esCorteBano) { servicio='bano'; nombreServ='Solo Baño'; }
- 
-    if (i.peso > 30) {
-      return {
-        text: `Para perros de más de 30 kg, el precio se consulta directamente ya que varía según la raza y estado del pelaje. ¡Escríbenos por WhatsApp y te cotizamos sin compromiso!`,
-        html: makeWa(`Cotizar para perro de ${i.peso} kg`),
-        chips: 'agendar'
-      };
-    }
- 
-    const est = estimarPrecio(servicio, i.peso);
-    if (!est) return fallback();
- 
-    let html = '';
-    if (est.precio_manto) {
-      html = `<div class="pf-card">
-        <div class="pf-card-title">${nombreServ} · Talla ${est.talla} · ${i.peso} kg</div>
-        <div class="pf-card-rows">
-          <div class="pf-card-row"><span>Manto corto</span><span>${fmt(est.precio_manto)}</span></div>
-          <div class="pf-card-row"><span>Doble capa</span><span>${fmt(est.precio_doble)}</span></div>
-        </div>
-        ${makeWa(`Agendar ${nombreServ} para perro de ${i.peso} kg`, true)}
-      </div>`;
-    } else {
-      html = `<div class="pf-card">
-        <div class="pf-card-title">${nombreServ} · Talla ${est.talla}</div>
-        <div class="pf-card-price">${fmt(est.precio)}</div>
-        <div class="pf-card-sub">${i.peso} kg · Isla Negra</div>
-        ${makeWa(`Agendar ${nombreServ} para perro de ${i.peso} kg`, true)}
-      </div>`;
-    }
- 
-    return {
-      text: `¡Perfecto! Para un perrito de <b>${i.peso} kg</b> el precio estimado del servicio de <b>${nombreServ}</b> es:`,
-      html,
-      chips: 'post_precio'
-    };
-  }
- 
-  // ── Precios generales ──
-  if (i.esPrecio && !i.peso) {
-    const tabla = i.esUnas ? KB.precios.unas
-                : i.esBano && !i.esCorteBano ? KB.precios.bano
-                : i.esCorteBano ? KB.precios.corte_bano
-                : null;
-    const nombre = i.esUnas ? 'Corte de Uñas'
-                 : i.esBano && !i.esCorteBano ? 'Solo Baño'
-                 : i.esCorteBano ? 'Corte y Baño'
-                 : null;
- 
-    if (tabla && nombre) {
-      return preciosServicio(nombre, tabla);
-    }
- 
-    // Todos los precios
-    const html = `<div class="pf-card">
-      <div class="pf-card-title">Corte y Baño</div>
-      <div class="pf-card-rows">
-        <div class="pf-card-row"><span>XS (0–5 kg)</span><span>${fmt(22000)}</span></div>
-        <div class="pf-card-row"><span>S (5–10 kg)</span><span>${fmt(26000)}</span></div>
-        <div class="pf-card-row"><span>M (10–20 kg)</span><span>${fmt(30000)}</span></div>
-        <div class="pf-card-row"><span>L (20–30 kg)</span><span>${fmt(45000)}</span></div>
-      </div>
-    </div>
-    <div class="pf-card" style="margin-top:8px">
-      <div class="pf-card-title">Solo Baño</div>
-      <div class="pf-card-rows">
-        <div class="pf-card-row"><span>XS (0–5 kg)</span><span>${fmt(18000)}</span></div>
-        <div class="pf-card-row"><span>S (5–10 kg)</span><span>${fmt(22000)}</span></div>
-        <div class="pf-card-row"><span>M (10–20 kg)</span><span>${fmt(26000)}</span></div>
-        <div class="pf-card-row"><span>L manto corto</span><span>${fmt(35000)}</span></div>
-        <div class="pf-card-row"><span>L doble capa</span><span>${fmt(45000)}</span></div>
-      </div>
-    </div>
-    <div class="pf-card" style="margin-top:8px">
-      <div class="pf-card-title">Corte de Uñas</div>
-      <div class="pf-card-rows">
-        <div class="pf-card-row"><span>XS</span><span>${fmt(5000)}</span></div>
-        <div class="pf-card-row"><span>S</span><span>${fmt(7000)}</span></div>
-        <div class="pf-card-row"><span>M</span><span>${fmt(10000)}</span></div>
-        <div class="pf-card-row"><span>L</span><span>${fmt(12000)}</span></div>
-      </div>
-    </div>`;
- 
-    return {
-      text: 'Aquí están todos nuestros precios. Dime el peso de tu perrito y te doy el precio exacto 👇',
-      html,
-      chips: 'peso'
-    };
-  }
- 
-  // ── Corte y baño ──
-  if (i.esCorteBano && !i.esPrecio && !i.peso) {
-    return {
-      text: `El <b>Corte y Baño</b> es nuestro servicio más completo 🐾\n\nIncluye:`,
-      html: makeList(KB.incluye.corte_bano) + makeWa('Agendar Corte y Baño'),
-      chips: 'precio_servicio',
-      servicioCtx: 'corte_bano'
-    };
-  }
- 
-  // ── Solo baño ──
-  if (i.esBano && !i.esCorteBano && !i.esPrecio && !i.peso) {
-    return {
-      text: `El servicio de <b>Solo Baño</b> es ideal para mantención entre cortes 🛁\n\nIncluye:`,
-      html: makeList(KB.incluye.bano) + makeWa('Agendar Solo Baño'),
-      chips: 'precio_servicio',
-      servicioCtx: 'bano'
-    };
-  }
- 
-  // ── Uñas ──
-  if (i.esUnas && !i.esPrecio && !i.peso) {
-    return {
-      text: `Sí, hacemos <b>Corte de Uñas</b> como servicio independiente 💅\n\nIncluye corte y limado profesional. También está disponible como servicio express sin turno previo (sujeto a disponibilidad).`,
-      html: preciosServicio('Corte de Uñas', KB.precios.unas).html + makeWa('Agendar Corte de Uñas'),
-      chips: 'agendar'
-    };
-  }
- 
-  // ── Afilado ──
-  if (i.esAfilado) {
-    return {
-      text: `Ofrecemos <b>Afilado de Cuchillas</b> profesional 🔧\n\nCompatible con cuchillas tipo A5 desmontables: Andis, Oster, Wahl y similares.`,
-      html: `<div class="pf-card">
-        <div class="pf-card-title">Afilado de Cuchillas</div>
-        <div class="pf-card-price">${fmt(5000)}</div>
-        <div class="pf-card-sub">por cuchilla · entrega el mismo día</div>
-      </div>` +
-      `<br>Incluye:<br>` + makeList(KB.incluye.afilado) + makeWa('Consultar afilado de cuchillas'),
-      chips: 'agendar'
-    };
-  }
- 
-  // ── Agendar ──
-  if (i.esAgendar) {
-    return {
-      text: `Para agendar tu hora, la forma más rápida es por <b>WhatsApp</b> 📱\n\nTambién puedes contactarnos por Instagram <b>@petfashiondogsalon</b>.`,
-      html: makeWa('Agendar mi hora ahora'),
-      chips: 'inicio'
-    };
-  }
- 
-  // ── Ubicación ──
-  if (i.esUbicacion) {
-    return {
-      text: `Estamos en <b>Santa Luisa #51, Isla Negra, Chile</b> 📍\n\nCubrimos toda la zona del litoral central: Isla Negra, El Quisco y Algarrobo.`,
-      html: `<a class="pf-wa" href="https://maps.google.com/?q=Santa+Luisa+51+Isla+Negra+Chile" target="_blank" rel="noopener">
-              <svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Ver en Google Maps
-            </a>`,
-      chips: 'inicio'
-    };
-  }
- 
-  // ── Horario ──
-  if (i.esHorario) {
-    return {
-      text: `Nuestro horario de atención es:\n\n🗓️ <b>Lunes a Sábado</b>\n⏰ <b>10:00 a 18:00 hrs</b>\n\n¿Quieres agendar una hora?`,
-      html: makeWa('Agendar hora'),
-      chips: 'agendar'
-    };
-  }
- 
-  // ── Sin bozal ──
-  if (i.esBozal) {
-    return {
-      text: `¡Exacto! En Pet Fashion trabajamos <b>siempre sin bozal</b> 🛡️\n\nEs uno de nuestros compromisos fundamentales. Creemos que la paciencia y el trato amable son suficientes para lograr un servicio de calidad sin generar estrés en tu mascota.`,
-      chips: 'inicio'
-    };
-  }
- 
-  // ── Sin sedación ──
-  if (i.esSedacion) {
-    return {
-      text: `<b>No usamos sedación</b> en ninguno de nuestros servicios 💊\n\nNuestra filosofía es que con paciencia, técnica y trato respetuoso no es necesario. Cada sesión es una experiencia positiva que tu perro aprenderá a disfrutar con el tiempo.`,
-      chips: 'inicio'
-    };
-  }
- 
-  // ── Pulgas ──
-  if (i.esPulgas) {
-    return {
-      text: `No realizamos baños antipulgas con productos químicos fuertes 🪲\n\nPara perros con presencia de pulgas, recomendamos primero consultar con tu veterinario. Idealmente tu mascota debe venir con el tratamiento al día (comprimido o pipeta), ya que recibimos varios perritos en el mismo espacio y velamos por el bienestar de todos.`,
-      chips: 'inicio'
-    };
-  }
- 
-  // ── Productos ──
-  if (i.esProductos) {
-    return {
-      text: `Usamos <b>cosmética profesional Hydra</b> 🧴, una de las marcas líderes en grooming canino.\n\nLa línea incluye:\n`,
-      html: makeList(['Neutralizador de olor profesional','Shampoo hidratante','Acondicionador de alto rendimiento','Perfume canino de larga duración']),
-      chips: 'inicio'
-    };
-  }
- 
-  // ── Perro nervioso ──
-  if (i.esNervioso) {
-    return {
-      text: `Nos especializamos en <b>manejo respetuoso y sin estrés</b> 🤍\n\nTenemos experiencia con perros ansiosos. Sin embargo, por seguridad de todos no trabajamos con perritos agresivos.\n\nSi tu mascota tiene un carácter especial, cuéntanoslo al agendar para prepararnos mejor 🐾`,
-      html: makeWa('Consultar sobre mi perro'),
-      chips: 'agendar'
-    };
-  }
- 
-  // ── Cuánto demora ──
-  if (i.esTiempo) {
-    return {
-      text: `El tiempo varía según el servicio y tamaño 🕐\n\n<b>Solo Baño:</b> 1 a 2 horas\n<b>Corte y Baño:</b> 2 a 3 horas\n\nPerros con pelaje largo, con nudos o razas especiales pueden requerir más tiempo. Te avisamos al momento de agendar.`,
-      chips: 'inicio'
-    };
-  }
- 
-  // ── Talla / tamaño ──
-  if (i.esTalla) {
-    return {
-      text: `Las tallas se definen por el <b>peso de tu perrito</b>:\n`,
-      html: makeList([
-        'XS: 0 a 5 kg',
-        'S: 5,1 a 10 kg',
-        'M: 10,1 a 20 kg',
-        'L: 20,1 a 30 kg'
-      ]) + '<br>¿Cuánto pesa tu perro?',
-      chips: 'peso'
-    };
-  }
- 
-  // ── Reseñas ──
-  if (i.esReseñas) {
-    return {
-      text: `¡Nos alegra que preguntes! Puedes ver nuestras reseñas y fotos de trabajo en:\n\n📸 <b>Instagram:</b> @petfashiondogsalon\n📍 <b>Google Maps:</b> Pet Fashion Dog Salon, Isla Negra`,
-      html: `<a class="pf-wa" style="background:#E1306C" href="https://www.instagram.com/petfashiondogsalon" target="_blank" rel="noopener">
-               Ver Instagram
-             </a>`,
-      chips: 'inicio'
-    };
-  }
- 
-  // ── Fallback inteligente ──
-  return {
-    text: `Gracias por tu consulta 🐾 No estoy seguro de entender bien tu pregunta.\n\nPuedo ayudarte con <b>precios</b>, <b>servicios</b>, <b>agendar una hora</b> o cualquier duda sobre Pet Fashion. ¡Prueba una de estas opciones!`,
-    chips: 'inicio'
-  };
-}
- 
-// ─────────────────────────────────────────────
-//  HELPERS HTML
-// ─────────────────────────────────────────────
-function makeList(items) {
-  return '<ul>' + items.map(i => `<li>${i}</li>`).join('') + '</ul>';
-}
- 
-function makeWa(msg, inline = false) {
-  const url = `${WA_URL}?text=${encodeURIComponent('Hola! ' + msg)}`;
-  const style = inline ? 'display:inline-flex' : '';
-  return `<a class="pf-wa" href="${url}" target="_blank" rel="noopener" style="${style}">
-    <svg><use href="#pf-ico-wa"/></svg> ${msg}
-  </a>`;
-}
- 
-function preciosServicio(nombre, tabla) {
-  const rows = Object.entries(tabla)
-    .filter(([k]) => k !== 'precio' && k !== 'descripcion')
-    .map(([k, v]) => {
-      const label = k.replace('_manto', ' manto corto').replace('_doble', ' doble capa');
-      return `<div class="pf-card-row"><span>${label.toUpperCase()} (${v[0]}–${v[1]} kg)</span><span>${fmt(v[2])}</span></div>`;
-    }).join('');
-  return {
-    text: `Precios del servicio de <b>${nombre}</b>:`,
-    html: `<div class="pf-card"><div class="pf-card-title">${nombre}</div><div class="pf-card-rows">${rows}</div></div>`,
-    chips: 'peso'
-  };
-}
- 
-function fallback() {
-  return {
-    text: 'Para una cotización personalizada, contáctanos por WhatsApp y te respondemos enseguida 🐾',
-    html: makeWa('Solicitar cotización'),
-    chips: 'inicio'
-  };
-}
- 
-// ─────────────────────────────────────────────
-//  CHIPS DE RESPUESTA RÁPIDA
-// ─────────────────────────────────────────────
-const CHIPS = {
-  inicio: [
-    { l:'💰 Ver todos los precios', t:'¿Cuáles son los precios?' },
-    { l:'✂️ Corte y Baño',         t:'¿Qué incluye el corte y baño?' },
-    { l:'🛁 Solo Baño',            t:'¿Qué incluye el solo baño?' },
-    { l:'💅 Corte de Uñas',        t:'¿Tienen corte de uñas?' },
-    { l:'🔧 Afilado',              t:'¿Qué es el afilado de cuchillas?' },
-    { l:'📍 Ubicación',            t:'¿Dónde están ubicados?' },
-  ],
-  peso: [
-    { l:'Mi perro pesa 3 kg',  t:'Mi perro pesa 3 kg' },
-    { l:'Mi perro pesa 7 kg',  t:'Mi perro pesa 7 kg' },
-    { l:'Mi perro pesa 15 kg', t:'Mi perro pesa 15 kg' },
-    { l:'Mi perro pesa 25 kg', t:'Mi perro pesa 25 kg' },
-  ],
-  precio_servicio: [
-    { l:'¿Cuánto cuesta?',      t:'¿Cuál es el precio?' },
-    { l:'📱 Agendar hora',      href: `${WA_URL}?text=${encodeURIComponent('Hola! Quiero agendar una cita')}` },
-  ],
-  post_precio: [
-    { l:'¿Qué incluye?',       t:'¿Qué incluye ese servicio?' },
-    { l:'📱 Agendar ahora',    href: `${WA_URL}?text=${encodeURIComponent('Hola! Quiero agendar una cita')}` },
-    { l:'Ver otro servicio',   t:'¿Cuáles son los precios?' },
-  ],
-  agendar: [
-    { l:'📱 Agendar WhatsApp', href: `${WA_URL}?text=${encodeURIComponent('Hola! Quiero agendar una cita')}` },
-    { l:'Ver más servicios',   t:'¿Cuáles son los servicios?' },
-  ]
-};
- 
-// ─────────────────────────────────────────────
-//  DOM & STATE
-// ─────────────────────────────────────────────
-const trigger = document.getElementById('pf-trigger');
-const chat    = document.getElementById('pf-chat');
-const msgBox  = document.getElementById('pf-msgs');
-const chips   = document.getElementById('pf-chips');
-const inp     = document.getElementById('pf-inp');
-const btn     = document.getElementById('pf-btn');
-const dot     = document.getElementById('pf-dot');
-const closeX  = chat.querySelector('.pf-hdr-x');
- 
-let isOpen = false, started = false;
- 
-// ─────────────────────────────────────────────
-//  RENDER
-// ─────────────────────────────────────────────
-function addMsg(role, text, extraHtml = '') {
-  const wrap = document.createElement('div');
-  wrap.className = `pf-msg ${role}`;
- 
-  if (role === 'bot') {
-    const av = document.createElement('div');
-    av.className = 'pf-av';
-    av.innerHTML = `<svg aria-hidden="true"><use href="#pf-ico-paw"/></svg>`;
-    wrap.appendChild(av);
-  }
- 
-  const bbl = document.createElement('div');
-  bbl.className = 'pf-bbl';
-  // Convert \n to <br>, bold markers
-  bbl.innerHTML = (text || '').replace(/\n/g,'<br>') + (extraHtml || '');
-  wrap.appendChild(bbl);
- 
-  if (role === 'usr') {
-    const av = document.createElement('div');
-    av.className = 'pf-av';
-    av.innerHTML = `<svg aria-hidden="true"><use href="#pf-ico-usr"/></svg>`;
-    wrap.appendChild(av);
-  }
- 
-  msgBox.appendChild(wrap);
-  scroll();
-}
- 
-function showTyping() {
-  const w = document.createElement('div');
-  w.className = 'pf-msg bot'; w.id = 'pf-typing';
-  const av = document.createElement('div');
-  av.className = 'pf-av';
-  av.innerHTML = `<svg aria-hidden="true"><use href="#pf-ico-paw"/></svg>`;
-  const b = document.createElement('div');
-  b.className = 'pf-bbl pf-typing';
-  b.innerHTML = '<s></s><s></s><s></s>';
-  w.appendChild(av); w.appendChild(b);
-  msgBox.appendChild(w);
-  scroll();
-}
- 
-function removeTyping() { const el = document.getElementById('pf-typing'); if (el) el.remove(); }
- 
-function renderChips(key) {
-  chips.innerHTML = '';
-  (CHIPS[key] || []).forEach(c => {
-    const el = document.createElement(c.href ? 'a' : 'button');
-    el.className = 'pf-chip';
-    el.textContent = c.l;
-    if (c.href) { el.href = c.href; el.target = '_blank'; el.rel = 'noopener'; }
-    else el.addEventListener('click', () => { chips.innerHTML=''; sendMsg(c.t); });
-    chips.appendChild(el);
-  });
-}
- 
-function scroll() { requestAnimationFrame(() => { msgBox.scrollTop = msgBox.scrollHeight; }); }
- 
-// ─────────────────────────────────────────────
-//  SEND
-// ─────────────────────────────────────────────
-function sendMsg(text) {
-  text = (text || inp.value).trim();
-  if (!text) return;
-  inp.value = ''; inp.style.height = 'auto'; btn.disabled = true;
-  chips.innerHTML = '';
- 
-  addMsg('usr', text);
-  showTyping();
- 
-  // Simulated "thinking" delay for natural feel
-  const delay = 400 + Math.random() * 500;
-  setTimeout(() => {
-    removeTyping();
-    const res = getResponse(text);
-    addMsg('bot', res.text, res.html || '');
-    renderChips(res.chips || 'inicio');
-  }, delay);
-}
- 
-// ─────────────────────────────────────────────
-//  OPEN / CLOSE
-// ─────────────────────────────────────────────
-function open() {
-  isOpen = true;
-  chat.classList.add('open');
-  chat.setAttribute('aria-hidden','false');
-  trigger.classList.add('open');
-  trigger.setAttribute('aria-expanded','true');
-  dot.classList.add('hidden');
-  if (!started) { welcome(); started = true; }
-  inp.focus();
-}
- 
-function close() {
-  isOpen = false;
-  chat.classList.remove('open');
-  chat.setAttribute('aria-hidden','true');
-  trigger.classList.remove('open');
-  trigger.setAttribute('aria-expanded','false');
-}
- 
-function welcome() {
-  addMsg('bot', `¡Hola! Bienvenido a <b>Pet Fashion Dog Salon</b> 🐾\n\nSoy el asistente virtual de Elizabeth y Ricardo. Puedo ayudarte con:\n\n• Conocer nuestros servicios\n• Estimar el precio según el tamaño de tu perrito\n• Resolver cualquier duda\n\n¿En qué te puedo ayudar?`);
-  renderChips('inicio');
-}
- 
-trigger.addEventListener('click', () => isOpen ? close() : open());
-closeX.addEventListener('click', close);
-document.addEventListener('keydown', e => { if (e.key==='Escape' && isOpen) close(); });
- 
-inp.addEventListener('input', () => {
-  btn.disabled = !inp.value.trim();
-  inp.style.height = 'auto';
-  inp.style.height = Math.min(inp.scrollHeight, 88) + 'px';
-});
-inp.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (!btn.disabled) sendMsg(); }
-});
-btn.addEventListener('click', () => sendMsg());
- 
-// Notification after 3s
-setTimeout(() => { if (!isOpen) dot.classList.remove('hidden'); }, 3000);
- 
-})();
-</script>
-
+  <!-- SCRIPTS -->
+  <script src="js/faq.js" defer></script>
+  <script src="js/tabs.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/main.js" defer></script>
 
 </body>
 </html>
