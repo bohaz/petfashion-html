@@ -469,32 +469,42 @@
     ══════════════════════════════════════ -->
     <section id="precios" class="section section--cream" aria-labelledby="precios-heading">
       <div class="container">
+
         <div class="cat-header text-center reveal">
           <p class="label">04 · Catálogo</p>
           <h2 id="precios-heading" class="heading-lg mb-md">
             Nuestros <em class="italic gold">precios</em>
           </h2>
           <p class="subheading" style="max-width:500px;margin:0 auto;">
-            Tarifas claras según el tamaño de tu mascota. Sin sorpresas.
+            Precio referencial por sesión. El valor final se confirma al agendar según el estado del pelaje.
           </p>
         </div>
 
+        <!-- Tabs -->
         <div class="cat-tabs reveal reveal-delay-1" role="tablist" aria-label="Servicios">
-          <button class="cat-tab cat-tab--active" role="tab" aria-selected="true" aria-controls="tab-corte-bano" id="btn-corte-bano" data-tab="corte-bano">
-            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-scissors"/></svg> Corte y Baño
+          <button class="cat-tab cat-tab--active" role="tab" aria-selected="true"
+                  aria-controls="tab-corte-bano" id="btn-corte-bano" data-tab="corte-bano">
+            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-scissors"/></svg>
+            Corte y Baño
           </button>
-          <button class="cat-tab" role="tab" aria-selected="false" aria-controls="tab-bano" id="btn-bano" data-tab="bano">
-            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-bath"/></svg> Sólo Baño
+          <button class="cat-tab" role="tab" aria-selected="false"
+                  aria-controls="tab-bano" id="btn-bano" data-tab="bano">
+            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-bath"/></svg>
+            Sólo Baño
           </button>
-          <button class="cat-tab" role="tab" aria-selected="false" aria-controls="tab-unas" id="btn-unas" data-tab="unas">
-            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-paw"/></svg> Corte de Uñas
+          <button class="cat-tab" role="tab" aria-selected="false"
+                  aria-controls="tab-unas" id="btn-unas" data-tab="unas">
+            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg>
+            Corte de Uñas
           </button>
-          <button class="cat-tab" role="tab" aria-selected="false" aria-controls="tab-afilado" id="btn-afilado" data-tab="afilado">
-            <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-tool"/></svg> Afilado
+          <button class="cat-tab" role="tab" aria-selected="false"
+                  aria-controls="tab-afilado" id="btn-afilado" data-tab="afilado">
+            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-tool"/></svg>
+            Afilado
           </button>
         </div>
 
-        <!-- Corte y Baño -->
+        <!-- ── TAB: Corte y Baño ── -->
         <div id="tab-corte-bano" class="cat-panel cat-panel--active" role="tabpanel" aria-labelledby="btn-corte-bano">
           <div class="cat-layout">
             <div class="cat-includes-card reveal">
@@ -503,109 +513,181 @@
                 <li>1er Lavado: neutralizador de olor</li>
                 <li>2do Lavado: shampoo hidratante</li>
                 <li>3er Lavado: acondicionador</li>
+                <li>Corte de pelo según raza</li>
+                <li>Despejes: sanitario y cojinetes</li>
                 <li>Vaciado de glándulas anales</li>
                 <li>Secado profesional</li>
-                <li>Corte de pelo</li>
-                <li>Despejes: sanitario y cojinetes</li>
                 <li>Limpieza de oídos</li>
                 <li>Corte y limado de uñas</li>
                 <li>Perfume de larga duración</li>
               </ul>
             </div>
-            <div class="cat-prices">
-              <div class="cat-price-card reveal">
-                <div class="cat-size-icon"><img src="images/perroXs.webp" alt="Perro talla XS" loading="lazy"></div>
-                <div class="cat-size-badge">XS</div>
-                <div class="cat-size-range">0 kg – 5 kg</div>
-                <div class="cat-price">$22.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20XS" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+            <div class="size-cards-grid">
+              <div class="size-card reveal">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">XS</span>
+                  <img src="images/perroXs.webp" alt="Perro talla XS" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Toy / Mini</div>
+                  <div class="size-card-range">0 — 5 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$22.000</div>
+                  </div>
+                  <p class="size-card-breeds">Yorkie · Pomerania · Chihuahua</p>
+                </div>
               </div>
-              <div class="cat-price-card reveal reveal-delay-1">
-                <div class="cat-size-icon"><img src="images/perroS.webp" alt="Perro talla S" loading="lazy"></div>
-                <div class="cat-size-badge">S</div>
-                <div class="cat-size-range">5,1 kg – 10 kg</div>
-                <div class="cat-price">$26.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20S" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              <div class="size-card reveal reveal-delay-1">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">S</span>
+                  <img src="images/perroS.webp" alt="Perro talla S" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Pequeño</div>
+                  <div class="size-card-range">5,1 — 10 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$26.000</div>
+                  </div>
+                  <p class="size-card-breeds">Shih Tzu · Maltés · Schnauzer mini</p>
+                </div>
               </div>
-              <div class="cat-price-card reveal reveal-delay-2">
-                <div class="cat-size-icon"><img src="images/perroM.webp" alt="Perro talla M" loading="lazy"></div>
-                <div class="cat-size-badge">M</div>
-                <div class="cat-size-range">10,1 kg – 20 kg</div>
-                <div class="cat-price">$30.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20M" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              <div class="size-card reveal reveal-delay-2">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">M</span>
+                  <img src="images/perroM.webp" alt="Perro talla M" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Mediano</div>
+                  <div class="size-card-range">10,1 — 20 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$30.000</div>
+                  </div>
+                  <p class="size-card-breeds">Cocker · Beagle · Schnauzer</p>
+                </div>
               </div>
-              <div class="cat-price-card reveal reveal-delay-3">
-                <div class="cat-size-icon"><img src="images/perroL.webp" alt="Perro talla L" loading="lazy"></div>
-                <div class="cat-size-badge">L</div>
-                <div class="cat-size-range">20,1 kg – 30 kg</div>
-                <div class="cat-price">$45.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20corte%20y%20baño%20para%20un%20perro%20L" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              <div class="size-card reveal reveal-delay-3">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">L</span>
+                  <img src="images/perroL.webp" alt="Perro talla L" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Grande</div>
+                  <div class="size-card-range">20,1 — 30 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$45.000</div>
+                  </div>
+                  <p class="size-card-breeds">Golden · Labrador · Husky</p>
+                </div>
               </div>
+
+        <div class="pricing-cta-wrap">
+          <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20Corte%20y%20Ba%C3%B1o" class="pricing-cta-btn" rel="noopener" target="_blank">
+            <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
+            Agendar
+          </a>
+        </div>
             </div>
           </div>
         </div>
 
-        <!-- Solo Baño -->
+        <!-- ── TAB: Sólo Baño ── -->
         <div id="tab-bano" class="cat-panel" role="tabpanel" aria-labelledby="btn-bano" hidden>
           <div class="cat-layout">
             <div class="cat-includes-card reveal">
               <p class="cat-includes-title">¿Qué incluye?</p>
               <ul class="cat-includes-list">
-                <li>Deslanado o cepillado</li>
+                <li>Deslanado o cepillado previo</li>
                 <li>1er Lavado: neutralizador de olor</li>
                 <li>2do Lavado: shampoo hidratante</li>
                 <li>3er Lavado: acondicionador</li>
-                <li>Vaciado de glándulas anales</li>
                 <li>Despejes: sanitario y cojinetes</li>
+                <li>Vaciado de glándulas anales</li>
                 <li>Secado profesional</li>
                 <li>Limpieza de oídos</li>
                 <li>Corte y limado de uñas</li>
                 <li>Perfume de larga duración</li>
               </ul>
+              <div class="cat-note">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-sparkle"/></svg>
+                No incluye corte de pelo.
+              </div>
             </div>
-            <div class="cat-prices">
-              <div class="cat-price-card reveal">
-                <div class="cat-size-icon"><img src="images/perroXs.webp" alt="Perro talla XS" loading="lazy"></div>
-                <div class="cat-size-badge">XS</div>
-                <div class="cat-size-range">0 kg – 5 kg</div>
-                <div class="cat-price">$18.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20baño%20para%20un%20perro%20XS" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
-              </div>
-              <div class="cat-price-card reveal reveal-delay-1">
-                <div class="cat-size-icon"><img src="images/perroS.webp" alt="Perro talla S" loading="lazy"></div>
-                <div class="cat-size-badge">S</div>
-                <div class="cat-size-range">5,1 kg – 10 kg</div>
-                <div class="cat-price">$22.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20baño%20para%20un%20perro%20S" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
-              </div>
-              <div class="cat-price-card reveal reveal-delay-2">
-                <div class="cat-size-icon"><img src="images/perroM.webp" alt="Perro talla M" loading="lazy"></div>
-                <div class="cat-size-badge">M</div>
-                <div class="cat-size-range">10,1 kg – 20 kg</div>
-                <div class="cat-price">$26.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20baño%20para%20un%20perro%20M" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
-              </div>
-              <div class="cat-price-card reveal reveal-delay-3">
-                <div class="cat-size-icon"><img src="images/perroL.webp" alt="Perro talla L" loading="lazy"></div>
-                <div class="cat-size-badge">L</div>
-                <div class="cat-size-range">20,1 kg – 30 kg</div>
-                <div class="cat-price-split">
-                  <div class="cat-price-row">
-                    <span class="cat-price-label">Manto corto</span>
-                    <span class="cat-price">$35.000</span>
-                  </div>
-                  <div class="cat-price-row">
-                    <span class="cat-price-label">Doble capa</span>
-                    <span class="cat-price">$45.000</span>
-                  </div>
+            <div class="size-cards-grid">
+              <div class="size-card reveal">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">XS</span>
+                  <img src="images/perroXs.webp" alt="Perro talla XS" class="size-card-dog" loading="lazy">
                 </div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20baño%20para%20un%20perro%20L" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+                <div class="size-card-body">
+                  <div class="size-card-name">Toy / Mini</div>
+                  <div class="size-card-range">0 — 5 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$18.000</div>
+                  </div>
+                  <p class="size-card-breeds">Yorkie · Pomerania · Chihuahua</p>
+                </div>
               </div>
+              <div class="size-card reveal reveal-delay-1">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">S</span>
+                  <img src="images/perroS.webp" alt="Perro talla S" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Pequeño</div>
+                  <div class="size-card-range">5,1 — 10 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$22.000</div>
+                  </div>
+                  <p class="size-card-breeds">Shih Tzu · Maltés · Schnauzer mini</p>
+                </div>
+              </div>
+              <div class="size-card reveal reveal-delay-2">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">M</span>
+                  <img src="images/perroM.webp" alt="Perro talla M" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Mediano</div>
+                  <div class="size-card-range">10,1 — 20 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$26.000</div>
+                  </div>
+                  <p class="size-card-breeds">Cocker · Beagle · Schnauzer</p>
+                </div>
+              </div>
+              <div class="size-card reveal reveal-delay-3">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">L</span>
+                  <img src="images/perroL.webp" alt="Perro talla L" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Grande</div>
+                  <div class="size-card-range">20,1 — 30 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-row">
+                      <span class="size-price-label">Manto corto</span>
+                      <span class="size-price-val">$35.000</span>
+                    </div>
+                    <div class="size-price-row">
+                      <span class="size-price-label">Doble capa</span>
+                      <span class="size-price-val size-price-val--gold">$45.000</span>
+                    </div>
+                  </div>
+                  <p class="size-card-breeds">Golden · Labrador · Husky</p>
+                </div>
+              </div>
+
+        <div class="pricing-cta-wrap">
+          <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20Ba%C3%B1o" class="pricing-cta-btn" rel="noopener" target="_blank">
+            <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
+            Agendar
+          </a>
+        </div>
             </div>
           </div>
         </div>
 
-        <!-- Corte de Uñas -->
+        <!-- ── TAB: Corte de Uñas ── -->
         <div id="tab-unas" class="cat-panel" role="tabpanel" aria-labelledby="btn-unas" hidden>
           <div class="cat-layout">
             <div class="cat-includes-card reveal">
@@ -615,80 +697,106 @@
                 <li>Limado de uñas</li>
               </ul>
               <div class="cat-note">
-                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-sparkle"/></svg>
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-sparkle"/></svg>
                 Servicio express disponible sin turno previo, sujeto a disponibilidad.
               </div>
             </div>
-            <div class="cat-prices cat-prices--3col">
-              <div class="cat-price-card reveal">
-                <div class="cat-size-icon"><img src="images/perroXs.webp" alt="Perro talla XS" loading="lazy"></div>
-                <div class="cat-size-badge">XS</div>
-                <div class="cat-size-range">0 kg – 5 kg</div>
-                <div class="cat-price">$5.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20XS" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+            <div class="size-cards-grid">
+              <div class="size-card reveal">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">XS</span>
+                  <img src="images/perroXs.webp" alt="Perro talla XS" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Toy / Mini</div>
+                  <div class="size-card-range">0 — 5 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$5.000</div>
+                  </div>
+                  <p class="size-card-breeds">Yorkie · Pomerania · Chihuahua</p>
+                </div>
               </div>
-              <div class="cat-price-card reveal reveal-delay-1">
-                <div class="cat-size-icon"><img src="images/perroS.webp" alt="Perro talla S" loading="lazy"></div>
-                <div class="cat-size-badge">S</div>
-                <div class="cat-size-range">5,1 kg – 10 kg</div>
-                <div class="cat-price">$7.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20S" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              <div class="size-card reveal reveal-delay-1">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">S</span>
+                  <img src="images/perroS.webp" alt="Perro talla S" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Pequeño</div>
+                  <div class="size-card-range">5,1 — 10 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$7.000</div>
+                  </div>
+                  <p class="size-card-breeds">Shih Tzu · Maltés · Schnauzer mini</p>
+                </div>
               </div>
-              <div class="cat-price-card reveal reveal-delay-2">
-                <div class="cat-size-icon"><img src="images/perroM.webp" alt="Perro talla M" loading="lazy"></div>
-                <div class="cat-size-badge">M</div>
-                <div class="cat-size-range">10,1 kg – 20 kg</div>
-                <div class="cat-price">$10.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20M" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              <div class="size-card reveal reveal-delay-2">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">M</span>
+                  <img src="images/perroM.webp" alt="Perro talla M" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Mediano</div>
+                  <div class="size-card-range">10,1 — 20 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$10.000</div>
+                  </div>
+                  <p class="size-card-breeds">Cocker · Beagle · Schnauzer</p>
+                </div>
               </div>
-              <div class="cat-price-card reveal reveal-delay-3">
-                <div class="cat-size-icon"><img src="images/perroL.webp" alt="Perro talla L" loading="lazy"></div>
-                <div class="cat-size-badge">L</div>
-                <div class="cat-size-range">20,1 kg – 30 kg</div>
-                <div class="cat-price">$12.000</div>
-                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20un%20corte%20de%20uñas%20para%20un%20perro%20L" class="cat-cta" rel="noopener" target="_blank">Agendar</a>
+              <div class="size-card reveal reveal-delay-3">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">L</span>
+                  <img src="images/perroL.webp" alt="Perro talla L" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Grande</div>
+                  <div class="size-card-range">20,1 — 30 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$12.000</div>
+                  </div>
+                  <p class="size-card-breeds">Golden · Labrador · Husky</p>
+                </div>
               </div>
+
+        <div class="pricing-cta-wrap">
+          <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20Corte%20de%20U%C3%B1as" class="pricing-cta-btn" rel="noopener" target="_blank">
+            <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
+            Agendar
+          </a>
+        </div>
             </div>
           </div>
         </div>
 
-        <!-- Afilado -->
+        <!-- ── TAB: Afilado ── -->
         <div id="tab-afilado" class="cat-panel" role="tabpanel" aria-labelledby="btn-afilado" hidden>
-          <div class="cat-layout cat-layout--single">
-            <div class="cat-includes-card reveal">
-              <p class="cat-includes-title">¿Qué incluye?</p>
-              <ul class="cat-includes-list">
-                <li>Afilado profesional</li>
-                <li>Limpieza y desinfección de cada cuchilla</li>
-                <li>Lubricación y ajuste para un funcionamiento óptimo</li>
-              </ul>
-              <div class="cat-note">
-                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-tool"/></svg>
-                Cuchillas tipo A5 desmontables: Andis, Oster, Wahl, etc.
-              </div>
+          <div class="cat-blade-card reveal">
+            <div class="cat-blade-icon" aria-hidden="true">
+              <img src="images/Cuchilla.webp" alt="Cuchilla de peluquería canina" loading="lazy">
             </div>
-            <div class="cat-blade-card reveal reveal-delay-1">
-              <div class="cat-blade-icon" aria-hidden="true">
-                <img src="images/Cuchilla.webp" alt="Cuchilla de peluquería canina" loading="lazy">
-              </div>
-              <div class="cat-blade-label">Precio por cuchilla</div>
-              <div class="cat-blade-price">$5.000</div>
-              <div class="cat-blade-sub">c/u · entrega el mismo día</div>
-              <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20consultar%20por%20el%20afilado%20de%20cuchillas" class="cat-cta cat-cta--lg" rel="noopener" target="_blank">
-                <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
-                Consultar disponibilidad
-              </a>
-            </div>
+            <div class="cat-blade-label">Precio por cuchilla</div>
+            <div class="cat-blade-price">$7.000</div>
+            <div class="cat-blade-sub">c/u · entrega el mismo día</div>
+            <ul class="cat-blade-includes">
+              <li>Afilado profesional</li>
+              <li>Limpieza y desinfección de la cuchilla</li>
+              <li>Lubricación y ajuste para funcionamiento óptimo</li>
+              <li>Compatible con Andis, Oster, Wahl y similares</li>
+            </ul>
+            <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20consultar%20por%20el%20afilado%20de%20cuchillas" class="cat-blade-cta" rel="noopener" target="_blank">
+              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
+              Consultar disponibilidad
+            </a>
           </div>
         </div>
-
         <p class="cat-footer-note reveal">
           <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg>
           Los precios pueden variar según el estado del pelaje. Consulta sin compromiso.
         </p>
+
       </div>
     </section>
-
     <!-- ══════════════════════════════════════
          POR QUÉ ELEGIRNOS
     ══════════════════════════════════════ -->
@@ -827,12 +935,15 @@
 
           <div class="product-card reveal">
             <div class="product-img">
-              
+              <!--
+                REEMPLAZAR: elimina .product-img-placeholder y agrega:
                 <img src="images/hydra-neutralizador.webp"
                      alt="Hydra Odor Neutralizing Shampoo"
                      width="300" height="400" loading="lazy">
-              
-              
+              -->
+              <img src="images/hydra-neutralizador.webp"
+                     alt="Hydra Odor Neutralizing Shampoo"
+                     width="300" height="400" loading="lazy">
               <span class="product-step" aria-label="Paso 1">1</span>
             </div>
             <div class="product-info">
@@ -844,12 +955,15 @@
 
           <div class="product-card reveal reveal-delay-1">
             <div class="product-img">
-              
+              <!--
+                REEMPLAZAR:
                 <img src="images/hydra-shampoo.webp"
                      alt="Hydra Shampoo Hidratante"
                      width="300" height="400" loading="lazy">
-             
-              
+              -->
+              <img src="images/hydra-shampoo.webp"
+                     alt="Hydra Shampoo Hidratante"
+                     width="300" height="400" loading="lazy">
               <span class="product-step" aria-label="Paso 2">2</span>
             </div>
             <div class="product-info">
@@ -861,11 +975,15 @@
 
           <div class="product-card reveal reveal-delay-2">
             <div class="product-img">
-              
+              <!--
+                REEMPLAZAR:
                 <img src="images/hydra-acondicionador.webp"
                      alt="Hydra Acondicionador"
                      width="300" height="400" loading="lazy">
-              
+              -->
+              <img src="images/hydra-acondicionador.webp"
+                     alt="Hydra Acondicionador"
+                     width="300" height="400" loading="lazy">
               <span class="product-step" aria-label="Paso 3">3</span>
             </div>
             <div class="product-info">
@@ -877,11 +995,15 @@
 
           <div class="product-card reveal reveal-delay-3">
             <div class="product-img">
-             
-                <img src="images/hydra-colonia.webp"
+              <!--
+                REEMPLAZAR:
+                <img src="images/hydra-perfume.webp"
                      alt="Hydra Perfume Canino"
                      width="300" height="400" loading="lazy">
-            
+              -->
+              <img src="images/hydra-colonia.webp"
+                     alt="Hydra Perfume Canino"
+                     width="300" height="400" loading="lazy">
               <span class="product-step" aria-label="Paso 4">4</span>
             </div>
             <div class="product-info">
@@ -1071,7 +1193,7 @@
           </div>
           <div class="faq-item reveal reveal-delay-1">
             <button class="faq-question" aria-expanded="false">¿Cuánto tarda el servicio de afilado y qué incluye? <span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-answer">El afilado generalmente se realiza el mismo día. El servicio incluye afilado profesional, limpieza y desinfección, lubricación y ajuste. El precio es de $5.000 por cuchilla.</div>
+            <div class="faq-answer">El afilado generalmente se realiza el mismo día. El servicio incluye afilado profesional, limpieza y desinfección, lubricación y ajuste. El precio es de $7.000 por cuchilla.</div>
           </div>
         </div>
 
