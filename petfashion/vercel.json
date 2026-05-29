@@ -26,6 +26,10 @@
     { "source": "/peluqueria-canina",  "destination": "/",              "permanent": true },
     { "source": "/grooming",           "destination": "/",              "permanent": true },
     { "source": "/afilado",            "destination": "/#precios",      "permanent": true },
-    { "source": "/afilado.html",       "destination": "/#precios",      "permanent": true }
+    { "source": "/afilado.html",           "destination": "/#precios",      "permanent": true },
+    { "source": "/agendar",                "destination": "/#contacto",     "permanent": true },
+    { "source": "/agendar.html",           "destination": "/#contacto",     "permanent": true },
+    { "source": "/preguntas-frecuentes",   "destination": "/#faq",          "permanent": true },
+    { "source": "/preguntas-frecuentes.html", "destination": "/#faq",       "permanent": true }
   ]
 }
