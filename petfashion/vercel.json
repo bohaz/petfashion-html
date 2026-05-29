@@ -1,0 +1,31 @@
+{
+  "redirects": [
+    { "source": "/precios",           "destination": "/#precios",      "permanent": true },
+    { "source": "/precios.html",       "destination": "/#precios",      "permanent": true },
+    { "source": "/servicios",          "destination": "/#servicios",    "permanent": true },
+    { "source": "/servicios.html",     "destination": "/#servicios",    "permanent": true },
+    { "source": "/galeria",            "destination": "/#galeria",      "permanent": true },
+    { "source": "/galeria.html",       "destination": "/#galeria",      "permanent": true },
+    { "source": "/nosotros",           "destination": "/#nosotros",     "permanent": true },
+    { "source": "/nosotros.html",      "destination": "/#nosotros",     "permanent": true },
+    { "source": "/sobre-nosotros",     "destination": "/#nosotros",     "permanent": true },
+    { "source": "/contacto",           "destination": "/#contacto",     "permanent": true },
+    { "source": "/contacto.html",      "destination": "/#contacto",     "permanent": true },
+    { "source": "/faq",                "destination": "/#faq",          "permanent": true },
+    { "source": "/faq.html",           "destination": "/#faq",          "permanent": true },
+    { "source": "/testimonios",        "destination": "/#testimonios",  "permanent": true },
+    { "source": "/testimonios.html",   "destination": "/#testimonios",  "permanent": true },
+    { "source": "/resenas",            "destination": "/#testimonios",  "permanent": true },
+    { "source": "/productos",          "destination": "/#productos",    "permanent": true },
+    { "source": "/productos.html",     "destination": "/#productos",    "permanent": true },
+    { "source": "/por-que",            "destination": "/#por-que",      "permanent": true },
+    { "source": "/por-que-elegirnos",  "destination": "/#por-que",      "permanent": true },
+    { "source": "/inicio",             "destination": "/",              "permanent": true },
+    { "source": "/inicio.html",        "destination": "/",              "permanent": true },
+    { "source": "/home",               "destination": "/",              "permanent": true },
+    { "source": "/peluqueria-canina",  "destination": "/",              "permanent": true },
+    { "source": "/grooming",           "destination": "/",              "permanent": true },
+    { "source": "/afilado",            "destination": "/#precios",      "permanent": true },
+    { "source": "/afilado.html",       "destination": "/#precios",      "permanent": true }
+  ]
+}
