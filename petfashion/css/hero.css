@@ -11,6 +11,7 @@
 /* Background layers */
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
 
+/* ── Luz de estudio direccional + viñeta cinematográfica ── */
 .hero-bg-gradient {
   position: absolute; inset: 0;
   background:
@@ -19,13 +20,41 @@
     linear-gradient(180deg, rgba(14,14,14,0.3) 0%, rgba(14,14,14,0.85) 70%, var(--c-noir) 100%);
 }
 
+/* ── Grano / textura cinematográfica ──
+   Va sobre los degradados pero por debajo del contenido (.hero-bg es z-index 0).
+   En negros puros queda casi invisible; "florece" donde hay luz dorada. */
+/* .hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+} */
+
+/* ── Isotipo gigante como marca de agua ──
+   Reemplaza la antigua grilla de huellitas. Usamos `mask` para teñir el
+   isotipo de dorado sin importar el color original del PNG.
+   Requiere que images/Isotipo3.png tenga fondo transparente (lo normal). */
 .hero-paw-pattern {
-  position: absolute; top: 0; right: 0; width: 55%; height: 100%;
-  opacity: 0.04; pointer-events: none;
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; padding: 40px;
-  transform: rotate(-8deg) scale(1.1); transform-origin: top right;
+  position: absolute; top: 50%; right: -7%;
+  width: clamp(420px, 48vw, 760px); height: auto; aspect-ratio: 1;
+  transform: translateY(-50%) rotate(-4deg); transform-origin: center;
+  /* Reseteamos los estilos de grilla anteriores */
+  display: block; padding: 0; gap: 0;
+  background: var(--c-gold-light);
+  -webkit-mask: url('../images/Isotipo3.png') no-repeat center / contain;
+          mask: url('../images/Isotipo3.png') no-repeat center / contain;
+  opacity: 0.075;
+  pointer-events: none;
 }
-.hero-paw-pattern svg { width: 36px; height: 36px; color: var(--c-gold-light); }
+/* Neutralizamos las huellitas SVG que siguen presentes en el HTML */
+.hero-paw-pattern svg { display: none; }
+
+@media (max-width: 768px) {
+  .hero-paw-pattern { right: -18%; width: clamp(360px, 90vw, 520px); opacity: 0.06; }
+}
 
 .hero-accent-line {
   position: absolute; top: 0; left: var(--gutter); width: 1px; height: 100%;
