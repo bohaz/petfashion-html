@@ -4,8 +4,15 @@
 
 const catTabs   = document.querySelectorAll('.cat-tab');
 const catPanels = document.querySelectorAll('.cat-panel');
+const addonsWrap = document.querySelector('.cat-addons-wrap');
+
+// Tabs donde los complementarios son relevantes
+const TABS_WITH_ADDONS = ['corte-bano', 'mantenimiento', 'unas'];
 
 function activateTab(tabId) {
+  // Alias: "bano" apuntaba al tab antiguo — redirigir a "mantenimiento"
+  if (tabId === 'bano') tabId = 'mantenimiento';
+
   catTabs.forEach(tab => {
     const isActive = tab.dataset.tab === tabId;
     tab.classList.toggle('cat-tab--active', isActive);
@@ -23,6 +30,17 @@ function activateTab(tabId) {
       });
     }
   });
+
+  // Mostrar/ocultar sección de complementarios según tab activo
+  if (addonsWrap) {
+    const showAddons = TABS_WITH_ADDONS.includes(tabId);
+    addonsWrap.hidden = !showAddons;
+    if (showAddons) {
+      addonsWrap.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+        setTimeout(() => el.classList.add('visible'), 80);
+      });
+    }
+  }
 }
 
 catTabs.forEach(tab => {
