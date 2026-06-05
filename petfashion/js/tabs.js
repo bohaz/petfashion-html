@@ -7,7 +7,7 @@ const catPanels = document.querySelectorAll('.cat-panel');
 const addonsWrap = document.querySelector('.cat-addons-wrap');
 
 // Tabs donde los complementarios son relevantes
-const TABS_WITH_ADDONS = ['corte-bano', 'mantenimiento', 'unas'];
+const TABS_WITH_ADDONS = ['corte-bano', 'mantenimiento'];
 
 function activateTab(tabId) {
   // Alias: "bano" apuntaba al tab antiguo — redirigir a "mantenimiento"
