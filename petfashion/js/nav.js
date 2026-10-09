@@ -1,57 +1,67 @@
 /* ═══════════════════════════════════════════
-   nav.js — Scroll navbar + menú móvil
+   nav.js — Navbar al hacer scroll, enlace activo y menú móvil
 ═══════════════════════════════════════════ */
+(() => {
+  'use strict';
 
-// ── Scroll state ──────────────────────────
-const navbar      = document.getElementById('navbar');
-const locationBar = document.querySelector('.nav-location-bar');
+  const SCROLLED_AT = 40;  // px de scroll a partir de los cuales el navbar se compacta
+  const SPY_OFFSET  = 120; // px de margen para considerar una sección como "actual"
 
-function onScroll() {
-  const scrolled = window.scrollY > 40;
-  navbar.classList.toggle('scrolled', scrolled);
-  if (locationBar) locationBar.style.top = scrolled ? '52px' : '68px';
-}
+  const navbar = document.getElementById('navbar');
+  if (!navbar) return;
 
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll(); // run once on load
+  // ── Estado al hacer scroll + enlace activo ─
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
 
-// ── Active link highlight ─────────────────
-const sections  = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+  function updateOnScroll() {
+    const scrollY = window.scrollY;
+    navbar.classList.toggle('scrolled', scrollY > SCROLLED_AT);
 
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    let currentId = '';
+    sections.forEach(section => {
+      if (scrollY >= section.offsetTop - SPY_OFFSET) currentId = section.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === `#${currentId}`);
+    });
+  }
+
+  // Un solo listener, limitado a una ejecución por frame.
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      updateOnScroll();
+      ticking = false;
+    });
+  }, { passive: true });
+
+  updateOnScroll();
+
+  // ── Menú móvil ────────────────────────────
+  const toggle    = document.querySelector('.nav-toggle');
+  const mobileNav = document.getElementById('nav-mobile');
+  if (!toggle || !mobileNav) return;
+
+  function setMobileNav(isOpen) {
+    toggle.classList.toggle('open', isOpen);
+    mobileNav.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  toggle.addEventListener('click', () => {
+    setMobileNav(!mobileNav.classList.contains('open'));
   });
-  navLinks.forEach(link => {
-    link.style.color = link.getAttribute('href') === `#${current}`
-      ? 'rgba(228,179,85,1)'
-      : '';
+
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMobileNav(false));
   });
-}, { passive: true });
 
-// ── Mobile menu ───────────────────────────
-const toggle      = document.querySelector('.nav-toggle');
-const mobileNav   = document.getElementById('nav-mobile');
-const mobileLinks = mobileNav.querySelectorAll('a');
-
-function closeMobileNav() {
-  toggle.classList.remove('open');
-  mobileNav.classList.remove('open');
-  toggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-toggle.addEventListener('click', () => {
-  const isOpen = toggle.classList.toggle('open');
-  mobileNav.classList.toggle('open', isOpen);
-  toggle.setAttribute('aria-expanded', String(isOpen));
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-});
-
-mobileLinks.forEach(link => link.addEventListener('click', closeMobileNav));
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeMobileNav();
-});
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') setMobileNav(false);
+  });
+})();
