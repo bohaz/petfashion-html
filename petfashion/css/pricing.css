@@ -252,7 +252,7 @@
   max-width: 420px; margin-top: 8px;
 }
 
-/* Precio unitario destacado ("Cada uno +$5.000") */
+/* Precio unitario destacado ("Cada uno +$6.000") */
 .cat-addons-each {
   display: flex; align-items: center; gap: 10px;
   flex-shrink: 0; margin-top: 8px;
