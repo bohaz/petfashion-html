@@ -2,24 +2,6 @@
    CATÁLOGO DE PRECIOS
 ═══════════════════════════════════════════ */
 
-/* ── Header ── */
-.pricing-header { text-align: center; margin-bottom: var(--sp-xl); }
-
-.pricing-eyebrow {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-family: var(--f-sans); font-size: 10px; font-weight: 600;
-  letter-spacing: 5px; text-transform: uppercase;
-  color: var(--c-gold); margin-bottom: var(--sp-sm);
-}
-.pricing-eyebrow::before { content: '—'; }
-
-.pricing-title {
-  font-family: var(--f-display);
-  font-size: clamp(36px, 4.5vw, 60px);
-  color: var(--c-noir); line-height: 1.05;
-  margin-bottom: 16px; font-weight: 700;
-}
-
 /* ── Tabs (sobre fondo claro) ── */
 .cat-tabs {
   display: flex; gap: 8px; flex-wrap: wrap;
@@ -94,14 +76,17 @@
 /* ── Grid de cards ── */
 .size-cards-grid {
   display: grid; gap: 14px;
-  grid-template-columns: repeat(2, 1fr); /* 2x2 dentro del cat-layout */
+  grid-template-columns: repeat(2, 1fr);
 }
-/* Si se usa fuera del cat-layout (pantallas grandes sin incluye): 4 columnas */
-@media (min-width: 861px) {
-  .cat-layout .size-cards-grid { grid-template-columns: repeat(2, 1fr); }
+/* Variante para servicios con 3 tallas (Fashion Full, Mantención) */
+.size-cards-grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 600px) {
+  .size-cards-grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .size-cards-grid--3 .size-card:nth-child(3) { grid-column: 1 / -1; }
 }
 @media (max-width: 480px) {
-  .size-cards-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .size-cards-grid { gap: 10px; }
 }
 
 /* ── Size card ── */
@@ -237,7 +222,6 @@
 
 /* ═══════════════════════════════════════════
    SERVICIOS COMPLEMENTARIOS — ADD-ONS
-   Agregar al final de pricing.css
 ═══════════════════════════════════════════ */
 
 .cat-addons-wrap {
@@ -266,6 +250,20 @@
   font-family: var(--f-sans); font-size: 14px;
   color: var(--c-muted); line-height: 1.65;
   max-width: 420px; margin-top: 8px;
+}
+
+/* Precio unitario destacado ("Cada uno +$5.000") */
+.cat-addons-each {
+  display: flex; align-items: center; gap: 10px;
+  flex-shrink: 0; margin-top: 8px;
+}
+.cat-addons-each-label {
+  font-family: var(--f-sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--c-muted);
+}
+.cat-addons-each-price {
+  font-family: var(--f-display); font-size: 36px; font-weight: 700;
+  color: var(--c-gold); line-height: 1;
 }
 
 /* Grid de cards add-on */
