@@ -28,13 +28,16 @@ petfashion/                 ← raíz que publica Vercel
 │   ├── nav.js              Navbar al hacer scroll, enlace activo, menú móvil
 │   ├── tabs.js             Tabs del catálogo de precios
 │   └── faq.js              Acordeón de preguntas frecuentes
-├── images/                 Fotos, isotipo y siluetas por talla
+├── images/                 Fotos, logo (SVG) y siluetas por talla
 ├── og-image.jpg            Imagen al compartir el sitio en redes (1200×630)
 ├── logo.png                Logo para los datos estructurados de Google (512×512)
 ├── favicon/                Íconos y site.webmanifest
 ├── vercel.json             Redirecciones 301 de URLs antiguas a anclas
 ├── sitemap.xml
 └── robots.txt
+
+docs/
+└── logo.md                 Qué archivo de logo se usa dónde y cómo actualizarlo
 ```
 
 ## Desarrollo local
@@ -53,6 +56,7 @@ Luego abre http://localhost:3000.
 **HTML**
 - Sin estilos en línea (`style="…"`) ni bloques comentados: el historial de Git guarda lo eliminado.
 - Los íconos viven en el sprite SVG al inicio de `<body>` y se usan con `<svg class="icon"><use href="#ico-nombre"/></svg>`.
+- El logo no va en el sprite ni se escribe con una tipografía: se usan los archivos de `images/` con `<img>`. Ver [`docs/logo.md`](docs/logo.md).
 - Todo enlace externo lleva `target="_blank" rel="noopener"`.
 
 **CSS**
@@ -74,6 +78,7 @@ Luego abre http://localhost:3000.
 | Agregar una pregunta frecuente | Duplica un bloque `.faq-item` dentro del `.faq-grid` que corresponda |
 | Cambiar el número de WhatsApp | Busca y reemplaza `56945570410` en `index.html` (enlaces `wa.me` y datos estructurados) |
 | Agregar una redirección | `vercel.json` |
+| Cambiar el logo, un favicon o la imagen para redes | [`docs/logo.md`](docs/logo.md): tabla de archivos y pasos |
 
 Después de cambiar contenido visible, actualiza `<lastmod>` en `sitemap.xml`.
 
@@ -141,4 +146,4 @@ git push origin main
 ## Pendientes conocidos
 
 - `groomer-1.png` y `groomer-2.png` pesan 600 KB y 400 KB; convertirlos a WebP reduciría el peso de la página.
-- `images/Cuchilla.webp` e `images/Isotipo2.png` no se usan en el sitio.
+- `images/Cuchilla.webp` no se usa en el sitio.
