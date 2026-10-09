@@ -29,6 +29,8 @@ petfashion/                 ← raíz que publica Vercel
 │   ├── tabs.js             Tabs del catálogo de precios
 │   └── faq.js              Acordeón de preguntas frecuentes
 ├── images/                 Fotos, isotipo y siluetas por talla
+├── og-image.jpg            Imagen al compartir el sitio en redes (1200×630)
+├── logo.png                Logo para los datos estructurados de Google (512×512)
 ├── favicon/                Íconos y site.webmanifest
 ├── vercel.json             Redirecciones 301 de URLs antiguas a anclas
 ├── sitemap.xml
@@ -138,6 +140,5 @@ git push origin main
 
 ## Pendientes conocidos
 
-- `og-image.jpg` y `logo.png`, referenciados en las metaetiquetas Open Graph y en los datos estructurados, no están en el repositorio. Sin ellos los enlaces compartidos en redes no muestran imagen.
 - `groomer-1.png` y `groomer-2.png` pesan 600 KB y 400 KB; convertirlos a WebP reduciría el peso de la página.
 - `images/Cuchilla.webp` e `images/Isotipo2.png` no se usan en el sitio.
