@@ -54,9 +54,10 @@
     tab.addEventListener('click', () => activateTab(tab.dataset.tab));
   });
 
-  // Enlaces "Ver precios" de las tarjetas de servicio: abren su tab.
+  // Enlaces "Ver precios" de las tarjetas de servicio y opciones de la guía
+  // "¿Cuándo fue su último corte?": abren su tab.
   // El scroll hacia #precios lo resuelve el handler de anclas de main.js.
-  document.querySelectorAll('.service-link[data-tab]').forEach(link => {
+  document.querySelectorAll('.service-link[data-tab], .cat-guide-item[data-tab]').forEach(link => {
     link.addEventListener('click', () => activateTab(link.dataset.tab));
   });
 })();

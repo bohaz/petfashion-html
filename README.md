@@ -17,7 +17,7 @@ petfashion/                 ← raíz que publica Vercel
 │   ├── hero.css            Hero y barra de confianza
 │   ├── about.css           Nosotros y "Por qué elegirnos"
 │   ├── services.css        Tarjetas de servicios
-│   ├── pricing.css         Catálogo de precios: tabs, tallas, afilado, adicionales
+│   ├── pricing.css         Catálogo de precios: guía por último corte, tabs, tallas, afilado, adicionales
 │   ├── products.css        Cosmética Hydra
 │   ├── gallery.css         Galería
 │   ├── testimonials.css    Reseñas
@@ -72,9 +72,9 @@ Luego abre http://localhost:3000.
 
 | Tarea | Dónde |
 |---|---|
-| Cambiar un precio | `index.html`, sección `#precios`: `.size-price-solo` o `.size-price-val` de la talla |
+| Cambiar un precio | `index.html`, sección `#precios`: `.size-price-solo` o `.size-price-val` de la talla. Los adicionales por talla están en `.cat-addons-sizes`, y los valores "desde" en la guía (`.cat-guide-from`) y en las preguntas frecuentes |
 | Quitar o agregar una talla | Elimina o duplica el bloque `.size-card` del tab. Con 3 tallas el contenedor lleva `size-cards-grid--3`; con 4, solo `size-cards-grid` |
-| Agregar un servicio al catálogo | Suma un botón `.cat-tab[data-tab="x"]` y un panel `#tab-x`. Agrega `data-has-addons` al panel si aplican los servicios adicionales. No requiere tocar `tabs.js` |
+| Agregar un servicio al catálogo | Suma un botón `.cat-tab[data-tab="x"]` y un panel `#tab-x`. Agrega `data-has-addons` al panel si aplican los servicios adicionales. Si el servicio depende del tiempo desde el último corte, suma también un `.cat-guide-item[data-tab="x"]` en la guía. No requiere tocar `tabs.js` |
 | Agregar una pregunta frecuente | Duplica un bloque `.faq-item` dentro del `.faq-grid` que corresponda |
 | Cambiar el número de WhatsApp | Busca y reemplaza `56945570410` en `index.html` (enlaces `wa.me` y datos estructurados) |
 | Agregar una redirección | `vercel.json` |
