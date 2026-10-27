@@ -143,6 +143,32 @@
 .product-name em { font-style: italic; color: var(--c-gold-light); }
 .product-desc    { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.65; }
 
+/* ── Productos según el caso ──
+   Mismas tarjetas y grilla que los 4 pasos, sin número; en móvil pasan a fila. */
+.products-extra { margin-top: var(--sp-lg); }
+.products-extra-label {
+  display: flex; align-items: center; gap: 16px;
+  font-size: 10px; font-weight: 600; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--c-gold); margin-bottom: 20px;
+}
+.products-extra-label::after {
+  content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.08);
+}
+.products-extra-grid {
+  display: grid; gap: 20px; grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 900px) {
+  .products-extra-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .products-extra-grid { grid-template-columns: 1fr; gap: 12px; }
+  .product-card--extra { display: grid; grid-template-columns: 96px 1fr; }
+  .product-card--extra .product-img { aspect-ratio: auto; height: 100%; min-height: 128px; }
+  .product-card--extra .product-img { background: #fff; }
+  .product-card--extra .product-img img { object-fit: contain; padding: 8px; }
+  .product-card--extra .product-info { padding: 16px; align-self: center; }
+}
+
 /* Footer note */
 .products-note {
   text-align: center; margin-top: var(--sp-lg);

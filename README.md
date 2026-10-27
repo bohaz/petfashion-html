@@ -17,7 +17,7 @@ petfashion/                 ← raíz que publica Vercel
 │   ├── hero.css            Hero y barra de confianza
 │   ├── about.css           Nosotros y "Por qué elegirnos"
 │   ├── services.css        Tarjetas de servicios
-│   ├── pricing.css         Catálogo de precios: guía por último corte, tabs, tallas, afilado, adicionales
+│   ├── pricing.css         Catálogo de precios: guía por último corte, tabs, tallas, adicionales
 │   ├── products.css        Cosmética Hydra
 │   ├── gallery.css         Galería
 │   ├── testimonials.css    Reseñas
@@ -146,4 +146,3 @@ git push origin main
 ## Pendientes conocidos
 
 - `groomer-1.png` y `groomer-2.png` pesan 600 KB y 400 KB; convertirlos a WebP reduciría el peso de la página.
-- `images/Cuchilla.webp` no se usa en el sitio.

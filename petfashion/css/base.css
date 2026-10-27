@@ -45,6 +45,16 @@ a      { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
 svg.icon { display: inline-block; flex-shrink: 0; }
+
+/* Huella de la marca como ícono: toma el color del texto (currentColor).
+   Usa la huella reducida del manual, pensada para tamaños bajo 48 px. */
+.icon-huella {
+  display: inline-block; flex-shrink: 0;
+  width: 14px; height: 14px;
+  background-color: currentColor;
+  -webkit-mask: url('../images/isotipo-reducido.svg') no-repeat center / contain;
+          mask: url('../images/isotipo-reducido.svg') no-repeat center / contain;
+}
 .svg-sprite { display: none; }
 
 /* ═══════════════════════════════════════════
