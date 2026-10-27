@@ -65,6 +65,7 @@
     "geo": { "@type": "GeoCoordinates", "latitude": "-33.425", "longitude": "-71.674" },
     "sameAs": [
       "https://www.instagram.com/petfashiondogsalon",
+      "https://www.facebook.com/petfashiondogsalon",
       "https://www.threads.net/@petfashiondogsalon"
     ],
     "hasOfferCatalog": {
@@ -74,8 +75,7 @@
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fashion Full", "description": "Baño, secado, corte de pelo, vaciado de glándulas anales, limpieza de oídos y corte de uñas." } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantención", "description": "Servicio completo para mascotas que regresan dentro de los 30 días desde su último Fashion Full o Mantención." } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fashion Fresh", "description": "Baño entre cortes de tres pasos con secado, vaciado de glándulas anales y perfume, hasta 21 días después del último corte." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paws Care", "description": "Corte y limado de uñas." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Afilado de cuchillas", "description": "Servicio profesional de afilado de tijeras y cuchillas de peluquería canina." } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paws Care", "description": "Corte y limado de uñas." } }
       ]
     }
   }
@@ -115,11 +115,6 @@
   <!-- SVG SPRITE (inline, oculto) -->
   <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite" width="0" height="0" aria-hidden="true">
     <defs>
-      <symbol id="ico-paw" viewBox="0 0 24 24" fill="currentColor">
-        <circle cx="4.5" cy="7" r="2"/><circle cx="9" cy="4" r="1.5"/>
-        <circle cx="15" cy="4" r="1.5"/><circle cx="19.5" cy="7" r="2"/>
-        <path d="M12 9c-2.8 0-6 2.2-6 5.5C6 18 8.5 20 12 20s6-2 6-5.5C18 11.2 14.8 9 12 9z"/>
-      </symbol>
       <symbol id="ico-scissors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
         <line x1="20" y1="4" x2="8.12" y2="15.88"/>
@@ -170,9 +165,6 @@
         <path d="M7 12V6a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1"/>
         <path d="M9 8h1"/>
       </symbol>
-      <symbol id="ico-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77z"/>
-      </symbol>
       <symbol id="ico-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
         <circle cx="12" cy="7" r="4"/>
@@ -182,6 +174,9 @@
       </symbol>
       <symbol id="ico-instagram" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+      </symbol>
+      <symbol id="ico-facebook" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.026 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.971H15.83c-1.491 0-1.956.931-1.956 1.886v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
       </symbol>
       <symbol id="ico-threads" viewBox="0 0 192 192" fill="currentColor">
         <path d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.347-10.548h.23c8.249.053 14.474 2.452 18.502 7.13 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.371-39.134 15.264-38.105 34.568.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.376-11.319 11.308-24.925 16.2-45.488 16.351-22.809-.169-40.06-7.484-51.275-21.742C35.236 139.966 29.808 120.682 29.605 96c.203-24.682 5.63-43.966 16.133-57.317C56.954 24.425 74.205 17.11 97.014 16.94c22.975.17 40.526 7.52 52.171 21.847 5.71 7.026 10.015 15.86 12.853 26.162l16.147-4.308c-3.44-12.68-8.853-23.606-16.219-32.668C147.036 9.607 125.202.195 97.07 0h-.113C68.882.195 47.292 9.6 32.788 27.99 19.882 44.485 13.224 67.315 13.001 95.932L13 96v.067c.224 28.617 6.882 51.447 19.788 67.942 14.504 18.39 36.094 27.797 64.188 27.991h.113c24.925-.173 42.288-6.698 56.72-21.119 18.718-18.702 18.139-42.093 11.952-56.428-4.313-10.055-12.575-18.311-23.224-23.465zm-41.082 55.579c-10.43.588-21.286-4.098-21.82-14.135-.397-7.442 5.296-15.746 22.461-16.735 1.966-.113 3.895-.169 5.79-.169 6.235 0 12.068.606 17.37 1.765-1.978 24.65-13.826 28.679-23.801 29.274z"/>
@@ -252,7 +247,7 @@
                 Peluquería canina profesional sin bozal ni sedación. Porque tu mascota merece una experiencia positiva, segura y llena de amor.
               </p>
               <div class="hero-badges" role="group" aria-label="Características del servicio">
-                <span class="badge"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg> Sin bozal</span>
+                <span class="badge"><span class="icon-huella" aria-hidden="true"></span> Sin bozal</span>
                 <span class="badge"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-nopill"/></svg> Sin sedación</span>
                 <span class="badge"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-scissors"/></svg> Profesional</span>
               </div>
@@ -505,13 +500,8 @@
           </button>
           <button type="button" class="cat-tab" role="tab" aria-selected="false"
                   aria-controls="tab-unas" id="btn-unas" data-tab="unas">
-            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg>
+            <span class="icon-huella" aria-hidden="true"></span>
             Paws Care
-          </button>
-          <button type="button" class="cat-tab" role="tab" aria-selected="false"
-                  aria-controls="tab-afilado" id="btn-afilado" data-tab="afilado">
-            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-tool"/></svg>
-            Afilado
           </button>
         </div>
 
@@ -585,7 +575,7 @@
             </div>
           </div>
           <p class="cat-footer-note reveal">
-            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg>
+            <span class="icon-huella" aria-hidden="true"></span>
             Los precios pueden variar según el estado del pelaje. Consulta sin compromiso.
           </p>
         </div>
@@ -664,7 +654,7 @@
             </div>
           </div>
           <p class="cat-footer-note reveal">
-            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg>
+            <span class="icon-huella" aria-hidden="true"></span>
             Los precios pueden variar según el estado del pelaje. Consulta sin compromiso.
           </p>
         </div>
@@ -838,27 +828,6 @@
           </div>
         </div>
 
-        <!-- ── TAB: Afilado ── -->
-        <div id="tab-afilado" class="cat-panel" role="tabpanel" aria-labelledby="btn-afilado" hidden>
-          <div class="cat-blade-card reveal">
-            <div class="cat-blade-icon" aria-hidden="true">
-              <img src="images/AndisPeineN10.webp" alt="Cuchilla de peluquería canina" loading="lazy">
-            </div>
-            <div class="cat-blade-label">Precio por cuchilla</div>
-            <div class="cat-blade-price">$7.000</div>
-            <div class="cat-blade-sub">c/u · entrega según disponibilidad</div>
-            <ul class="cat-blade-includes">
-              <li>Afilado profesional</li>
-              <li>Limpieza y desinfección de la cuchilla</li>
-              <li>Lubricación y ajuste para funcionamiento óptimo</li>
-              <li>Compatible con Andis, Oster, Wahl y similares</li>
-            </ul>
-            <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20consultar%20por%20el%20afilado%20de%20cuchillas" class="cat-blade-cta" rel="noopener" target="_blank">
-              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
-              Consultar disponibilidad
-            </a>
-          </div>
-        </div>
 
         <!-- ══════════════════════════════════════
              SERVICIOS COMPLEMENTARIOS
@@ -906,7 +875,7 @@
               </div>
               <div class="cat-addon-name">Desenredo<br><em>de nudos</em></div>
               <p class="cat-addon-desc">
-                “Los dedos se traban al peinarlo.” Desenredo manual de hasta 30 minutos, cuidando la piel.
+                “Los dedos se traban al peinarlo.” Desenredo manual de hasta 30 minutos con Hydra Ultra Dematting &amp; Finishing Spray, cuidando la piel.
               </p>
               <div class="cat-addon-price-row">
                 <span class="cat-addon-price-tag">Adicional</span>
@@ -923,7 +892,7 @@
               </div>
               <div class="cat-addon-name">Suciedad<br><em>extrema</em></div>
               <p class="cat-addon-desc">
-                “Llega con barro, arena pegada o se revolcó.” Prelavado con Hydra X-Treme antes del baño.
+                “Llega con barro, arena pegada o se revolcó.” Prelavado con Hydra X-Treme.
               </p>
               <div class="cat-addon-price-row">
                 <span class="cat-addon-price-tag">Adicional</span>
@@ -956,7 +925,7 @@
           </div>
 
           <p class="cat-addons-note">
-            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg>
+            <span class="icon-huella" aria-hidden="true"></span>
             Los complementarios se informan y confirman siempre antes de comenzar el servicio. Nunca se cobran sin aviso previo.
           </p>
         </div>
@@ -1146,6 +1115,58 @@
 
         </div>
 
+        <!-- Productos según el caso (adicionales y mantos blancos) -->
+        <div class="products-extra">
+          <p class="products-extra-label reveal">Según el caso</p>
+          <div class="products-extra-grid">
+
+            <div class="product-card product-card--extra reveal">
+              <div class="product-img">
+                <img src="images/hydra-xtreme.webp" alt="Hydra X-Treme Shampoo" width="300" height="400" loading="lazy">
+              </div>
+              <div class="product-info">
+                <div class="product-step-label">Suciedad extrema</div>
+                <h3 class="product-name">Shampoo<br><em>X-Treme</em></h3>
+                <p class="product-desc">Prelavado de limpieza profunda para perros que llegan con barro, arena pegada o grasa.</p>
+              </div>
+            </div>
+
+            <div class="product-card product-card--extra reveal reveal-delay-1">
+              <div class="product-img">
+                <img src="images/hydra-deshedding.webp" alt="Hydra Ultra Deshedding &amp; Detangling Shampoo" width="300" height="400" loading="lazy">
+              </div>
+              <div class="product-info">
+                <div class="product-step-label">Pelecha extrema</div>
+                <h3 class="product-name">Ultra<br><em>Deshedding</em></h3>
+                <p class="product-desc">Suelta el subpelo muerto y facilita retirarlo cuando el pelo sale en mechones.</p>
+              </div>
+            </div>
+
+            <div class="product-card product-card--extra reveal reveal-delay-2">
+              <div class="product-img">
+                <img src="images/hydra-dematting.webp" alt="Hydra Ultra Dematting &amp; Finishing Spray" width="300" height="400" loading="lazy">
+              </div>
+              <div class="product-info">
+                <div class="product-step-label">Desenredo de nudos</div>
+                <h3 class="product-name">Spray<br><em>desenredante</em></h3>
+                <p class="product-desc">Lubrica el pelo para soltar los nudos con el peine, sin tirones y cuidando la piel.</p>
+              </div>
+            </div>
+
+            <div class="product-card product-card--extra reveal reveal-delay-3">
+              <div class="product-img">
+                <img src="images/hydra-whitening.webp" alt="Hydra Whitening Shampoo" width="300" height="400" loading="lazy">
+              </div>
+              <div class="product-info">
+                <div class="product-step-label">Mantos blancos</div>
+                <h3 class="product-name">Shampoo<br><em>Whitening</em></h3>
+                <p class="product-desc">Realza el blanco del manto. Incluido sin costo para perros blancos.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
         <p class="products-note reveal">
           Conoce más sobre <a href="https://www.hydragroomers.com" target="_blank" rel="noopener">Hydra by Pet Society</a> — la marca de grooming favorita de los expertos.
         </p>
@@ -1324,17 +1345,6 @@
           </div>
         </div>
 
-        <span class="faq-category reveal">Afilado de cuchillas</span>
-        <div class="faq-grid">
-          <div class="faq-item reveal">
-            <button type="button" class="faq-question" aria-expanded="false">¿Qué tipo de cuchillas pueden afilar? <span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-answer">Afilamos cuchillas de peluquería canina tipo A5 desmontables, compatibles con marcas como Andis, Oster, Wahl y similares.</div>
-          </div>
-          <div class="faq-item reveal reveal-delay-1">
-            <button type="button" class="faq-question" aria-expanded="false">¿Cuánto tarda el servicio de afilado y qué incluye? <span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-answer">El afilado generalmente se realiza el mismo día dependiendo de el número de cuchillas. El servicio incluye afilado profesional, limpieza y desinfección, lubricación y ajuste. El precio es de $7.000 por cuchilla.</div>
-          </div>
-        </div>
 
         <div class="faq-cta-box reveal">
           <div>
@@ -1355,7 +1365,7 @@
     <section id="contacto" class="section" aria-labelledby="contacto-heading">
       <div class="container">
         <div class="cta-wrap reveal">
-          <svg class="cta-paw-watermark icon" aria-hidden="true"><use href="#ico-paw"/></svg>
+          <span class="cta-paw-watermark" aria-hidden="true"></span>
           <div>
             <p class="cta-label">¡Agenda hoy mismo!</p>
             <h2 id="contacto-heading" class="cta-title">
@@ -1408,6 +1418,7 @@
           </p>
           <div class="footer-socials" role="group" aria-label="Redes sociales">
             <a href="https://www.instagram.com/petfashiondogsalon" class="footer-social" rel="noopener" target="_blank" aria-label="Instagram"><svg class="icon"><use href="#ico-instagram"/></svg></a>
+            <a href="https://www.facebook.com/petfashiondogsalon" class="footer-social" rel="noopener" target="_blank" aria-label="Facebook"><svg class="icon"><use href="#ico-facebook"/></svg></a>
             <a href="https://www.threads.net/@petfashiondogsalon" class="footer-social" rel="noopener" target="_blank" aria-label="Threads"><svg class="icon"><use href="#ico-threads"/></svg></a>
             <a href="https://wa.me/56945570410" class="footer-social" rel="noopener" target="_blank" aria-label="WhatsApp"><svg class="icon"><use href="#ico-whatsapp"/></svg></a>
           </div>
@@ -1429,7 +1440,6 @@
             <li><a href="#servicios">Mantención</a></li>
             <li><a href="#servicios">Fashion Fresh</a></li>
             <li><a href="#servicios">Paws Care</a></li>
-            <li><a href="#servicios">Afilado de cuchillas</a></li>
           </ul>
         </div>
         <div>

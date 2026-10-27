@@ -9,7 +9,8 @@ El manual y el kit completo (todas las composiciones en SVG y PNG, piezas de red
 | Archivo | Qué es | Dónde aparece | Tamaño en pantalla |
 |---|---|---|---|
 | `images/logo-compacto.svg` | Compacto: huella reducida + nombre, sin descriptor. Versión oscura | Navbar y footer | 36 px de alto (32 px en móvil); 229 px de ancho en el footer |
-| `images/isotipo.svg` | Huella completa | Marca de agua del hero, como máscara CSS | 420 a 760 px |
+| `images/isotipo.svg` | Huella completa | Marcas de agua del hero y de "¡Agenda hoy mismo!", como máscara CSS | 160 a 760 px |
+| `images/isotipo-reducido.svg` | Huella reducida, como máscara CSS en `currentColor` | Íconos `.icon-huella`: badge "Sin bozal", pestaña Paws Care, notas del catálogo | 14 px |
 | `images/isotipo-medio.svg` | Huella media, en dorado claro | Tarjeta "Por qué elegirnos" | 68 × 64 px |
 | `favicon/favicon.svg`, `favicon.ico`, `favicon-96x96.png` | Huella reducida sobre fondo Noir redondeado | Pestaña del navegador | 16 a 96 px |
 | `favicon/apple-touch-icon.png` | Huella media sobre Noir | Acceso directo en iOS | 180 px |

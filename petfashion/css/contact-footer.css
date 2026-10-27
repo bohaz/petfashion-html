@@ -17,10 +17,13 @@
   width: 300px; height: 300px;
   background: radial-gradient(circle, rgba(201,146,42,0.15) 0%, transparent 70%);
 }
+/* Huella completa del manual (más de 120 px), teñida con mask */
 .cta-paw-watermark {
   position: absolute; bottom: -20px; right: 48px;
   width: 160px; height: 160px;
-  color: var(--c-gold-light); opacity: 0.04; pointer-events: none;
+  background-color: var(--c-gold-light); opacity: 0.04; pointer-events: none;
+  -webkit-mask: url('../images/isotipo.svg') no-repeat center / contain;
+          mask: url('../images/isotipo.svg') no-repeat center / contain;
 }
 
 .cta-label    { font-size: 10px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; color: var(--c-gold); margin-bottom: 16px; }

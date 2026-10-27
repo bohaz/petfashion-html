@@ -224,46 +224,14 @@
 }
 .pricing-cta-btn svg { width: 18px; height: 18px; }
 
-/* ── Afilado: blade card ── */
-.cat-blade-card {
-  background: var(--c-dark-card); border: 1px solid rgba(255,255,255,0.07);
-  border-radius: var(--radius-lg); padding: 48px 40px;
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  position: relative; overflow: hidden; max-width: 400px; margin: 0 auto;
-}
-.cat-blade-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
-}
-.cat-blade-icon     { width: 150px; height: 150px; margin-bottom: 10px; }
-.cat-blade-icon img { width: 100%; height: 100%; object-fit: contain; }
-.cat-blade-label    { font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
-.cat-blade-price    { font-family: var(--f-display); font-size: 56px; font-weight: 700; color: var(--c-white); line-height: 1; }
-.cat-blade-sub      { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 6px; }
-.cat-blade-includes {
-  display: flex; flex-direction: column; gap: 8px;
-  margin: 24px 0; text-align: left; width: 100%;
-  border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;
-}
-.cat-blade-includes li { font-size: 13px; color: rgba(255,255,255,0.5); display: flex; gap: 8px; }
-.cat-blade-includes li::before { content: '✦'; color: var(--c-gold); font-size: 9px; flex-shrink: 0; margin-top: 3px; }
-.cat-blade-cta {
-  display: inline-flex; align-items: center; gap: 8px;
-  margin-top: 4px; font-family: var(--f-sans); font-size: 11px; font-weight: 600;
-  letter-spacing: 2.5px; text-transform: uppercase;
-  padding: 14px 32px; border-radius: 40px;
-  background: var(--c-gold); color: var(--c-white);
-  transition: background var(--transition), transform var(--transition);
-}
-.cat-blade-cta:hover { background: var(--c-gold-light); transform: translateY(-1px); }
-
 /* ── Nota al pie ── */
 .cat-footer-note {
   text-align: center; margin-top: 32px;
   font-size: 13px; color: var(--c-muted);
   display: flex; align-items: center; justify-content: center; gap: 8px;
 }
-.cat-footer-note svg { color: var(--c-gold); }
+.cat-footer-note svg,
+.cat-footer-note .icon-huella { color: var(--c-gold); }
 
 /* ═══════════════════════════════════════════
    SERVICIOS COMPLEMENTARIOS — ADD-ONS
@@ -400,4 +368,5 @@
   display: flex; align-items: flex-start; gap: 10px;
   font-size: 12px; color: var(--c-muted); line-height: 1.65;
 }
-.cat-addons-note svg { color: var(--c-gold); flex-shrink: 0; margin-top: 2px; }
+.cat-addons-note svg,
+.cat-addons-note .icon-huella { color: var(--c-gold); flex-shrink: 0; margin-top: 2px; }
