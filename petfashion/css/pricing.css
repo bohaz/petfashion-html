@@ -314,9 +314,13 @@
 .cat-addons-size strong {
   font-family: var(--f-display); font-size: 28px; font-weight: 700; color: var(--c-gold);
 }
+/* En móvil: etiqueta arriba y las tres tallas en columnas iguales a todo el ancho */
 @media (max-width: 640px) {
-  .cat-addons-sizes { gap: 12px; }
-  .cat-addons-size strong { font-size: 21px; }
+  .cat-addons-sizes {
+    width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 8px;
+  }
+  .cat-addons-sizes .cat-addons-each-label { grid-column: 1 / -1; }
+  .cat-addons-size strong { font-size: clamp(18px, 5.6vw, 24px); }
 }
 
 /* Grid de cards add-on */
