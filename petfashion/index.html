@@ -72,7 +72,8 @@
       "name": "Servicios de Peluquería Canina",
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fashion Full", "description": "Baño, secado, corte de pelo, vaciado de glándulas anales, limpieza de oídos y corte de uñas." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantención", "description": "Corte o cepillado y baño de tres pasos para mascotas que regresan dentro de los 30 días desde su último servicio." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantención", "description": "Servicio completo para mascotas que regresan dentro de los 30 días desde su último Fashion Full o Mantención." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fashion Fresh", "description": "Baño entre cortes de tres pasos con secado, vaciado de glándulas anales y perfume, hasta 21 días después del último corte." } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paws Care", "description": "Corte y limado de uñas." } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Afilado de cuchillas", "description": "Servicio profesional de afilado de tijeras y cuchillas de peluquería canina." } }
       ]
@@ -422,7 +423,7 @@
             <svg class="service-card-watermark icon" aria-hidden="true"><use href="#ico-bath"/></svg>
             <svg class="service-icon icon" aria-hidden="true"><use href="#ico-bath"/></svg>
             <h3 class="service-name">Mantención</h3>
-            <p class="service-desc">Exclusivo para mascotas que regresan dentro de los 30 días desde su último servicio.</p>
+            <p class="service-desc">El mismo servicio completo, a mejor precio si vuelves dentro de los 30 días desde su último corte.</p>
             <ul class="service-includes" aria-label="Incluye">
               <li>Baño de tres pasos</li>
               <li>Cepillado o corte de pelo según raza</li>
@@ -432,17 +433,19 @@
             </ul>
             <a href="#precios" data-tab="mantenimiento" class="service-link" aria-label="Ver precios de Mantención">Ver precios</a>
           </article>
-          <article class="service-card reveal reveal-delay-2" aria-label="Servicio de afilado de cuchillas">
-            <svg class="service-card-watermark icon" aria-hidden="true"><use href="#ico-tool"/></svg>
-            <svg class="service-icon icon" aria-hidden="true"><use href="#ico-tool"/></svg>
-            <h3 class="service-name">Afilado de <em>cuchillas</em></h3>
-            <p class="service-desc">Servicio profesional de afilado para cuchillas de peluquería canina. Resultados precisos garantizados.</p>
+          <article class="service-card reveal reveal-delay-2" aria-label="Servicio Fashion Fresh">
+            <svg class="service-card-watermark icon" aria-hidden="true"><use href="#ico-sparkle"/></svg>
+            <div class="service-feat-tag">✦ Nuevo</div>
+            <svg class="service-icon icon" aria-hidden="true"><use href="#ico-sparkle"/></svg>
+            <h3 class="service-name">Fashion <em>Fresh</em></h3>
+            <p class="service-desc">Baño entre cortes, desde una semana y hasta 21 días después de su último corte.</p>
             <ul class="service-includes" aria-label="Incluye">
-              <li>Cuchillas de tipo A5 desmontables</li>
-              <li>Entrega según disponibilidad</li>
-              <li>Garantía de corte</li>
+              <li>Baño de tres pasos Hydra</li>
+              <li>Secado profesional</li>
+              <li>Vaciado de glándulas anales</li>
+              <li>Perfume de larga duración</li>
             </ul>
-            <a href="#precios" data-tab="afilado" class="service-link" aria-label="Ver precios de afilado">Ver precios</a>
+            <a href="#precios" data-tab="fresh" class="service-link" aria-label="Ver precios de Fashion Fresh">Ver precios</a>
           </article>
         </div>
       </div>
@@ -461,6 +464,28 @@
           </h2>
         </div>
 
+        <!-- Guía rápida: qué servicio corresponde -->
+        <div class="cat-guide reveal reveal-delay-1" aria-label="Qué servicio necesita tu perro">
+          <p class="cat-guide-title">¿Cuándo fue su último corte con nosotros?</p>
+          <div class="cat-guide-grid">
+            <button type="button" class="cat-guide-item" data-tab="fresh">
+              <span class="cat-guide-when">De 7 a 21 días</span>
+              <span class="cat-guide-name">Fashion <em>Fresh</em></span>
+              <span class="cat-guide-from">desde $10.000</span>
+            </button>
+            <button type="button" class="cat-guide-item" data-tab="mantenimiento">
+              <span class="cat-guide-when">Hasta 30 días</span>
+              <span class="cat-guide-name">Mantención</span>
+              <span class="cat-guide-from">desde $18.000</span>
+            </button>
+            <button type="button" class="cat-guide-item" data-tab="corte-bano">
+              <span class="cat-guide-when">Más de 30 días o primera visita</span>
+              <span class="cat-guide-name">Fashion <em>Full</em></span>
+              <span class="cat-guide-from">desde $22.000</span>
+            </button>
+          </div>
+        </div>
+
         <!-- Tabs -->
         <div class="cat-tabs reveal reveal-delay-1" role="tablist" aria-label="Servicios">
           <button type="button" class="cat-tab cat-tab--active" role="tab" aria-selected="true"
@@ -472,6 +497,11 @@
                   aria-controls="tab-mantenimiento" id="btn-mantenimiento" data-tab="mantenimiento">
             <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-bath"/></svg>
             Mantención
+          </button>
+          <button type="button" class="cat-tab" role="tab" aria-selected="false"
+                  aria-controls="tab-fresh" id="btn-fresh" data-tab="fresh">
+            <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-sparkle"/></svg>
+            Fashion Fresh <span class="cat-tab-badge">Nuevo</span>
           </button>
           <button type="button" class="cat-tab" role="tab" aria-selected="false"
                   aria-controls="tab-unas" id="btn-unas" data-tab="unas">
@@ -579,7 +609,7 @@
               </ul>
               <div class="cat-note">
                 <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-sparkle"/></svg>
-                Servicio válido únicamente para mascotas que regresan dentro de los 30 días desde su último servicio de peluquería.
+                Válido dentro de los 30 días desde su último Fashion Full o Mantención. Si llega con motas pegadas a la piel, corresponde Fashion Full.
               </div>
             </div>
             <div class="size-cards-grid size-cards-grid--3">
@@ -637,6 +667,82 @@
             <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-paw"/></svg>
             Los precios pueden variar según el estado del pelaje. Consulta sin compromiso.
           </p>
+        </div>
+
+        <!-- ── TAB: Fashion Fresh ── -->
+        <div id="tab-fresh" class="cat-panel" role="tabpanel" aria-labelledby="btn-fresh" hidden>
+          <div class="cat-layout">
+            <div class="cat-includes-card reveal">
+              <p class="cat-includes-title">¿Qué incluye?</p>
+              <ul class="cat-includes-list">
+                <li>1er Lavado: neutralizador de olor</li>
+                <li>2do Lavado: shampoo hidratante</li>
+                <li>3er Lavado: acondicionador</li>
+                <li>Vaciado de glándulas anales</li>
+                <li>Secado profesional</li>
+                <li>Perfume de larga duración</li>
+              </ul>
+              <p class="cat-includes-title cat-includes-title--no">No incluye</p>
+              <ul class="cat-includes-list cat-includes-list--no">
+                <li>Corte de pelo ni despejes</li>
+                <li>Corte de uñas ni limpieza de oídos</li>
+              </ul>
+              <div class="cat-note">
+                <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#ico-sparkle"/></svg>
+                Desde una semana y hasta 21 días desde su último Fashion Full o Mantención. No lleva adicionales: si su pelo necesita más, corresponde Mantención.
+              </div>
+            </div>
+            <div class="size-cards-grid size-cards-grid--3">
+              <div class="size-card reveal">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">XS</span>
+                  <img src="images/perroXs.webp" alt="Perro talla XS" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Toy / Mini</div>
+                  <div class="size-card-range">0 — 5 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$10.000</div>
+                  </div>
+                  <p class="size-card-breeds">Yorkie · Pomerania · Chihuahua</p>
+                </div>
+              </div>
+              <div class="size-card reveal reveal-delay-1">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">S</span>
+                  <img src="images/perroS.webp" alt="Perro talla S" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Pequeño</div>
+                  <div class="size-card-range">5,1 — 10 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$14.000</div>
+                  </div>
+                  <p class="size-card-breeds">Shih Tzu · Maltés · Schnauzer mini</p>
+                </div>
+              </div>
+              <div class="size-card reveal reveal-delay-2">
+                <div class="size-card-visual">
+                  <span class="size-card-letter">M</span>
+                  <img src="images/perroM.webp" alt="Perro talla M" class="size-card-dog" loading="lazy">
+                </div>
+                <div class="size-card-body">
+                  <div class="size-card-name">Mediano</div>
+                  <div class="size-card-range">10,1 — 20 KG</div>
+                  <div class="size-card-prices">
+                    <div class="size-price-solo">$18.000</div>
+                  </div>
+                  <p class="size-card-breeds">Cocker · Beagle · Schnauzer</p>
+                </div>
+              </div>
+              <div class="pricing-cta-wrap">
+                <a href="https://wa.me/56945570410?text=Hola!%20Quiero%20agendar%20un%20Fashion%20Fresh" class="pricing-cta-btn" rel="noopener" target="_blank">
+                  <svg class="icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg>
+                  Agendar
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- ── TAB: Paws Care ── -->
@@ -761,14 +867,16 @@
           <div class="cat-addons-header">
             <div>
               <p class="cat-addons-label">Servicios adicionales</p>
-              <h3 class="cat-addons-title">¿Tu perrito necesita<br><em class="italic gold">algo más?</em></h3>
+              <h3 class="cat-addons-title">¿Cómo llega<br><em class="italic gold">su pelo?</em></h3>
               <p class="cat-addons-subtitle">
-                Se evalúan al ingreso y se suman al servicio base sólo si aplican. Sin sorpresas.
+                Se evalúan al recibirlo y se suman a Fashion Full o Mantención sólo si aplican. Te los confirmamos antes de comenzar.
               </p>
             </div>
-            <div class="cat-addons-each">
+            <div class="cat-addons-sizes" aria-label="Precio de cada adicional por talla">
               <span class="cat-addons-each-label">Cada uno</span>
-              <span class="cat-addons-each-price">+$6.000</span>
+              <div class="cat-addons-size"><span>XS</span><strong>+$6.000</strong></div>
+              <div class="cat-addons-size"><span>S</span><strong>+$8.000</strong></div>
+              <div class="cat-addons-size"><span>M</span><strong>+$10.000</strong></div>
             </div>
           </div>
 
@@ -780,13 +888,13 @@
                   <path d="M3 6h18M3 12h18M3 18h18"/>
                 </svg>
               </div>
-              <div class="cat-addon-name">Deslanado<br><em>profundo</em></div>
+              <div class="cat-addon-name">Pelecha<br><em>extrema</em></div>
               <p class="cat-addon-desc">
-                Para razas de doble capa o pelaje muy denso. Reducción del subpelo excesivo para mejorar la ventilación y salud de la piel.
+                “Al pasar la mano salen mechones.” Retiramos el subpelo muerto con Hydra Ultra Deshedding &amp; Detangling.
               </p>
               <div class="cat-addon-price-row">
                 <span class="cat-addon-price-tag">Adicional</span>
-                <span class="cat-addon-price">+$6.000</span>
+                <span class="cat-addon-price">desde +$6.000</span>
               </div>
             </div>
 
@@ -796,13 +904,13 @@
                   <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>
                 </svg>
               </div>
-              <div class="cat-addon-name">Cepillado<br><em>por motas</em></div>
+              <div class="cat-addon-name">Desenredo<br><em>de nudos</em></div>
               <p class="cat-addon-desc">
-                Para pelajes con nudos y enredos severos. Trabajo manual de desenredo con productos especiales para proteger la piel y el pelaje.
+                “Los dedos se traban al peinarlo.” Desenredo manual de hasta 30 minutos, cuidando la piel.
               </p>
               <div class="cat-addon-price-row">
                 <span class="cat-addon-price-tag">Adicional</span>
-                <span class="cat-addon-price">+$6.000</span>
+                <span class="cat-addon-price">desde +$6.000</span>
               </div>
             </div>
 
@@ -815,14 +923,36 @@
               </div>
               <div class="cat-addon-name">Suciedad<br><em>extrema</em></div>
               <p class="cat-addon-desc">
-                Cuando la mascota llega con barro, materia orgánica u otros elementos que requieren un tratamiento especial.
+                “Llega con barro, arena pegada o se revolcó.” Prelavado con Hydra X-Treme antes del baño.
               </p>
               <div class="cat-addon-price-row">
                 <span class="cat-addon-price-tag">Adicional</span>
-                <span class="cat-addon-price">+$6.000</span>
+                <span class="cat-addon-price">desde +$6.000</span>
               </div>
             </div>
 
+            <div class="cat-addon-card reveal reveal-delay-3">
+              <div class="cat-addon-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2.7s6 6.3 6 11.3a6 6 0 0 1-12 0c0-5 6-11.3 6-11.3z"/>
+                </svg>
+              </div>
+              <div class="cat-addon-name">Hidratación<br><em>profunda</em></div>
+              <p class="cat-addon-desc">
+                “Su manto largo está reseco u opaco.” Tratamiento Hydra para devolver brillo y suavidad. Opcional.
+              </p>
+              <div class="cat-addon-price-row">
+                <span class="cat-addon-price-tag">Opcional</span>
+                <span class="cat-addon-price">desde +$6.000</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="cat-addons-special">
+            <p><strong>Amotado extremo</strong> (pelo en bloque, como fieltro): Fashion Full + $10.000 / $12.000 / $16.000 según talla.</p>
+            <p><strong>Motas pegadas a la piel:</strong> se rapa y se cobra como Fashion Full.</p>
+            <p><strong>Mantos blancos:</strong> shampoo Hydra Whitening incluido, sin costo.</p>
           </div>
 
           <p class="cat-addons-note">
@@ -1178,11 +1308,19 @@
         <div class="faq-grid">
           <div class="faq-item reveal">
             <button type="button" class="faq-question" aria-expanded="false">¿Qué incluye el servicio de Mantención? <span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-answer">La Mantención incluye corte de pelo o cepillado según raza, baño de tres pasos (neutralizador de olor, shampoo hidratante y acondicionador), despejes sanitario y de cojinetes, vaciado de glándulas anales, secado profesional, limpieza de oídos, corte de uñas y perfume de larga duración. Válido únicamente para mascotas que regresan dentro de los 30 días desde su último servicio.</div>
+            <div class="faq-answer">La Mantención incluye corte de pelo o cepillado según raza, baño de tres pasos (neutralizador de olor, shampoo hidratante y acondicionador), despejes sanitario y de cojinetes, vaciado de glándulas anales, secado profesional, limpieza de oídos, corte de uñas y perfume de larga duración. Válido para mascotas que regresan dentro de los 30 días desde su último Fashion Full o Mantención.</div>
           </div>
           <div class="faq-item reveal reveal-delay-1">
             <button type="button" class="faq-question" aria-expanded="false">¿Qué incluye el servicio Fashion Full? <span class="faq-icon" aria-hidden="true">+</span></button>
             <div class="faq-answer">El Fashion Full es nuestro servicio más completo. Incluye corte de pelo o cepillado según raza, baño de tres pasos (neutralizador de olor, shampoo hidratante y acondicionador), despejes sanitario y de cojinetes, vaciado de glándulas anales, secado profesional, limpieza de oídos, corte de uñas y perfume de larga duración.</div>
+          </div>
+          <div class="faq-item reveal">
+            <button type="button" class="faq-question" aria-expanded="false">¿Qué es el Fashion Fresh? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Es un baño entre cortes para que tu perro siga limpio y perfumado. Incluye baño de tres pasos Hydra, secado profesional, vaciado de glándulas anales y perfume. No incluye corte de pelo, despejes, uñas ni oídos. Puedes agendarlo desde una semana y hasta 21 días después de su último Fashion Full o Mantención.</div>
+          </div>
+          <div class="faq-item reveal reveal-delay-1">
+            <button type="button" class="faq-question" aria-expanded="false">¿Por qué el valor puede cambiar? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Depende de cómo llega su pelo. Si viene con pelecha extrema, nudos o suciedad extrema, se suma un adicional de $6.000 a $10.000 según su talla. Siempre te lo confirmamos antes de comenzar. Si tienes dudas, mándanos una foto por WhatsApp y te decimos el valor antes de venir.</div>
           </div>
         </div>
 
@@ -1289,6 +1427,7 @@
           <ul class="footer-links" role="list">
             <li><a href="#servicios">Fashion Full</a></li>
             <li><a href="#servicios">Mantención</a></li>
+            <li><a href="#servicios">Fashion Fresh</a></li>
             <li><a href="#servicios">Paws Care</a></li>
             <li><a href="#servicios">Afilado de cuchillas</a></li>
           </ul>
